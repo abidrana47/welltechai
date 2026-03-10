@@ -13,8 +13,9 @@
   --sky2:#38bdf8;
   --sky3:#7dd3fc;
   --blue:#2563eb;
+  --indigo:#4f46e5;
   --white:#ffffff;
-  --off:#f0f8ff;
+  --off:#f8faff;
   --light:#e0f2fe;
   --border:#bae6fd;
   --border2:#e0f2fe;
@@ -23,165 +24,209 @@
   --muted:#4a6fa5;
   --muted2:#7da3c8;
   --card:#ffffff;
+  --cardbg:#f0f8ff;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:#ffffff;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;overflow-x:hidden;line-height:1.7}
+body{background:var(--white);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;overflow-x:hidden;line-height:1.7}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:#f0f8ff}
 ::-webkit-scrollbar-thumb{background:var(--sky);border-radius:99px}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);transition:all .3s}
-nav.scrolled{box-shadow:0 4px 24px rgba(14,165,233,.12)}
-.logo{font-weight:800;font-size:1.3rem;letter-spacing:-.03em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:70px;padding:0 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid rgba(14,165,233,0.15);
+  transition:all .3s;
+}
+nav.scrolled{background:rgba(255,255,255,0.97);box-shadow:0 4px 24px rgba(14,165,233,.1)}
+.logo{font-weight:800;font-size:1.3rem;letter-spacing:-.03em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:.45rem}
 .logo-mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--sky),var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem;font-weight:800;box-shadow:0 4px 12px rgba(14,165,233,.4)}
-.logo-ai{color:var(--sky)}
+.logo span{color:var(--sky)}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:.875rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
-.btn-nav{background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;padding:.55rem 1.35rem;border-radius:99px;font-weight:700;font-size:.85rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 14px rgba(14,165,233,.35)}
+.btn-nav{background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;padding:.55rem 1.35rem;border-radius:99px;font-weight:700;font-size:.85rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 14px rgba(14,165,233,.35);white-space:nowrap}
 .btn-nav:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(14,165,233,.5)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
 .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px}
 .mob{display:none;position:fixed;top:70px;left:0;right:0;z-index:190;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);padding:1.5rem 2rem;flex-direction:column;gap:1rem;border-bottom:1px solid var(--border2);box-shadow:0 8px 30px rgba(14,165,233,.1)}
 .mob.open{display:flex}
 .mob a{color:var(--muted);text-decoration:none;font-size:.95rem;font-weight:500;padding:.4rem 0;border-bottom:1px solid var(--border2)}
+.mob a:hover{color:var(--text)}
 @media(max-width:768px){.nav-links,.btn-nav{display:none}.hamburger{display:flex}}
 
-/* HERO */
-#home{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;background:linear-gradient(160deg,#e0f2fe 0%,#f0f8ff 40%,#dbeafe 100%)}
-.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(14,165,233,.18) 1.5px,transparent 1.5px);background-size:28px 28px;pointer-events:none;z-index:1}
-.hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,.2) 0%,transparent 70%);top:-100px;left:-100px;pointer-events:none;z-index:1}
-.hero-photo{position:absolute;right:0;top:0;bottom:0;width:52%;z-index:2}
-.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.hero-photo::before{content:'';position:absolute;inset:0;z-index:3;background:linear-gradient(to right,#dbeafe 0%,rgba(219,234,254,0.3) 40%,transparent 70%)}
-.hero-photo::after{content:'';position:absolute;inset:0;z-index:3;background:linear-gradient(to bottom,transparent 60%,rgba(224,242,254,.6) 100%)}
-.hero-content{position:relative;z-index:10;max-width:1180px;margin:0 auto;padding:8rem 2.5rem 5rem;width:100%}
-.hero-half{max-width:560px}
-@media(max-width:900px){.hero-photo{display:none}.hero-half{max-width:100%;text-align:center}}
+/* ── HERO ── */
+#home{
+  min-height:100vh;position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  background:linear-gradient(160deg,#e0f2fe 0%,#f0f8ff 40%,#dbeafe 100%);
+}
+.hero-bg-img{
+  position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+  width:55%;max-width:780px;height:85%;
+  border-radius:24px 0 0 24px;overflow:hidden;
+}
+.hero-bg-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.9) saturate(1.1)}
+.hero-bg-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#e0f2fe 0%,transparent 35%),linear-gradient(to bottom,transparent 60%,rgba(224,242,254,.8) 100%)}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(14,165,233,.15) 1.5px,transparent 1.5px);background-size:28px 28px;pointer-events:none}
+.hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,.18) 0%,transparent 70%);top:-100px;left:-100px;pointer-events:none}
 
-.badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(14,165,233,.12);border:1.5px solid rgba(14,165,233,.3);color:var(--sky);padding:.35rem 1rem;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1.6rem}
-.badge-dot{width:6px;height:6px;background:var(--sky);border-radius:50%;animation:blink 2s infinite}
+.hero-inner{position:relative;z-index:5;max-width:1180px;margin:0 auto;padding:8rem 2.5rem 5rem;width:100%;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-bg-img{display:none}}
+
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(14,165,233,.1);border:1.5px solid rgba(14,165,233,.3);color:var(--sky);padding:.35rem 1rem;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:1.6rem;animation:fup .5s ease both}
+.hero-badge-dot{width:6px;height:6px;background:var(--sky);border-radius:50%;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-h1.htitle{font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:800;line-height:1.06;letter-spacing:-.04em;margin-bottom:1.4rem;color:var(--text)}
+
+h1.htitle{font-size:clamp(2.4rem,5.5vw,4.4rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;margin-bottom:1.4rem;color:var(--text);animation:fup .6s ease .1s both}
 .grad{background:linear-gradient(135deg,var(--sky) 0%,var(--blue) 60%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hsub{font-size:1.05rem;color:var(--muted);max-width:500px;font-weight:400;margin-bottom:2.2rem;line-height:1.75}
-.hbtns{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:3rem}
-@media(max-width:900px){.hbtns,.hstats{justify-content:center}}
-.btn1{background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;padding:.85rem 1.8rem;border-radius:99px;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s;box-shadow:0 6px 20px rgba(14,165,233,.4);border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+.hsub{font-size:1.05rem;color:var(--muted);max-width:520px;font-weight:400;margin-bottom:2.2rem;line-height:1.75;animation:fup .6s ease .2s both}
+@media(max-width:900px){.hsub{margin:0 auto 2.2rem}}
+
+.hbtns{display:flex;gap:.9rem;flex-wrap:wrap;animation:fup .6s ease .3s both}
+@media(max-width:900px){.hbtns{justify-content:center}}
+.btn1{background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;padding:.85rem 1.8rem;border-radius:99px;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s;box-shadow:0 6px 20px rgba(14,165,233,.4);border:none;cursor:pointer}
 .btn1:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,165,233,.55)}
 .btn2{background:transparent;color:var(--text2);padding:.85rem 1.8rem;border-radius:99px;font-weight:600;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;border:2px solid var(--border);transition:all .25s}
 .btn2:hover{border-color:var(--sky);color:var(--sky)}
-.hstats{display:flex;gap:0;border:1.5px solid var(--border);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.7);backdrop-filter:blur(10px);width:fit-content}
-.hstat{padding:1.2rem 1.8rem;border-right:1.5px solid var(--border);text-align:center}
-.hstat:last-child{border-right:none}
-.hstat-n{font-size:1.6rem;font-weight:800;letter-spacing:-.04em;color:var(--text);line-height:1}
-.hstat-n span,.hstat-n.blue{color:var(--sky)}
-.hstat-l{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:.25rem}
 
-/* TRUST BAR */
-.trust-bar{background:var(--off);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);padding:1.4rem 2rem}
-.trust-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
-.trust-item{display:flex;align-items:center;gap:.55rem;font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.ticon{font-size:1rem}
+.hstats{display:flex;gap:2rem;margin-top:3rem;flex-wrap:wrap;animation:fup .6s ease .4s both}
+@media(max-width:900px){.hstats{justify-content:center}}
+.hstat{}
+.hstat-n{font-size:1.8rem;font-weight:800;letter-spacing:-.04em;color:var(--text);line-height:1}
+.hstat-n span{color:var(--sky)}
+.hstat-l{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:.2rem}
+.hstat-div{width:1px;background:var(--border);align-self:stretch}
 
-/* LAYOUT */
+@keyframes fup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--off);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);padding:1.5rem 2rem}
+.trust-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:.6rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.trust-icon{font-size:1.1rem}
+
+/* ── WRAP / SECTION ── */
 .wrap{max-width:1180px;margin:0 auto;padding:0 2.5rem}
 .sec{padding:6rem 0}
-hr.div{border:none;border-top:1px solid var(--border2)}
+hr.divl{border:none;border-top:1px solid var(--border2)}
+
+/* labels */
 .slabel{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:.85rem}
 .slabel::before{content:'';width:16px;height:2px;background:var(--sky);border-radius:2px;display:block}
 .stitle{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800;letter-spacing:-.035em;line-height:1.08;margin-bottom:1rem;color:var(--text)}
 .ssub{color:var(--muted);font-size:1rem;font-weight:400;max-width:540px;line-height:1.75}
 
-/* SCROLL REVEAL */
-.fu{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+/* scroll reveal */
+.fu{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
 .fu.on{opacity:1;transform:none}
 
-/* IMAGE STRIP */
-.strip-wrap{background:#0c1a2e}
+/* ── IMAGE STRIP ── */
+.strip-sect{background:var(--text);overflow:hidden}
 .strip-grid{display:grid;grid-template-columns:repeat(3,1fr);max-width:1180px;margin:0 auto}
 @media(max-width:640px){.strip-grid{grid-template-columns:1fr}}
 .strip-c{position:relative;height:240px;overflow:hidden;cursor:pointer}
-.strip-c img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,filter .4s;filter:brightness(.6) saturate(1.2)}
+.strip-c img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,filter .5s;filter:brightness(.6) saturate(1.2)}
 .strip-c:hover img{transform:scale(1.06);filter:brightness(.78) saturate(1.4)}
-.strip-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,26,46,.95) 0%,transparent 55%)}
+.strip-c::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,26,46,.92) 0%,transparent 55%)}
 .strip-label{position:absolute;bottom:1.2rem;left:1.4rem;z-index:2}
-.strip-label strong{display:block;font-size:.9rem;font-weight:700;color:#fff}
+.strip-label strong{display:block;font-size:.9rem;font-weight:700;color:#fff;letter-spacing:.01em}
 .strip-label span{font-size:.75rem;color:var(--sky3);font-weight:400;margin-top:.1rem;display:block}
-.strip-tag{position:absolute;top:1rem;right:1rem;z-index:2;background:rgba(14,165,233,.25);border:1px solid rgba(14,165,233,.4);color:var(--sky2);font-size:.68rem;font-weight:700;padding:.25rem .65rem;border-radius:99px;backdrop-filter:blur(8px);letter-spacing:.06em;text-transform:uppercase}
+.strip-tag{position:absolute;top:1rem;right:1rem;z-index:2;background:rgba(14,165,233,.25);border:1px solid rgba(14,165,233,.4);color:var(--sky2);font-size:.68rem;font-weight:700;padding:.25rem .6rem;border-radius:99px;backdrop-filter:blur(8px);letter-spacing:.06em;text-transform:uppercase}
 
-/* SERVICES */
-.services-wrap{background:var(--off)}
+/* ── SERVICES ── */
+#services{background:var(--off)}
 .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:1.2rem;margin-top:3rem}
-.ba{grid-column:span 7}.bb{grid-column:span 5}.bc{grid-column:span 5}.bd{grid-column:span 7}
+.ba{grid-column:span 7}.bb{grid-column:span 5}
+.bc{grid-column:span 5}.bd{grid-column:span 7}
 @media(max-width:860px){.ba,.bb,.bc,.bd{grid-column:span 12}}
-.bcard{background:#fff;border:1.5px solid var(--border2);border-radius:20px;overflow:hidden;transition:all .35s;box-shadow:0 2px 12px rgba(14,165,233,.06)}
-.bcard:hover{border-color:rgba(14,165,233,.5);transform:translateY(-5px);box-shadow:0 20px 50px rgba(14,165,233,.15)}
-.bcard-img{overflow:hidden;position:relative}
-.bcard-img img{width:100%;height:190px;object-fit:cover;display:block;transition:transform .5s,filter .4s;filter:brightness(.82) saturate(1.1)}
-.bcard:hover .bcard-img img{transform:scale(1.04);filter:brightness(.92)}
-.bcard-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(240,248,255,.96) 100%)}
+.bcard{background:var(--white);border:1.5px solid var(--border2);border-radius:20px;overflow:hidden;transition:all .35s;box-shadow:0 2px 12px rgba(14,165,233,.05)}
+.bcard:hover{border-color:rgba(14,165,233,.45);transform:translateY(-5px);box-shadow:0 20px 50px rgba(14,165,233,.15)}
+.bcard-img-wrap{overflow:hidden;position:relative}
+.bcard img{width:100%;height:200px;object-fit:cover;display:block;transition:transform .5s,filter .4s;filter:brightness(.82) saturate(1.15)}
+.bcard:hover img{transform:scale(1.04);filter:brightness(.92) saturate(1.25)}
+.bcard-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(248,250,255,.95) 100%)}
 .bcard-body{padding:1.75rem}
 .clabel{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:.5rem}
 .ctitle{font-size:1.1rem;font-weight:800;letter-spacing:-.025em;line-height:1.22;margin-bottom:.65rem;color:var(--text)}
-.cdesc{font-size:.875rem;color:var(--muted);line-height:1.75}
+.cdesc{font-size:.875rem;color:var(--muted);line-height:1.75;font-weight:400}
 .ctags{margin-top:1rem;display:flex;flex-direction:column;gap:.4rem}
 .ctag{font-size:.8rem;color:var(--text2);display:flex;align-items:center;gap:.5rem;font-weight:500}
-.ctag::before{content:'✓';color:var(--sky);font-weight:700;flex-shrink:0}
+.ctag::before{content:'✓';color:var(--sky);font-size:.8rem;flex-shrink:0;font-weight:700}
 .mini-bars{margin-top:1.3rem;background:var(--off);border:1.5px solid var(--border2);border-radius:12px;padding:1rem 1.15rem}
 .mb-head{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:.7rem}
-.mb-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem}
+.mb-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.55rem}
 .mb-row:last-child{margin-bottom:0}
 .mb-name{font-size:.72rem;color:var(--muted);min-width:110px;font-weight:500}
 .mb-track{flex:1;height:6px;background:rgba(14,165,233,.12);border-radius:99px;overflow:hidden}
-.mb-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--sky),var(--blue))}
+.mb-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--sky),var(--blue));animation:grow 1.8s ease both}
+@keyframes grow{from{width:0!important}}
 .mb-val{font-size:.72rem;color:var(--blue);min-width:32px;text-align:right;font-weight:700}
 
-/* ABOUT */
+/* ── ABOUT ── */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 @media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:2.5rem}}
-.about-img{position:relative;border-radius:24px;overflow:hidden;box-shadow:0 30px 70px rgba(14,165,233,.18)}
-.about-img img{width:100%;height:480px;object-fit:cover;display:block;filter:brightness(.88) saturate(1.1)}
-.about-img::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,transparent 55%,rgba(12,26,46,.55) 100%)}
+.about-img-wrap{position:relative;border-radius:24px;overflow:hidden;box-shadow:0 30px 70px rgba(14,165,233,.18)}
+.about-img-wrap img{width:100%;height:480px;object-fit:cover;display:block;filter:brightness(.88) saturate(1.1)}
+.about-img-wrap::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,transparent 55%,rgba(12,26,46,.6) 100%)}
 .about-float{position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;z-index:2;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border:1.5px solid var(--border2);border-radius:16px;padding:1.3rem}
 .af-row{display:flex;align-items:center;gap:.9rem;margin-bottom:.9rem}
 .af-av{width:50px;height:50px;border-radius:13px;background:linear-gradient(135deg,var(--sky),var(--blue));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:#fff;box-shadow:0 6px 18px rgba(14,165,233,.4);flex-shrink:0}
-.af-name{font-size:.95rem;font-weight:800;color:var(--text)}
+.af-name{font-size:.95rem;font-weight:800;color:var(--text);letter-spacing:-.02em}
 .af-role{font-size:.78rem;color:var(--sky);font-weight:600;margin-top:.1rem}
 .af-tags{display:flex;gap:.5rem;flex-wrap:wrap}
-.af-tag{background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.25);color:var(--sky);font-size:.7rem;padding:.22rem .65rem;border-radius:99px;font-weight:700}
+.af-tag{background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.25);color:var(--sky);font-size:.7rem;padding:.22rem .65rem;border-radius:99px;font-weight:700;letter-spacing:.03em}
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:2rem}
 .pillar{background:var(--off);border:1.5px solid var(--border2);border-radius:14px;padding:1.2rem;transition:all .25s}
 .pillar:hover{border-color:rgba(14,165,233,.45);background:rgba(14,165,233,.05)}
 .pillar-n{font-size:1.5rem;font-weight:800;color:var(--sky);letter-spacing:-.04em;line-height:1}
 .pillar-t{font-size:.8rem;color:var(--muted);font-weight:500;margin-top:.2rem}
 
-/* SECURITY */
+/* ── TEAM ── */
+#team{background:var(--off)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:3rem}
+.team-card{background:var(--white);border:1.5px solid var(--border2);border-radius:20px;overflow:hidden;transition:all .35s;text-align:center}
+.team-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(14,165,233,.14);border-color:rgba(14,165,233,.35)}
+.team-img-wrap{position:relative;height:220px;overflow:hidden;background:linear-gradient(135deg,#e0f2fe,#dbeafe)}
+.team-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.9) saturate(1.1);transition:transform .4s}
+.team-card:hover .team-img-wrap img{transform:scale(1.05)}
+.team-body{padding:1.4rem 1.25rem}
+.team-name{font-size:1rem;font-weight:800;color:var(--text);letter-spacing:-.02em;margin-bottom:.2rem}
+.team-role{font-size:.78rem;color:var(--sky);font-weight:600;margin-bottom:.65rem}
+.team-bio{font-size:.8rem;color:var(--muted);line-height:1.65}
+.team-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--sky),var(--blue))}
+.team-initials{font-size:2.5rem;font-weight:800;color:rgba(255,255,255,.9)}
+
+/* ── SECURITY ── */
 .comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:3rem}
-.comp-card{background:#fff;border:1.5px solid var(--border2);border-radius:16px;padding:1.75rem;transition:all .3s;position:relative;overflow:hidden}
+.comp-card{background:var(--white);border:1.5px solid var(--border2);border-radius:16px;padding:1.75rem;transition:all .3s;position:relative;overflow:hidden}
 .comp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sky),var(--blue));opacity:0;transition:opacity .3s}
-.comp-card:hover{border-color:rgba(14,165,233,.45);transform:translateY(-3px);box-shadow:0 12px 30px rgba(14,165,233,.12)}
+.comp-card:hover{border-color:rgba(14,165,233,.4);transform:translateY(-3px);box-shadow:0 12px 30px rgba(14,165,233,.12)}
 .comp-card:hover::before{opacity:1}
-.comp-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(14,165,233,.1),rgba(37,99,235,.1));border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.1rem}
-.comp-title{font-size:.95rem;font-weight:800;color:var(--text);margin-bottom:.45rem}
+.comp-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(14,165,233,.12),rgba(37,99,235,.12));border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.1rem}
+.comp-title{font-size:.95rem;font-weight:800;color:var(--text);margin-bottom:.45rem;letter-spacing:-.01em}
 .comp-desc{font-size:.82rem;color:var(--muted);line-height:1.65}
-.sec-banner{margin-top:2.5rem;background:linear-gradient(135deg,rgba(14,165,233,.07),rgba(37,99,235,.05));border:1.5px solid rgba(14,165,233,.22);border-radius:16px;padding:1.75rem 2rem;display:flex;align-items:flex-start;gap:1.25rem;flex-wrap:wrap}
+.sec-banner{margin-top:2.5rem;background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(37,99,235,.06));border:1.5px solid rgba(14,165,233,.25);border-radius:16px;padding:1.75rem 2rem;display:flex;align-items:flex-start;gap:1.25rem;flex-wrap:wrap}
+.sec-banner-icon{font-size:2rem;flex-shrink:0;margin-top:.1rem}
 .sec-banner h4{font-size:1rem;font-weight:800;color:var(--text);margin-bottom:.3rem}
 .sec-banner p{font-size:.84rem;color:var(--muted);line-height:1.7}
 
-/* PROCESS */
+/* ── PROCESS ── */
 .proc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:3rem}
-.pstep{background:#fff;border:1.5px solid var(--border2);border-radius:16px;padding:2rem;transition:all .3s;position:relative;overflow:hidden}
-.pstep::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sky),var(--blue));opacity:0;border-radius:16px 16px 0 0;transition:opacity .3s}
-.pstep:hover{border-color:rgba(14,165,233,.45);transform:translateY(-3px);box-shadow:0 12px 30px rgba(14,165,233,.12)}
-.pstep:hover::before{opacity:1}
+.pstep{background:var(--white);border:1.5px solid var(--border2);border-radius:16px;padding:2rem;transition:all .3s;position:relative}
+.pstep::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sky),var(--blue));opacity:0;border-radius:16px 16px 0 0;transition:opacity .3s}
+.pstep:hover{border-color:rgba(14,165,233,.4);transform:translateY(-3px);box-shadow:0 12px 30px rgba(14,165,233,.12)}
+.pstep:hover::after{opacity:1}
 .pnum{font-size:3rem;font-weight:800;color:rgba(14,165,233,.15);line-height:1;margin-bottom:.8rem;letter-spacing:-.05em}
 .ptitle{font-size:1rem;font-weight:800;color:var(--text);margin-bottom:.5rem}
 .pdesc{font-size:.85rem;color:var(--muted);line-height:1.65}
 
-/* CONTACT */
+/* ── CONTACT ── */
 .contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;margin-top:3rem}
 @media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
 .ci{display:flex;flex-direction:column;gap:1.4rem}
@@ -190,11 +235,11 @@ hr.div{border:none;border-top:1px solid var(--border2)}
 .ci-card h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--sky);margin-bottom:.2rem}
 .ci-card p{font-size:.875rem;color:var(--muted);line-height:1.6}
 .ci-card a{color:var(--sky);text-decoration:none;font-weight:600}
-.contact-img{border-radius:16px;overflow:hidden;height:200px;position:relative;border:1.5px solid var(--border2)}
+.contact-img{border-radius:16px;overflow:hidden;height:210px;position:relative;border:1.5px solid var(--border2);margin-top:.5rem}
 .contact-img img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.8) saturate(1.1)}
 .contact-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,165,233,.2),transparent)}
-.form-wrap{background:#fff;border:1.5px solid var(--border2);border-radius:20px;padding:2.5rem;box-shadow:0 8px 32px rgba(14,165,233,.08)}
-.form-wrap h3{font-size:1.15rem;font-weight:800;color:var(--text);margin-bottom:1.7rem}
+.form-wrap{background:var(--white);border:1.5px solid var(--border2);border-radius:20px;padding:2.5rem;box-shadow:0 8px 32px rgba(14,165,233,.08)}
+.form-wrap h3{font-size:1.15rem;font-weight:800;color:var(--text);letter-spacing:-.02em;margin-bottom:1.7rem}
 .fg{margin-bottom:1.1rem}
 .fl{display:block;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
 .fi{width:100%;background:var(--off);border:1.5px solid var(--border2);border-radius:10px;padding:.8rem 1rem;color:var(--text);font-size:.875rem;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border .2s,box-shadow .2s}
@@ -202,34 +247,33 @@ hr.div{border:none;border-top:1px solid var(--border2)}
 .fi::placeholder{color:var(--muted2)}
 textarea.fi{resize:vertical;min-height:105px}
 
-/* FOOTER */
-footer{background:#0c1a2e;color:#e0f2fe;padding:5rem 2.5rem 2.5rem}
+/* ── FOOTER ── */
+footer{background:var(--text);color:#e0f2fe;padding:5rem 2.5rem 2.5rem}
 .footer-inner{max-width:1180px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
 @media(max-width:860px){.footer-top{grid-template-columns:1fr 1fr;gap:2rem}}
 @media(max-width:500px){.footer-top{grid-template-columns:1fr}}
-.fb-desc{font-size:.85rem;color:#7da3c8;max-width:270px;margin-top:.85rem;line-height:1.75}
+.fb p{font-size:.85rem;color:#7da3c8;font-weight:400;max-width:270px;margin-top:.85rem;line-height:1.75}
 .fsocs{display:flex;gap:.6rem;margin-top:1.25rem}
-.fsoc{width:36px;height:36px;border-radius:9px;background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.2);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.85rem;font-weight:700;color:var(--sky2);transition:all .2s}
+.fsoc{width:36px;height:36px;border-radius:9px;background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.2);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;font-weight:700;color:var(--sky2);transition:all .2s}
 .fsoc:hover{background:rgba(14,165,233,.25)}
 .footer-col h4{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#e0f2fe;margin-bottom:.9rem}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
 .footer-col ul a{color:#7da3c8;text-decoration:none;font-size:.85rem;transition:color .2s}
 .footer-col ul a:hover{color:#e0f2fe}
-.fhr{border:none;border-top:1px solid rgba(255,255,255,.07);margin-bottom:1.5rem}
+.footer-hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin-bottom:1.5rem}
 .footer-bottom{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:flex-start}
-.footer-copy{font-size:.78rem;color:#4a6fa5}
-.footer-email{color:var(--sky2);text-decoration:none}
+.footer-bottom p{font-size:.78rem;color:#4a6fa5}
 .disclaimer{font-size:.75rem;color:#4a6fa5;max-width:520px;line-height:1.65}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ═══ NAV ═══ -->
 <nav id="nav">
   <a href="#home" class="logo">
     <div class="logo-mark">W</div>
-    WellTech<span class="logo-ai">AI</span>
+    WellTech<span>AI</span>
   </a>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
@@ -238,108 +282,108 @@ footer{background:#0c1a2e;color:#e0f2fe;padding:5rem 2.5rem 2.5rem}
     <li><a href="#security">Compliance</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="btn-nav">Request a Pilot</a>
-  <button class="hamburger" onclick="toggleNav()">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="#contact" class="btn-nav">Request a Pilot →</a>
+  <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mob" id="mob">
   <a href="#home" onclick="closeNav()">Home</a>
   <a href="#about" onclick="closeNav()">About</a>
   <a href="#services" onclick="closeNav()">Services</a>
   <a href="#security" onclick="closeNav()">Compliance</a>
-  <a href="#process" onclick="closeNav()">Process</a>
   <a href="#contact" onclick="closeNav()">Contact</a>
 </div>
 
-<!-- HERO -->
+<!-- ═══ HERO ═══ -->
 <section id="home">
   <div class="hero-dots"></div>
   <div class="hero-glow"></div>
-  <div class="hero-photo">
-    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=85&fit=crop" alt="AI Technology"/>
+  <div class="hero-bg-img">
+    <!-- Robot / AI medical tech hero image -->
+    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=85&fit=crop" alt="AI Robot Technology" />
   </div>
-  <div class="hero-content">
-    <div class="hero-half">
-      <div class="badge"><span class="badge-dot"></span>UK Digital Health · Behavioral AI</div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>UK Digital Health · Behavioral AI</div>
       <h1 class="htitle">The Future of<br/><span class="grad">Behavioral Health</span><br/>Transformation.</h1>
       <p class="hsub">Harnessing clinical data analytics and conversational AI to solve complex health challenges in Smoking Cessation, Weight Management, and Addiction Recovery.</p>
       <div class="hbtns">
-        <a href="#contact" class="btn1">Request a Pilot Program &#8594;</a>
+        <a href="#contact" class="btn1">Request a Pilot Program <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         <a href="#services" class="btn2">Explore Services</a>
       </div>
       <div class="hstats">
         <div class="hstat"><div class="hstat-n">3<span>+</span></div><div class="hstat-l">Years in NHS</div></div>
+        <div class="hstat-div"></div>
         <div class="hstat"><div class="hstat-n">4</div><div class="hstat-l">AI Solutions</div></div>
-        <div class="hstat"><div class="hstat-n blue">UK</div><div class="hstat-l">Data Only</div></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><div class="hstat-n" style="color:var(--sky)">UK</div><div class="hstat-l">Data Only</div></div>
+        <div class="hstat-div"></div>
         <div class="hstat"><div class="hstat-n">DCB<span>0129</span></div><div class="hstat-l">Clinical Safety</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
+<!-- ═══ TRUST BAR ═══ -->
 <div class="trust-bar">
   <div class="trust-inner">
-    <div class="trust-item"><span class="ticon">&#128737;</span>UK GDPR Compliant</div>
-    <div class="trust-item"><span class="ticon">&#128272;</span>End-to-End Encrypted</div>
-    <div class="trust-item"><span class="ticon">&#127468;&#127463;</span>UK Data Residency</div>
-    <div class="trust-item"><span class="ticon">&#9877;</span>DCB0129 Clinical Safety</div>
-    <div class="trust-item"><span class="ticon">&#127973;</span>NHS-Aligned Frameworks</div>
+    <div class="trust-item"><span class="trust-icon">🛡️</span>UK GDPR Compliant</div>
+    <div class="trust-item"><span class="trust-icon">🔐</span>End-to-End Encrypted</div>
+    <div class="trust-item"><span class="trust-icon">🇬🇧</span>UK Data Residency</div>
+    <div class="trust-item"><span class="trust-icon">⚕️</span>DCB0129 Clinical Safety</div>
+    <div class="trust-item"><span class="trust-icon">🏥</span>NHS-Aligned Frameworks</div>
   </div>
 </div>
 
-<hr class="div"/>
+<hr class="divl"/>
 
-<!-- IMAGE STRIP -->
-<div class="strip-wrap">
+<!-- ═══ IMAGE STRIP ═══ -->
+<div class="strip-sect">
   <div class="strip-grid fu">
     <div class="strip-c">
-      <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=700&q=85&fit=crop" alt="Clinical AI"/>
-      <div class="strip-overlay"></div>
-      <span class="strip-tag">Clinical AI</span>
+      <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=700&q=85&fit=crop" alt="Clinical AI" loading="lazy"/>
+      <div class="strip-tag">Clinical AI</div>
       <div class="strip-label"><strong>Clinical Intelligence</strong><span>AI-driven care pathways</span></div>
     </div>
     <div class="strip-c">
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=85&fit=crop" alt="Technology"/>
-      <div class="strip-overlay"></div>
-      <span class="strip-tag">Data Analytics</span>
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=85&fit=crop" alt="Technology" loading="lazy"/>
+      <div class="strip-tag">Data Analytics</div>
       <div class="strip-label"><strong>Health Analytics</strong><span>Population-level insights</span></div>
     </div>
     <div class="strip-c">
-      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&q=85&fit=crop" alt="Digital Health"/>
-      <div class="strip-overlay"></div>
-      <span class="strip-tag">Digital Health</span>
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&q=85&fit=crop" alt="Digital Health" loading="lazy"/>
+      <div class="strip-tag">Digital Health</div>
       <div class="strip-label"><strong>Digital Therapeutics</strong><span>Behavioral support tools</span></div>
     </div>
   </div>
 </div>
 
-<hr class="div"/>
+<hr class="divl"/>
 
-<!-- SERVICES -->
-<section id="services" class="services-wrap">
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
   <div class="wrap sec">
-    <div class="fu">
+    <div class="fu" style="max-width:600px">
       <span class="slabel">Our Services</span>
       <h2 class="stitle">AI-Powered Health Solutions</h2>
       <p class="ssub">Four integrated pillars of behavioral health technology — built on clinical evidence, deployed with enterprise-grade safety.</p>
     </div>
-    <div class="bento fu">
 
+    <div class="bento fu">
+      <!-- Card A: Large -->
       <div class="bcard ba">
-        <div class="bcard-img">
-          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=85&fit=crop" alt="Smoking Cessation"/>
+        <div class="bcard-img-wrap">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=85&fit=crop" alt="Smoking Cessation" loading="lazy"/>
           <div class="bcard-overlay"></div>
         </div>
         <div class="bcard-body">
           <div class="clabel">Service 01</div>
           <div class="ctitle">AI Conversational Agents for Smoking Cessation</div>
-          <p class="cdesc">Personalised, evidence-based conversational AI delivering CBT-informed prompts, craving management strategies, and real-time motivational support at scale across structured quit journeys.</p>
+          <p class="cdesc">Personalised, evidence-based conversational AI that engages patients through structured quit journeys — delivering CBT-informed prompts, craving management strategies, and real-time motivational support at scale.</p>
           <div class="ctags">
             <span class="ctag">24/7 engagement without clinical overhead</span>
             <span class="ctag">NICE-guideline aligned quit frameworks</span>
-            <span class="ctag">Progress tracking and human coach escalation</span>
+            <span class="ctag">Progress tracking & human coach escalation</span>
           </div>
           <div class="mini-bars">
             <div class="mb-head">Key outcome indicators</div>
@@ -350,78 +394,77 @@ footer{background:#0c1a2e;color:#e0f2fe;padding:5rem 2.5rem 2.5rem}
         </div>
       </div>
 
+      <!-- Card B -->
       <div class="bcard bb">
-        <div class="bcard-img">
-          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&q=85&fit=crop" alt="Weight Management"/>
+        <div class="bcard-img-wrap">
+          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&q=85&fit=crop" alt="Weight Management" loading="lazy"/>
           <div class="bcard-overlay"></div>
         </div>
         <div class="bcard-body">
           <div class="clabel">Service 02</div>
-          <div class="ctitle">Weight Management and Nutritional Guidance Bots</div>
+          <div class="ctitle">Weight Management & Nutritional Guidance Bots</div>
           <p class="cdesc">Intelligent nutrition and lifestyle coaching agents combining dietary science with behavioural nudges — personalised meal plans and adaptive AI coaching for sustainable weight management.</p>
           <div class="ctags">
-            <span class="ctag">Personalised macro and caloric guidance</span>
+            <span class="ctag">Personalised macro & caloric guidance</span>
             <span class="ctag">NHS-compatible care pathway alignment</span>
             <span class="ctag">Integrated physical activity prompts</span>
           </div>
         </div>
       </div>
 
+      <!-- Card C -->
       <div class="bcard bc">
-        <div class="bcard-img">
-          <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=700&q=85&fit=crop" alt="Addiction Recovery"/>
+        <div class="bcard-img-wrap">
+          <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=700&q=85&fit=crop" alt="Addiction Recovery" loading="lazy"/>
           <div class="bcard-overlay"></div>
         </div>
         <div class="bcard-body">
           <div class="clabel">Service 03</div>
-          <div class="ctitle">Alcohol and Drug Addiction Behavioral Support</div>
-          <p class="cdesc">Trauma-informed, BACP-aligned conversational support for individuals navigating alcohol misuse and substance dependency. Consistent, confidential, and compassionate AI across all recovery pathways.</p>
+          <div class="ctitle">Alcohol & Drug Addiction Behavioral Support</div>
+          <p class="cdesc">Trauma-informed, BACP-aligned conversational support for individuals navigating alcohol misuse and substance dependency. Consistent, confidential, compassionate AI across all recovery pathways.</p>
           <div class="ctags">
             <span class="ctag">AUDIT-C screening integration</span>
             <span class="ctag">Relapse prevention frameworks</span>
-            <span class="ctag">Anonymous and stigma-free engagement</span>
+            <span class="ctag">Anonymous & stigma-free engagement</span>
           </div>
         </div>
       </div>
 
+      <!-- Card D: Large -->
       <div class="bcard bd">
-        <div class="bcard-img">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=85&fit=crop" alt="Health Software"/>
+        <div class="bcard-img-wrap">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=85&fit=crop" alt="Health Software" loading="lazy"/>
           <div class="bcard-overlay"></div>
         </div>
         <div class="bcard-body">
           <div class="clabel">Service 04</div>
-          <div class="ctitle">Custom Health Software, iOS/Android Apps and Data Analytics</div>
+          <div class="ctitle">Custom Health Software, iOS/Android Apps & Data Analytics</div>
           <p class="cdesc">End-to-end digital health product development — from clinical-grade mobile applications to bespoke population health dashboards. We bridge public health science with modern software engineering to build tools that clinicians and patients actually use.</p>
           <div class="ctags">
             <span class="ctag">MHRA medical device regulation compliance</span>
-            <span class="ctag">HL7 FHIR and NHS API integrations</span>
+            <span class="ctag">HL7 FHIR & NHS API integrations</span>
             <span class="ctag">Real-time population health dashboards</span>
-            <span class="ctag">Custom EHR and EPR data pipelines</span>
+            <span class="ctag">Custom EHR / EPR data pipelines</span>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<hr class="div"/>
+<hr class="divl"/>
 
-<!-- ABOUT -->
+<!-- ═══ ABOUT ═══ -->
 <section id="about">
   <div class="wrap sec">
     <div class="about-grid">
       <div class="fu">
-        <div class="about-img">
-          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=85&fit=crop" alt="Data Analytics"/>
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=85&fit=crop" alt="Data Analytics Office" loading="lazy"/>
           <div class="about-float">
             <div class="af-row">
               <div class="af-av">MA</div>
-              <div>
-                <div class="af-name">Muhammad Abid</div>
-                <div class="af-role">Founder and Director</div>
-              </div>
+              <div><div class="af-name">Muhammad Abid</div><div class="af-role">Founder & Director</div></div>
             </div>
             <div class="af-tags">
               <span class="af-tag">MSc Public Health</span>
@@ -449,40 +492,26 @@ footer{background:#0c1a2e;color:#e0f2fe;padding:5rem 2.5rem 2.5rem}
   </div>
 </section>
 
-<hr class="div"/>
 
-<!-- SECURITY -->
+
+<hr class="divl"/>
+
+<!-- ═══ SECURITY ═══ -->
 <section id="security" style="background:var(--off)">
   <div class="wrap sec">
     <div class="fu" style="text-align:center;max-width:580px;margin:0 auto">
-      <span class="slabel" style="justify-content:center">Data Sovereignty and Compliance</span>
+      <span class="slabel" style="justify-content:center">Data Sovereignty & Compliance</span>
       <h2 class="stitle">Built for the Highest Standard of Clinical Safety</h2>
       <p class="ssub" style="margin:0 auto">Healthcare data demands more than industry-standard security. Our infrastructure is designed for the UK's strictest regulatory and ethical obligations.</p>
     </div>
     <div class="comp-grid fu">
-      <div class="comp-card">
-        <div class="comp-icon">&#128737;</div>
-        <div class="comp-title">UK GDPR Compliant</div>
-        <p class="comp-desc">Full compliance with UK GDPR and ICO guidance for health data processing. Data subject rights enforced by design, not afterthought.</p>
-      </div>
-      <div class="comp-card">
-        <div class="comp-icon">&#128272;</div>
-        <div class="comp-title">End-to-End Encryption</div>
-        <p class="comp-desc">All data transmitted and stored using AES-256 and TLS 1.3. Zero unencrypted data paths across our entire stack.</p>
-      </div>
-      <div class="comp-card">
-        <div class="comp-icon">&#127468;&#127463;</div>
-        <div class="comp-title">UK-Based Data Residency</div>
-        <p class="comp-desc">All patient and health data processed and stored exclusively within the United Kingdom. No cross-border transfers. Sovereign infrastructure only.</p>
-      </div>
-      <div class="comp-card">
-        <div class="comp-icon">&#9877;</div>
-        <div class="comp-title">DCB0129 Clinical Safety</div>
-        <p class="comp-desc">Adherence to NHS Digital's DCB0129 clinical risk management standard. Full Clinical Safety Case documentation for every product we deploy.</p>
-      </div>
+      <div class="comp-card"><div class="comp-icon">🛡️</div><div class="comp-title">UK GDPR Compliant</div><p class="comp-desc">Full compliance with UK GDPR and ICO guidance for health data processing. Data subject rights enforced by design, not afterthought.</p></div>
+      <div class="comp-card"><div class="comp-icon">🔐</div><div class="comp-title">End-to-End Encryption</div><p class="comp-desc">All data transmitted and stored using AES-256 and TLS 1.3. Zero unencrypted data paths across our entire stack.</p></div>
+      <div class="comp-card"><div class="comp-icon">🇬🇧</div><div class="comp-title">UK-Based Data Residency</div><p class="comp-desc">All patient and health data processed and stored exclusively within the United Kingdom. No cross-border transfers. Sovereign infrastructure only.</p></div>
+      <div class="comp-card"><div class="comp-icon">⚕️</div><div class="comp-title">DCB0129 Clinical Safety</div><p class="comp-desc">Adherence to NHS Digital's DCB0129 clinical risk management standard. Full Clinical Safety Case documentation for every product we deploy.</p></div>
     </div>
     <div class="sec-banner fu">
-      <div style="font-size:2rem;flex-shrink:0">&#128271;</div>
+      <div class="sec-banner-icon">🔏</div>
       <div>
         <h4>Data Sovereignty Statement</h4>
         <p>WellTechAI operates a strict data sovereignty policy. We will never process, transfer, or share identifiable health data outside UK jurisdiction. Our systems undergo regular third-party penetration testing and clinical safety review. We do not use patient data to train external AI models.</p>
@@ -491,9 +520,9 @@ footer{background:#0c1a2e;color:#e0f2fe;padding:5rem 2.5rem 2.5rem}
   </div>
 </section>
 
-<hr class="div"/>
+<hr class="divl"/>
 
-<!-- PROCESS -->
+<!-- ═══ PROCESS ═══ -->
 <section id="process">
   <div class="wrap sec">
     <div class="fu" style="text-align:center;max-width:560px;margin:0 auto">
@@ -502,33 +531,17 @@ footer{background:#0c1a2e;color:#e0f2fe;padding:5rem 2.5rem 2.5rem}
       <p class="ssub" style="margin:0 auto">A structured engagement model ensuring clinical credibility at every stage.</p>
     </div>
     <div class="proc-grid fu">
-      <div class="pstep">
-        <div class="pnum">01</div>
-        <div class="ptitle">Discovery and Clinical Scoping</div>
-        <p class="pdesc">We map your clinical pathways, patient cohorts, and organisational objectives to define the intervention opportunity with precision.</p>
-      </div>
-      <div class="pstep">
-        <div class="pnum">02</div>
-        <div class="ptitle">Pilot Program Design</div>
-        <p class="pdesc">A contained, measurable pilot with clear success metrics, clinical safety protocols, and consent frameworks aligned to your governance.</p>
-      </div>
-      <div class="pstep">
-        <div class="pnum">03</div>
-        <div class="ptitle">Deployment and Monitoring</div>
-        <p class="pdesc">Tools deployed within your existing care infrastructure with real-time monitoring, escalation pathways, and clinician oversight from day one.</p>
-      </div>
-      <div class="pstep">
-        <div class="pnum">04</div>
-        <div class="ptitle">Analytics and Scale</div>
-        <p class="pdesc">Outcome data captured and reported at every stage — enabling evidence-based decisions about scaling to larger patient populations.</p>
-      </div>
+      <div class="pstep"><div class="pnum">01</div><div class="ptitle">Discovery & Clinical Scoping</div><p class="pdesc">We map your clinical pathways, patient cohorts, and organisational objectives to define the intervention opportunity with precision.</p></div>
+      <div class="pstep"><div class="pnum">02</div><div class="ptitle">Pilot Program Design</div><p class="pdesc">A contained, measurable pilot with clear success metrics, clinical safety protocols, and consent frameworks aligned to your governance.</p></div>
+      <div class="pstep"><div class="pnum">03</div><div class="ptitle">Deployment & Monitoring</div><p class="pdesc">Tools deployed within your existing care infrastructure — real-time monitoring, escalation pathways, and clinician oversight from day one.</p></div>
+      <div class="pstep"><div class="pnum">04</div><div class="ptitle">Analytics & Scale</div><p class="pdesc">Outcome data captured and reported at every stage — enabling evidence-based decisions about scaling to larger patient populations.</p></div>
     </div>
   </div>
 </section>
 
-<hr class="div"/>
+<hr class="divl"/>
 
-<!-- CONTACT -->
+<!-- ═══ CONTACT ═══ -->
 <section id="contact" style="background:var(--off)">
   <div class="wrap sec">
     <div class="fu">
@@ -538,128 +551,69 @@ footer{background:#0c1a2e;color:#e0f2fe;padding:5rem 2.5rem 2.5rem}
     </div>
     <div class="contact-grid">
       <div class="ci fu">
-        <div class="ci-card">
-          <div class="ci-icon">&#128205;</div>
-          <div><h4>London Office</h4><p>167-169 Great Portland Street<br/>5th Floor, London, W1W 5PF</p></div>
-        </div>
-        <div class="ci-card">
-          <div class="ci-icon">&#9993;</div>
-          <div><h4>Email</h4><p><a href="mailto:info@welltechai.co.uk">info@welltechai.co.uk</a></p></div>
-        </div>
-        <div class="ci-card">
-          <div class="ci-icon">&#128336;</div>
-          <div><h4>Business Hours</h4><p>Monday to Friday, 09:00 to 18:00 GMT</p></div>
-        </div>
-        <div class="ci-card">
-          <div class="ci-icon">&#9889;</div>
-          <div><h4>Response Time</h4><p>All enquiries answered within one business day.</p></div>
-        </div>
+        <div class="ci-card"><div class="ci-icon">📍</div><div><h4>London Office</h4><p>167-169 Great Portland Street<br/>5th Floor, London, W1W 5PF</p></div></div>
+        <div class="ci-card"><div class="ci-icon">✉️</div><div><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection#fc95929a93bc8b99909088999f949d95d29f93d28997"><span class="__cf_email__" data-cfemail="4d24232b220d3a28212139282e252c24632e22633826">[email&#160;protected]</span></a></p></div></div>
+        <div class="ci-card"><div class="ci-icon">🕐</div><div><h4>Business Hours</h4><p>Monday – Friday · 09:00 – 18:00 GMT</p></div></div>
+        <div class="ci-card"><div class="ci-icon">⚡</div><div><h4>Response Time</h4><p>All enquiries answered within one business day.</p></div></div>
         <div class="contact-img">
-          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=85&fit=crop" alt="London"/>
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=85&fit=crop" alt="London" loading="lazy"/>
         </div>
       </div>
       <div class="form-wrap fu">
         <h3>Send a Message</h3>
         <div class="fg"><label class="fl">Full Name</label><input type="text" class="fi" placeholder="Dr. Jane Smith"/></div>
-        <div class="fg"><label class="fl">Organisation</label><input type="text" class="fi" placeholder="NHS Trust or Company Name"/></div>
+        <div class="fg"><label class="fl">Organisation</label><input type="text" class="fi" placeholder="NHS Trust / Company Name"/></div>
         <div class="fg"><label class="fl">Email Address</label><input type="email" class="fi" placeholder="jane@nhs.net"/></div>
         <div class="fg">
           <label class="fl">Area of Interest</label>
           <select class="fi" style="cursor:pointer">
-            <option value="" disabled selected>Select a service</option>
+            <option value="" disabled selected>Select a service...</option>
             <option>Smoking Cessation AI</option>
             <option>Weight Management Bots</option>
             <option>Addiction Recovery Support</option>
-            <option>Custom Software and Apps</option>
+            <option>Custom Software & Apps</option>
             <option>General Enquiry</option>
           </select>
         </div>
-        <div class="fg"><label class="fl">Message</label><textarea class="fi" placeholder="Tell us about your clinical challenge, target population, or partnership opportunity"></textarea></div>
-        <button class="btn1" style="width:100%;justify-content:center" onclick="submitForm(this)">Submit Enquiry &#8594;</button>
+        <div class="fg"><label class="fl">Message</label><textarea class="fi" placeholder="Tell us about your clinical challenge, target population, or partnership opportunity..."></textarea></div>
+        <button class="btn1" style="width:100%;justify-content:center;font-size:.9rem" onclick="submitForm(this)">Submit Enquiry <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
         <p style="font-size:.74rem;color:var(--muted2);margin-top:.9rem;text-align:center">Your data is handled in accordance with UK GDPR. We will never share your details.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <div>
+      <div class="fb">
         <a href="#home" class="logo" style="color:#e0f2fe">
           <div class="logo-mark">W</div>
           WellTech<span style="color:var(--sky2)">AI</span>
         </a>
-        <p class="fb-desc">Harnessing clinical data analytics and conversational AI to transform behavioral health outcomes across the United Kingdom.</p>
+        <p>Harnessing clinical data analytics and conversational AI to transform behavioral health outcomes across the United Kingdom.</p>
         <div class="fsocs">
-          <a href="mailto:info@welltechai.co.uk" class="fsoc">&#9993;</a>
+          <a href="/cdn-cgi/l/email-protection#b8d1d6ded7f8cfddd4d4ccdddbd0d9d196dbd796cdd3" class="fsoc">✉</a>
           <a href="https://linkedin.com" target="_blank" class="fsoc">in</a>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">Smoking Cessation AI</a></li>
-          <li><a href="#services">Weight Management</a></li>
-          <li><a href="#services">Addiction Support</a></li>
-          <li><a href="#services">Health Software</a></li>
-          <li><a href="#services">Data Analytics</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#security">Compliance</a></li>
-          <li><a href="#process">Our Process</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Compliance</h4>
-        <ul>
-          <li><a href="#security">UK GDPR</a></li>
-          <li><a href="#security">DCB0129</a></li>
-          <li><a href="#security">Data Residency</a></li>
-          <li><a href="#security">Clinical Safety</a></li>
-        </ul>
-      </div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="#services">Smoking Cessation AI</a></li><li><a href="#services">Weight Management</a></li><li><a href="#services">Addiction Support</a></li><li><a href="#services">Health Software</a></li><li><a href="#services">Data Analytics</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="#about">About Us</a></li><li><a href="#security">Compliance</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Compliance</h4><ul><li><a href="#security">UK GDPR</a></li><li><a href="#security">DCB0129</a></li><li><a href="#security">Data Residency</a></li><li><a href="#security">Clinical Safety</a></li></ul></div>
     </div>
-    <hr class="fhr"/>
+    <hr class="footer-hr"/>
     <div class="footer-bottom">
       <div>
-        <p class="footer-copy">&#169; 2025 WellTechAI Ltd. All Rights Reserved.</p>
-        <p class="footer-copy" style="margin-top:.2rem">167-169 Great Portland Street, 5th Floor, London W1W 5PF &nbsp;&middot;&nbsp; <a href="mailto:info@welltechai.co.uk" class="footer-email">info@welltechai.co.uk</a></p>
+        <p>© 2025 WellTechAI Ltd. All Rights Reserved.</p>
+        <p style="margin-top:.2rem">167-169 Great Portland Street, 5th Floor, London W1W 5PF &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#5c35323a331c2b39303028393f343d35723f33722937" style="color:var(--sky2);text-decoration:none"><span class="__cf_email__" data-cfemail="eb82858d84ab9c8e87879f8e88838a82c58884c59e80">[email&#160;protected]</span></a></p>
       </div>
-      <p class="disclaimer">&#9877; <strong style="color:#7da3c8">Important:</strong> WellTechAI is a Digital Health Support provider. We provide behavioral tools, not medical diagnoses. Our products support, not replace, clinical care. Always consult a qualified healthcare professional for medical advice.</p>
+      <p class="disclaimer">⚕️ <strong style="color:#7da3c8">Important:</strong> WellTechAI is a Digital Health Support provider. We provide behavioral tools, not medical diagnoses. Our products support, not replace, clinical care. Always consult a qualified healthcare professional for medical advice.</p>
     </div>
   </div>
 </footer>
 
-<script>
-function toggleNav(){
-  document.getElementById('mob').classList.toggle('open');
-}
-function closeNav(){
-  document.getElementById('mob').classList.remove('open');
-}
-window.addEventListener('scroll', function(){
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
-});
-function submitForm(btn){
-  btn.innerHTML = 'Enquiry Sent - We will be in touch shortly.';
-  btn.style.background = '#16a34a';
-  btn.disabled = true;
-}
-var observer = new IntersectionObserver(function(entries){
-  entries.forEach(function(entry, i){
-    if(entry.isIntersecting){
-      setTimeout(function(){ entry.target.classList.add('on'); }, i * 80);
-    }
-  });
-}, {threshold: 0.07});
-document.querySelectorAll('.fu').forEach(function(el){ observer.observe(el); });
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleNav(){document.getElementById('mob').classList.toggle('open')}
+function closeNav(){document.getElementById('mob').classList.remove('open')}
+window.addEventListener('scroll',()=>{document.getElementById('nav
