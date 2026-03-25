@@ -235,6 +235,10 @@ footer { background: var(--darker); border-top: 1px solid rgba(56,189,248,.15); 
 .ft-brand p { color: rgba(255,255,255,.55); font-size: .85rem; line-height: 1.78; margin-bottom: 20px; max-width: 300px; }
 .ft-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(56,189,248,.1); border: 1px solid rgba(56,189,248,.2); border-radius: 8px; padding: 7px 14px; font-size: .73rem; font-weight: 600; color: var(--sky3); }
 .ft-badge svg { width: 14px; height: 14px; stroke: var(--sky2); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ft-social { display: flex; gap: 10px; margin-top: 14px; }
+.ft-social a { width: 36px; height: 36px; border-radius: 10px; background: rgba(56,189,248,.12); border: 1px solid rgba(56,189,248,.25); display: flex; align-items: center; justify-content: center; transition: transform .2s, background .2s, border-color .2s; }
+.ft-social a svg { width: 16px; height: 16px; stroke: var(--sky2); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ft-social a:hover { transform: translateY(-2px); background: rgba(56,189,248,.22); border-color: rgba(56,189,248,.45); }
 .ft-col h4 { font-size: .88rem; font-weight: 700; color: #fff; margin-bottom: 18px; letter-spacing: .04em; }
 .ft-col ul { list-style: none; }
 .ft-col ul li { margin-bottom: 10px; }

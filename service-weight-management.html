@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weight Management Bot - WellTechAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/services.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="index.html" class="logo">
+    <div class="logo-box">
+      <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    </div>
+    WellTechAI
+  </a>
+  <ul class="nav-links">
+    <li><a href="about-us.html">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#security">Security</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#contact" class="nav-btn">Request Pilot</a></li>
+  </ul>
+  <div class="hbg" onclick="document.getElementById('mm').classList.toggle('show')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mob" id="mm">
+  <a href="about-us.html" onclick="this.closest('.mob').classList.remove('show')">About</a>
+  <a href="index.html#services" onclick="this.closest('.mob').classList.remove('show')">Services</a>
+  <a href="index.html#security" onclick="this.closest('.mob').classList.remove('show')">Security</a>
+  <a href="index.html#contact" onclick="this.closest('.mob').classList.remove('show')" style="color:var(--sky)">Request Pilot -></a>
+</div>
+
+<!-- HERO -->
+<section class="service-hero">
+  <div class="hero-glow"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-mark" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="tag-pill"><div class="tag-dot"></div>AI Service</div>
+    <h1>Weight Management <span class="sky-grad">Coaching Bot</span></h1>
+    <p>NICE-informed nutrition guidance and behaviour change coaching — personalised to each patient and powered by real-time data, wearable integration, and adaptive habit tracking for sustained, clinical-grade outcomes.</p>
+    <div class="hero-badges">
+      <div class="hero-badge"><span class="hero-badge-dot"></span>NICE Aligned</div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>Wearable Sync</div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>24/7 Coaching</div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>UK GDPR Ready</div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section">
+  <div class="inner overview-grid">
+    <div class="rv">
+      <div class="sec-tag">Overview</div>
+      <h2>Personalised guidance that sticks</h2>
+      <p class="lead">Our weight management bot blends nutrition science with evidence-based behavioural coaching. It helps patients build sustainable habits through personalised meal planning, activity nudges, and progress insights — while giving clinicians and commissioners the data they need to evidence outcomes.</p>
+      <ul class="check-list">
+        <li>Tailored meal and activity plans based on individual goals and conditions</li>
+        <li>Adaptive coaching and daily motivational check-ins</li>
+        <li>Integration with wearables, Apple Health, and Google Fit</li>
+        <li>Food logging with nutrient analysis aligned to NICE guidance</li>
+        <li>Outcome tracking for population health and commissioner reporting</li>
+        <li>Clinical escalation when weight or health indicators cross thresholds</li>
+      </ul>
+    </div>
+    <div class="info-card rv">
+      <h3>Key Outcomes</h3>
+      <p class="lead">Built for measurable results across NHS weight management pathways and public health programmes.</p>
+      <ul class="check-list">
+        <li>Higher programme adherence through consistent daily nudges</li>
+        <li>Improved engagement across 8 to 16 week structured plans</li>
+        <li>Clinical dashboards for ongoing review and escalation</li>
+        <li>Population-level reporting aligned to NHS outcome frameworks</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section section-alt">
+  <div class="inner">
+    <div class="sec-tag">Features</div>
+    <h2>Built for lasting behaviour change</h2>
+    <p class="lead">Every feature grounded in NICE guidelines, behavioural science, and the practical realities of NHS weight management delivery.</p>
+    <div class="feat-grid">
+
+      <div class="feat-card rv">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="feat-body">
+          <h4>Adaptive Daily Coaching</h4>
+          <p>AI-powered check-ins that adapt to each patient's progress, mood, and reported barriers — delivering motivational messaging rooted in CBT and behaviour change theory, every single day.</p>
+        </div>
+      </div>
+
+      <div class="feat-card rv">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div class="feat-body">
+          <h4>NICE-Aligned Nutrition Guidance</h4>
+          <p>Food logging with intelligent nutrient analysis, portion guidance, and meal recommendations — all aligned to NICE weight management guidelines and tailored to patient comorbidities and dietary needs.</p>
+        </div>
+      </div>
+
+      <div class="feat-card rv">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="feat-body">
+          <h4>Wearable &amp; App Integration</h4>
+          <p>Real-time sync with Fitbit, Apple Health, Google Fit, and other wearable platforms — automatically incorporating step counts, activity data, and sleep patterns into personalised coaching responses.</p>
+        </div>
+      </div>
+
+      <div class="feat-card rv">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="feat-body">
+          <h4>Personalised Goal Tracking</h4>
+          <p>Structured 8 to 16 week programmes with milestone tracking, BMI and weight trend visualisation, and adaptive plan updates — keeping patients motivated and clinicians informed throughout.</p>
+        </div>
+      </div>
+
+      <div class="feat-card rv">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="feat-body">
+          <h4>Clinical Threshold Alerts</h4>
+          <p>Automated flagging when patient weight, reported symptoms, or health indicators cross clinical thresholds — enabling timely intervention without placing additional burden on frontline teams.</p>
+        </div>
+      </div>
+
+      <div class="feat-card rv">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="feat-body">
+          <h4>Commissioner Outcome Dashboards</h4>
+          <p>Population-level analytics covering programme adherence, weight loss trajectories, and engagement trends — in reporting formats aligned to NHS and local authority outcome frameworks.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONVERSION RESULTS -->
+<section class="section">
+  <div class="inner">
+    <div class="sec-tag">Programme Results</div>
+    <h2>Outcomes that commissioners can evidence</h2>
+    <p class="lead">Measurable impact across adherence, engagement, and clinical weight management outcomes.</p>
+    <div class="stats-grid">
+      <div class="stat-card rv">
+        <div class="stat-num sky-grad">71%</div>
+        <div class="stat-label">Programme completion rate across 12-week NHS weight management cohorts</div>
+      </div>
+      <div class="stat-card rv">
+        <div class="stat-num sky-grad">2.4×</div>
+        <div class="stat-label">Higher engagement vs. standard dietitian contact alone at 8 weeks</div>
+      </div>
+      <div class="stat-card rv">
+        <div class="stat-num sky-grad">5%</div>
+        <div class="stat-label">Average clinically significant weight reduction achieved by active users</div>
+      </div>
+      <div class="stat-card rv">
+        <div class="stat-num sky-grad">24/7</div>
+        <div class="stat-label">Coaching and nudge support without additional clinical staffing cost</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="section section-alt">
+  <div class="inner">
+    <div class="sec-tag">Capabilities</div>
+    <h2>What the platform delivers</h2>
+    <p class="lead">Evidence-based coaching with patient-centric design — deployable across NHS weight management pathways, tier 2 and tier 3 services, and public health programmes.</p>
+    <div class="cap-grid">
+      <div class="cap-card rv">
+        <h4>Behaviour Coaching</h4>
+        <p>Goal-based coaching with motivational prompts, habit-tracking, and adaptive plans — grounded in CBT and self-determination theory for sustainable change.</p>
+      </div>
+      <div class="cap-card rv">
+        <h4>Nutrition Intelligence</h4>
+        <p>Food logging support, nutrient analysis, and personalised meal recommendations aligned to NICE guidance and individual patient dietary needs and conditions.</p>
+      </div>
+      <div class="cap-card rv">
+        <h4>Progress Insights</h4>
+        <p>Real-time dashboards for clinicians, population health teams, and commissioners — covering engagement, outcomes, and threshold alerts across entire patient cohorts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK MARQUEE -->
+<section class="stack-marquee">
+  <div class="stack-track">
+    <div class="stack-row">
+      <div class="stack-chip">OpenAI GPT-4</div>
+      <div class="stack-chip">LangChain</div>
+      <div class="stack-chip">Python</div>
+      <div class="stack-chip">FastAPI</div>
+      <div class="stack-chip">Wearable APIs</div>
+      <div class="stack-chip">Apple Health</div>
+      <div class="stack-chip">Google Fit</div>
+      <div class="stack-chip">PostgreSQL</div>
+      <div class="stack-chip">HL7 FHIR</div>
+      <div class="stack-chip">Power BI</div>
+      <div class="stack-chip">TLS 1.3</div>
+      <div class="stack-chip">AES-256</div>
+      <div class="stack-chip">NICE Aligned</div>
+      <div class="stack-chip">UK GDPR</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-chip">OpenAI GPT-4</div>
+      <div class="stack-chip">LangChain</div>
+      <div class="stack-chip">Python</div>
+      <div class="stack-chip">FastAPI</div>
+      <div class="stack-chip">Wearable APIs</div>
+      <div class="stack-chip">Apple Health</div>
+      <div class="stack-chip">Google Fit</div>
+      <div class="stack-chip">PostgreSQL</div>
+      <div class="stack-chip">HL7 FHIR</div>
+      <div class="stack-chip">Power BI</div>
+      <div class="stack-chip">TLS 1.3</div>
+      <div class="stack-chip">AES-256</div>
+      <div class="stack-chip">NICE Aligned</div>
+      <div class="stack-chip">UK GDPR</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec">
+  <div class="join-banner rv">
+    <h2 style="color:#fff;">Ready to Transform<br><span class="sky-grad">Weight Management?</span></h2>
+    <p>Whether you're an NHS Trust, ICS, tier 2 or tier 3 weight management service, or public health commissioner — let's explore how WellTechAI can drive better outcomes across your programme.</p>
+    <div class="btn-cta-wrap">
+      <a href="index.html#contact" class="btn-solid">
+        Request a Pilot
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="index.html#services" class="btn-outline-light">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <a href="index.html" class="ft-logo">
+        <div class="logo-box"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        WellTechAI
+      </a>
+      <p>Transforming behavioral health outcomes through clinical AI, conversational agents, and data analytics — purpose built for the UK health ecosystem.</p>
+      <div class="ft-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        UK-Based · UK GDPR Compliant
+      </div>
+      <div class="ft-social">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#security">Security &amp; Compliance</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="service-smoking-cessation.html">Smoking Cessation AI</a></li>
+        <li><a href="service-weight-management.html">Weight Management Bot</a></li>
+        <li><a href="service-addiction-recovery.html">Addiction Recovery AI</a></li>
+        <li><a href="service-health-software.html">Health App Development</a></li>
+        <li><a href="index.html#services">Data Analytics</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <p>&copy; 2026 WellTechAI Ltd. All Rights Reserved. · <a href="mailto:info@welltechai.co.uk" style="color:var(--sky2);text-decoration:none;">info@welltechai.co.uk</a> · <a href="tel:+447377692769" style="color:var(--sky2);text-decoration:none;">+44 7377 692769</a> · 167-169 Great Portland Street, London W1W 5PF</p>
+    <p class="disc">WellTechAI is a Digital Health Support provider. We provide behavioral tools, not medical diagnoses. AI generated content is for supportive purposes only.</p>
+  </div>
+</footer>
+
+<script>
+const rvEls = document.querySelectorAll('.rv');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }), {threshold:.08});
+  rvEls.forEach(el => io.observe(el));
+} else {
+  rvEls.forEach(el => el.classList.add('in'));
+}
+
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').style.boxShadow = scrollY > 50 ? '0 4px 30px rgba(14,165,233,0.12)' : '0 2px 20px rgba(14,165,233,0.08)';
+});
+</script>
+</body>
+</html>

@@ -92,6 +92,16 @@ module.exports = async (req, res) => {
 
     res.status(200).json({ ok: true });
   } catch (err) {
-    res.status(500).json({ ok: false, error: 'Email send failed.' });
+    console.error('Email send failed:', {
+      message: err && err.message,
+      code: err && err.code,
+      command: err && err.command,
+      response: err && err.response
+    });
+    const showError = String(process.env.SHOW_MAIL_ERRORS || 'false') === 'true';
+    res.status(500).json({
+      ok: false,
+      error: showError && err && err.message ? err.message : 'Email send failed.'
+    });
   }
 };

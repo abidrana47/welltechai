@@ -122,25 +122,20 @@ h2 { font-size:clamp(1.6rem,3vw,2.3rem); font-weight:800; letter-spacing:-.025em
 .why-card p { color:var(--muted); font-size:.8rem; line-height:1.7; }
 
 /* LEADERSHIP */
-.leadership-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:22px; max-width:1100px; margin:0 auto; }
-.leader-card {
-  background:linear-gradient(180deg,#ffffff 0%, #f7fbff 100%);
-  border:1px solid var(--border);
-  border-radius:22px; overflow:hidden;
-  box-shadow:var(--shadow);
-  transition:transform .3s, box-shadow .3s, border-color .3s;
+.leadership-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:34px; max-width:1000px; margin:0 auto; }
+.leader-card { background:transparent; border:none; box-shadow:none; }
+.leader-photo {
+  background:var(--white);
+  border:1px solid rgba(14,165,233,.16);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 18px 45px rgba(14,165,233,.12);
 }
-.leader-card:hover { transform:translateY(-4px); box-shadow:0 22px 55px rgba(14,165,233,.18); border-color:rgba(14,165,233,.28); }
-.leader-photo { position:relative; height:240px; overflow:hidden; }
-.leader-photo img { width:100%; height:100%; object-fit:cover; display:block; }
-.leader-photo::after {
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(180deg,rgba(14,165,233,.02) 0%, rgba(14,165,233,.12) 100%);
-}
-.leader-body { padding:18px 18px 22px; }
-.leader-name { font-size:.96rem; font-weight:800; color:var(--text); margin-bottom:4px; }
-.leader-role { font-size:.72rem; font-weight:700; color:var(--sky); text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px; }
-.leader-desc { font-size:.78rem; color:var(--muted); line-height:1.7; }
+.leader-photo img { width:100%; height:280px; object-fit:cover; object-position:center 20%; display:block; }
+.leader-body { padding:14px 6px 0; }
+.leader-name { font-size:1rem; font-weight:800; color:var(--text); margin-bottom:6px; }
+.leader-role { font-size:.68rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.16em; }
+.leader-desc { margin-top:10px; font-size:.78rem; color:var(--muted); line-height:1.65; }
 .leader-desc strong { color:var(--text2); font-weight:700; }
 
 /* TIMELINE */
@@ -182,6 +177,10 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
 .ft-brand p { color:rgba(255,255,255,.5); font-size:.83rem; line-height:1.75; margin-bottom:18px; max-width:280px; }
 .ft-badge { display:inline-flex; align-items:center; gap:7px; background:rgba(56,189,248,.1); border:1px solid rgba(56,189,248,.2); border-radius:8px; padding:6px 13px; font-size:.71rem; font-weight:600; color:var(--sky3); }
 .ft-badge svg { width:13px; height:13px; stroke:var(--sky2); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.ft-social { display:flex; gap:10px; margin-top:14px; }
+.ft-social a { width:36px; height:36px; border-radius:10px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.25); display:flex; align-items:center; justify-content:center; transition:transform .2s, background .2s, border-color .2s; }
+.ft-social a svg { width:16px; height:16px; stroke:var(--sky2); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.ft-social a:hover { transform:translateY(-2px); background:rgba(56,189,248,.22); border-color:rgba(56,189,248,.45); }
 .ft-col h4 { font-size:.85rem; font-weight:700; color:#fff; margin-bottom:16px; letter-spacing:.04em; }
 .ft-col ul { list-style:none; }
 .ft-col ul li { margin-bottom:9px; }
@@ -213,6 +212,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
   .stats-row { grid-template-columns:repeat(2,1fr); }
   .services-grid { grid-template-columns:1fr; }
   .mission-img img { height:300px; }
+  .leader-photo img { height:240px; }
   .ft-grid { grid-template-columns:1fr; gap:28px; }
   .ft-bottom { flex-direction:column; }
   .join-banner { padding:36px 24px; }
@@ -234,7 +234,6 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
     <li><a href="about-us.html" class="active">About</a></li>
     <li><a href="index.html#services">Services</a></li>
     <li><a href="index.html#security">Security</a></li>
-    <li><a href="#team">Team</a></li>
     <li><a href="index.html#contact">Contact</a></li>
     <li><a href="index.html#contact" class="nav-btn">Request Pilot</a></li>
   </ul>
@@ -246,7 +245,6 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
   <a href="about-us.html" onclick="this.closest('.mob').classList.remove('show')">About</a>
   <a href="index.html#services" onclick="this.closest('.mob').classList.remove('show')">Services</a>
   <a href="index.html#security" onclick="this.closest('.mob').classList.remove('show')">Security</a>
-  <a href="#team" onclick="this.closest('.mob').classList.remove('show')">Team</a>
   <a href="index.html#contact" onclick="this.closest('.mob').classList.remove('show')" style="color:var(--sky)">Request Pilot →</a>
 </div>
 
@@ -432,7 +430,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
   <div class="leadership-grid rv">
     <div class="leader-card">
       <div class="leader-photo">
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&q=85" alt="Muhammad Abid">
+        <img src="assets/download.jpg" alt="Muhammad Abid">
       </div>
       <div class="leader-body">
         <div class="leader-name">Muhammad Abid</div>
@@ -443,7 +441,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
 
     <div class="leader-card">
       <div class="leader-photo">
-        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&q=85" alt="Mairaj Ahmed Khoso">
+        <img src="assets/download.jpg" alt="Mairaj Ahmed Khoso">
       </div>
       <div class="leader-body">
         <div class="leader-name">Mairaj Ahmed Khoso</div>
@@ -454,18 +452,18 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
 
     <div class="leader-card">
       <div class="leader-photo">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=85" alt="Mhay Green">
+        <img src="assets/download.jpg" alt="Mhay Green">
       </div>
       <div class="leader-body">
         <div class="leader-name">Mhay Green</div>
         <div class="leader-role">Relationship Manager</div>
-        <p class="leader-desc"><strong>Role:</strong> Team Coordination, Client Relations, Business Development.<br><strong>Responsibility:</strong> Coordinates team activities, meetings, and client interactions.</p>
+        <p class="leader-desc"><strong></strong> Team Coordination, Client Relations, Business Development.</p>
       </div>
     </div>
 
     <div class="leader-card">
       <div class="leader-photo">
-        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=700&q=85" alt="Beenish Hassan">
+        <img src="assets/download.jpg" alt="Beenish Hassan">
       </div>
       <div class="leader-body">
         <div class="leader-name">Beenish Hassan</div>
@@ -476,7 +474,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
 
     <div class="leader-card">
       <div class="leader-photo">
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&q=85" alt="Adil Iqbal">
+        <img src="assets/download.jpg" alt="Adil Iqbal">
       </div>
       <div class="leader-body">
         <div class="leader-name">Adil Iqbal</div>
@@ -562,6 +560,17 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         UK-Based · UK GDPR Compliant
       </div>
+      <div class="ft-social">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+      </div>
     </div>
     <div class="ft-col">
       <h4>Navigation</h4>
@@ -570,7 +579,6 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#security">Security &amp; Compliance</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="#team">Team</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </div>
@@ -586,7 +594,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
     </div>
   </div>
   <div class="ft-bottom">
-    <p>© 2026 WellTechAI Ltd. All Rights Reserved · <a href="mailto:info@welltechai.co.uk" style="color:var(--sky2);text-decoration:none;">info@welltechai.co.uk</a> · 167–169 Great Portland Street, London W1W 5PF</p>
+    <p>© 2026 WellTechAI Ltd. All Rights Reserved · <a href="mailto:info@welltechai.co.uk" style="color:var(--sky2);text-decoration:none;">info@welltechai.co.uk</a> · <a href="tel:+447377692769" style="color:var(--sky2);text-decoration:none;">+44 7377 692769</a> · 167–169 Great Portland Street, London W1W 5PF</p>
     <p class="disc">WellTechAI provides behavioral support tools, not medical diagnoses. AI-generated content is for supportive purposes only and does not constitute clinical advice, diagnosis, or treatment.</p>
   </div>
 </footer>
