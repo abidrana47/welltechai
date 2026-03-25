@@ -90,8 +90,8 @@ h2 { font-size:clamp(1.6rem,3vw,2.3rem); font-weight:800; letter-spacing:-.025em
 
 /* MISSION 2-COL */
 .mission-wrap { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-.mission-img { border-radius:18px; overflow:hidden; border:1px solid rgba(14,165,233,.2); box-shadow:0 20px 60px rgba(14,165,233,.15); }
-.mission-img img { width:100%; height:380px; object-fit:cover; display:block; transition:transform .5s; }
+.mission-img { border-radius:22px; overflow:hidden; border:1px solid rgba(14,165,233,.2); box-shadow:0 24px 70px rgba(14,165,233,.16); }
+.mission-img img { width:100%; height:440px; object-fit:cover; object-position:center 20%; display:block; transition:transform .5s; }
 .mission-img:hover img { transform:scale(1.03); }
 .mission-right h2 { text-align:left; margin-bottom:14px; }
 .mission-right p { color:var(--muted); font-size:.9rem; line-height:1.82; margin-bottom:16px; }
@@ -121,54 +121,27 @@ h2 { font-size:clamp(1.6rem,3vw,2.3rem); font-weight:800; letter-spacing:-.025em
 .why-card h4 { font-weight:700; font-size:.9rem; margin-bottom:5px; color:var(--text); }
 .why-card p { color:var(--muted); font-size:.8rem; line-height:1.7; }
 
-/* TEAM SECTION */
-/* Founder card — compact horizontal */
-.founder-card {
-  max-width:860px; margin:0 auto 52px;
-  background:var(--white); border:1px solid var(--border);
-  border-radius:20px; padding:0; overflow:hidden;
-  box-shadow:0 20px 60px rgba(14,165,233,.13);
-  display:flex; align-items:stretch;
-  transition:transform .3s,box-shadow .3s;
+/* LEADERSHIP */
+.leadership-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:22px; max-width:1100px; margin:0 auto; }
+.leader-card {
+  background:linear-gradient(180deg,#ffffff 0%, #f7fbff 100%);
+  border:1px solid var(--border);
+  border-radius:22px; overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:transform .3s, box-shadow .3s, border-color .3s;
 }
-.founder-card:hover { transform:translateY(-4px); box-shadow:0 30px 80px rgba(14,165,233,.2); }
-.fc-left {
-  background:linear-gradient(160deg,var(--darker),#0c2d52);
-  padding:36px 32px; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; text-align:center;
-  min-width:200px; position:relative; overflow:hidden;
+.leader-card:hover { transform:translateY(-4px); box-shadow:0 22px 55px rgba(14,165,233,.18); border-color:rgba(14,165,233,.28); }
+.leader-photo { position:relative; height:240px; overflow:hidden; }
+.leader-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+.leader-photo::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(14,165,233,.02) 0%, rgba(14,165,233,.12) 100%);
 }
-.fc-left::before { content:''; position:absolute; top:-50px; left:-50px; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle,rgba(56,189,248,.1),transparent); pointer-events:none; }
-.fc-av { width:72px; height:72px; border-radius:50%; background:linear-gradient(135deg,var(--sky2),var(--dark)); display:flex; align-items:center; justify-content:center; font-size:1.4rem; font-weight:900; color:#fff; margin:0 auto 12px; border:2px solid rgba(56,189,248,.3); box-shadow:0 0 0 6px rgba(56,189,248,.08); position:relative; z-index:1; }
-.fc-name { font-size:1rem; font-weight:800; color:#fff; margin-bottom:4px; position:relative; z-index:1; }
-.fc-role { font-size:.72rem; color:var(--sky3); font-weight:600; position:relative; z-index:1; }
-.fc-right { padding:32px 36px; flex:1; }
-.fc-right h3 { font-size:1.15rem; font-weight:800; color:var(--text); margin-bottom:10px; letter-spacing:-.02em; }
-.fc-right p { color:var(--muted); font-size:.87rem; line-height:1.8; margin-bottom:16px; }
-.fc-tags { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:20px; }
-.fc-tag { font-size:.7rem; font-weight:600; background:rgba(14,165,233,.08); border:1px solid rgba(14,165,233,.2); color:var(--dark); padding:4px 12px; border-radius:50px; }
-.fc-links { display:flex; gap:10px; flex-wrap:wrap; }
-.fc-link { display:inline-flex; align-items:center; gap:6px; font-size:.78rem; font-weight:600; color:var(--sky); text-decoration:none; background:rgba(14,165,233,.08); border:1px solid rgba(14,165,233,.2); padding:7px 14px; border-radius:8px; transition:all .2s; }
-.fc-link:hover { background:rgba(14,165,233,.15); border-color:var(--sky); }
-.fc-link svg { width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-
-/* Team grid */
-.team-label { max-width:1100px; margin:0 auto 26px; display:flex; align-items:center; gap:14px; }
-.team-label h3 { font-size:1.1rem; font-weight:800; color:var(--text); white-space:nowrap; }
-.tl-line { flex:1; height:1px; background:linear-gradient(90deg,rgba(14,165,233,.25),transparent); }
-.team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; max-width:1100px; margin:0 auto; }
-.tm-card { background:var(--white); border:1px solid var(--border); border-radius:18px; padding:24px 22px; box-shadow:var(--shadow); transition:transform .3s,box-shadow .3s; }
-.tm-card:hover { transform:translateY(-4px); box-shadow:0 20px 50px rgba(14,165,233,.18); }
-.tm-av { width:52px; height:52px; border-radius:13px; background:linear-gradient(135deg,var(--sky2),var(--dark)); display:flex; align-items:center; justify-content:center; font-size:1rem; font-weight:800; color:#fff; margin-bottom:12px; }
-.tm-name { font-size:.92rem; font-weight:800; color:var(--text); margin-bottom:3px; }
-.tm-role { font-size:.73rem; font-weight:600; color:var(--sky); margin-bottom:8px; }
-.tm-dept { font-size:.67rem; font-weight:600; background:rgba(14,165,233,.08); border:1px solid rgba(14,165,233,.18); color:var(--dark); padding:3px 10px; border-radius:50px; display:inline-flex; margin-bottom:10px; }
-.tm-bio { color:var(--muted); font-size:.78rem; line-height:1.7; }
-.tm-coming { background:var(--white); border:1.5px dashed rgba(14,165,233,.25); border-radius:18px; padding:32px 22px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:200px; }
-.tm-coming-ico { width:46px; height:46px; border-radius:50%; background:rgba(14,165,233,.06); border:1.5px dashed rgba(14,165,233,.22); display:flex; align-items:center; justify-content:center; margin:0 auto 12px; }
-.tm-coming-ico svg { width:20px; height:20px; stroke:var(--muted2); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-.tm-coming strong { display:block; font-size:.84rem; font-weight:700; color:var(--muted); margin-bottom:5px; }
-.tm-coming p { font-size:.78rem; color:var(--muted2); line-height:1.6; }
+.leader-body { padding:18px 18px 22px; }
+.leader-name { font-size:.96rem; font-weight:800; color:var(--text); margin-bottom:4px; }
+.leader-role { font-size:.72rem; font-weight:700; color:var(--sky); text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px; }
+.leader-desc { font-size:.78rem; color:var(--muted); line-height:1.7; }
+.leader-desc strong { color:var(--text2); font-weight:700; }
 
 /* TIMELINE */
 .timeline-wrap { max-width:700px; margin:0 auto; position:relative; }
@@ -225,12 +198,11 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
 /* RESPONSIVE */
 @media(max-width:1024px){
   .mission-wrap { grid-template-columns:1fr; gap:36px; }
-  .mission-img img { height:280px; }
+  .mission-img img { height:320px; }
   .stats-row { grid-template-columns:repeat(2,1fr); }
   .why-grid { grid-template-columns:1fr; }
   .services-grid { grid-template-columns:repeat(2,1fr); }
-  .founder-card { flex-direction:column; }
-  .fc-left { min-width:unset; padding:30px 24px; }
+  .leader-photo { height:220px; }
   .ft-grid { grid-template-columns:1fr 1fr; }
 }
 @media(max-width:768px){
@@ -240,6 +212,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
   .team-grid { grid-template-columns:1fr; }
   .stats-row { grid-template-columns:repeat(2,1fr); }
   .services-grid { grid-template-columns:1fr; }
+  .mission-img img { height:300px; }
   .ft-grid { grid-template-columns:1fr; gap:28px; }
   .ft-bottom { flex-direction:column; }
   .join-banner { padding:36px 24px; }
@@ -452,89 +425,64 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
 <section id="team" class="sec">
   <div class="center rv" style="margin-bottom:44px;">
     <div class="sec-tag">Core Team</div>
-    <h2>Leadership</h2>
-    <p class="lead">Launched March 2026, built on 15+ years of combined expertise across public health, AI, and NHS delivery.</p>
+    <h2>Leadership Team</h2>
+    <p class="lead">A focused team combining clinical insight, AI engineering, and operational leadership.</p>
   </div>
 
-  <!-- FOUNDER -->
-  <div class="founder-card rv">
-    <div class="fc-left">
-      <div class="fc-av">MA</div>
-      <div class="fc-name">Muhammad Abid</div>
-      <div class="fc-role">Director &amp; Founder</div>
-    </div>
-    <div class="fc-right">
-      <h3>Bridging Clinical Science &amp; AI Innovation</h3>
-      <p>Muhammad founded WellTechAI to address the absence of UK health technology solutions that are both clinically credible and technically advanced. With expertise in Public Health, Data Analytics, and 3+ years in the UK health sector, he leads WellTechAI's mission to build AI tools grounded in behavioral science and engineered for real clinical impact.</p>
-      <div class="fc-tags">
-        <span class="fc-tag">Public Health</span>
-        <span class="fc-tag">Behavioral Analytics</span>
-        <span class="fc-tag">AI Strategy</span>
-        <span class="fc-tag">NHS Digital</span>
-        <span class="fc-tag">Health Data Governance</span>
-        <span class="fc-tag">Population Health</span>
+  <div class="leadership-grid rv">
+    <div class="leader-card">
+      <div class="leader-photo">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&q=85" alt="Muhammad Abid">
       </div>
-      <div class="fc-links">
-        <a href="mailto:info@welltechai.co.uk" class="fc-link">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          info@welltechai.co.uk
-        </a>
-        <a href="https://www.linkedin.com" target="_blank" class="fc-link">
-          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
+      <div class="leader-body">
+        <div class="leader-name">Muhammad Abid</div>
+        <div class="leader-role">CEO &amp; Founder</div>
+        <p class="leader-desc">Clinical AI strategy and NHS-aligned product leadership.</p>
       </div>
     </div>
-  </div>
 
-  <!-- CORE TEAM -->
-  <div class="team-label rv">
-    <h3>Core Team</h3>
-    <div class="tl-line"></div>
-  </div>
+    <div class="leader-card">
+      <div class="leader-photo">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&q=85" alt="Mairaj Ahmed Khoso">
+      </div>
+      <div class="leader-body">
+        <div class="leader-name">Mairaj Ahmed Khoso</div>
+        <div class="leader-role">Full Stack &amp; AI/ML Engineer</div>
+        <p class="leader-desc">Builds scalable systems, AI pipelines, and product integrations.</p>
+      </div>
+    </div>
 
-  <div class="team-grid rv">
-    <div class="tm-card">
-      <div class="tm-av">AI</div>
-      <div class="tm-name">AI Engineering</div>
-      <div class="tm-role">Lead AI Engineer</div>
-      <div class="tm-dept">Technology</div>
-      <p class="tm-bio">LLM fine-tuning, LangChain agent design, and clinical-safety compliant conversational AI pipelines.</p>
-    </div>
-    <div class="tm-card">
-      <div class="tm-av">CL</div>
-      <div class="tm-name">Clinical Lead</div>
-      <div class="tm-role">Clinical Safety Officer</div>
-      <div class="tm-dept">Clinical Operations</div>
-      <p class="tm-bio">Oversees DCB0129 compliance across all releases. Ensures every AI output meets NHS patient safety standards.</p>
-    </div>
-    <div class="tm-card">
-      <div class="tm-av">DS</div>
-      <div class="tm-name">Data Science</div>
-      <div class="tm-role">Lead Data Scientist</div>
-      <div class="tm-dept">Analytics</div>
-      <p class="tm-bio">Population health analytics, real-time dashboards, and evidence-based intervention models using Python and TensorFlow.</p>
-    </div>
-    <div class="tm-coming">
-      <div class="tm-coming-ico">
-        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <div class="leader-card">
+      <div class="leader-photo">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=85" alt="Mhay Green">
       </div>
-      <strong>We're Hiring</strong>
-      <p>Senior iOS/Android Developer with NHS app experience.</p>
-    </div>
-    <div class="tm-coming">
-      <div class="tm-coming-ico">
-        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <div class="leader-body">
+        <div class="leader-name">Mhay Green</div>
+        <div class="leader-role">Relationship Manager</div>
+        <p class="leader-desc"><strong>Role:</strong> Team Coordination, Client Relations, Business Development.<br><strong>Responsibility:</strong> Coordinates team activities, meetings, and client interactions.</p>
       </div>
-      <strong>Open Position</strong>
-      <p>UK Health Partnerships Manager with NHS commissioner relationships.</p>
     </div>
-    <div class="tm-coming">
-      <div class="tm-coming-ico">
-        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+
+    <div class="leader-card">
+      <div class="leader-photo">
+        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=700&q=85" alt="Beenish Hassan">
       </div>
-      <strong>Open Position</strong>
-      <p>Behavioral Health Content Specialist with CBT writing expertise.</p>
+      <div class="leader-body">
+        <div class="leader-name">Beenish Hassan</div>
+        <div class="leader-role">HR Manager &amp; Direct Supervisor</div>
+        <p class="leader-desc">People operations, team wellbeing, and performance oversight.</p>
+      </div>
+    </div>
+
+    <div class="leader-card">
+      <div class="leader-photo">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&q=85" alt="Adil Iqbal">
+      </div>
+      <div class="leader-body">
+        <div class="leader-name">Adil Iqbal</div>
+        <div class="leader-role">Trainee</div>
+        <p class="leader-desc">Learning and supporting day-to-day delivery across projects.</p>
+      </div>
     </div>
   </div>
 </section>
