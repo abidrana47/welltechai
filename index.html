@@ -1,823 +1,2233 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en-GB">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WellTechAI | Clinical AI for NHS Behavioral Health</title>
-<meta name="description" content="Clinical AI, conversational agents, and analytics for NHS behavioral health. Smoking cessation, weight management, and addiction recovery solutions with UK GDPR compliance.">
-<meta name="keywords" content="clinical AI, behavioral health AI, NHS AI solutions, digital health AI, smoking cessation AI, weight management bot, addiction recovery AI, healthcare analytics UK">
-<meta name="robots" content="index,follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Health &amp; Wellness Digital Bot Services | WellTechAI CIC</title>
+<meta name="description" content="WellTechAI CIC delivers AI-powered health and wellness digital bot services for mental health, prevention, behaviour change, and pathway support across the UK, USA, and UAE.">
+<meta name="keywords" content="AI health and wellness digital bot services, digital health bots, mental health chatbot, healthcare AI UK, wellbeing chatbot, WellTechAI CIC">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#0ea5e9">
 <link rel="canonical" href="https://www.welltechai.co.uk/">
-<meta property="og:title" content="WellTechAI | Clinical AI for NHS Behavioral Health">
-<meta property="og:description" content="Clinical AI, conversational agents, and analytics for NHS behavioral health. Smoking cessation, weight management, and addiction recovery solutions with UK GDPR compliance.">
+<meta property="og:title" content="AI-Powered Health &amp; Wellness Digital Bot Services | WellTechAI CIC">
+<meta property="og:description" content="WellTechAI CIC delivers AI-powered health and wellness digital bot services for mental health, prevention, behaviour change, and pathway support across the UK, USA, and UAE.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.welltechai.co.uk/">
-<meta property="og:site_name" content="WellTechAI">
-<meta property="og:image" content="https://www.welltechai.co.uk/assets/download.jpg">
+  <meta property="og:site_name" content="WellTechAI CIC">
+  <link rel="icon" type="image/png" href="/assets/android-chrome-512x512.png">
+  <meta property="og:image" content="https://www.welltechai.co.uk/assets/logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="WellTechAI | Clinical AI for NHS Behavioral Health">
-<meta name="twitter:description" content="Clinical AI, conversational agents, and analytics for NHS behavioral health. Smoking cessation, weight management, and addiction recovery solutions with UK GDPR compliance.">
-<meta name="twitter:image" content="https://www.welltechai.co.uk/assets/download.jpg">
+<meta name="twitter:title" content="AI-Powered Health &amp; Wellness Digital Bot Services | WellTechAI CIC">
+<meta name="twitter:description" content="WellTechAI CIC delivers AI-powered health and wellness digital bot services for mental health, prevention, behaviour change, and pathway support across the UK, USA, and UAE.">
+<meta name="twitter:image" content="https://www.welltechai.co.uk/assets/logo.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-:root {
-  --white:   #ffffff;
-  --bg:      #f0f7ff;
-  --bg2:     #e8f4fd;
-  --sky:     #0ea5e9;
-  --sky2:    #38bdf8;
-  --sky3:    #7dd3fc;
-  --sky4:    #bae6fd;
-  --sky5:    #e0f2fe;
-  --dark:    #0369a1;
-  --darker:  #0c4a6e;
-  --text:    #0f2233;
-  --text2:   #2a4a62;
-  --muted:   #5a8aa8;
-  --muted2:  #94b8cc;
-  --border:  rgba(14,165,233,0.18);
-  --border2: rgba(14,165,233,0.1);
-  --card:    #ffffff;
-  --shadow:  0 4px 30px rgba(14,165,233,0.1);
-  --shadow2: 0 20px 60px rgba(14,165,233,0.15);
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body { font-family:'Outfit',sans-serif; background:var(--white); color:var(--text); overflow-x:hidden; line-height:1.65; }
+    :root {
+      --white: #ffffff;
+      --bg: #f0f7ff;
+      --bg2: #e8f4fd;
+      --sky: #0ea5e9;
+      --sky2: #38bdf8;
+      --sky3: #7dd3fc;
+      --sky4: #bae6fd;
+      --sky5: #e0f2fe;
+      --dark: #0369a1;
+      --darker: #0c4a6e;
+      --text: #0f2233;
+      --text2: #2a4a62;
+      --muted: #5a8aa8;
+      --muted2: #94b8cc;
+      --border: rgba(14, 165, 233, 0.18);
+      --border2: rgba(14, 165, 233, 0.1);
+      --card: #ffffff;
+      --shadow: 0 4px 30px rgba(14, 165, 233, 0.1);
+      --shadow2: 0 20px 60px rgba(14, 165, 233, 0.15);
+    }
 
-/* ── NAV ── */
-nav {
-  position:fixed; top:0; width:100%; z-index:900;
-  height:70px; padding:0 5vw;
-  display:flex; align-items:center; justify-content:space-between;
-  background:rgba(255,255,255,0.92);
-  backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--border);
-  box-shadow:0 2px 20px rgba(14,165,233,0.08);
-  transition:all .3s;
-}
-.logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-size:1.3rem; font-weight:800; letter-spacing:-.02em; }
-.logo-box { width:36px; height:36px; border-radius:9px; background:linear-gradient(135deg,var(--sky2),var(--dark)); display:flex; align-items:center; justify-content:center; box-shadow:0 0 18px rgba(14,165,233,0.45); animation:lp 3s ease-in-out infinite; }
-.logo-box svg { width:18px; height:18px; stroke:#fff; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
-@keyframes lp { 0%,100%{box-shadow:0 0 18px rgba(14,165,233,.45)} 50%{box-shadow:0 0 36px rgba(14,165,233,.85),0 0 60px rgba(56,189,248,.3)} }
-.nav-links { display:flex; list-style:none; gap:2.4rem; align-items:center; }
-.nav-links a { color:var(--text2); text-decoration:none; font-size:.88rem; font-weight:600; transition:color .2s; }
-.nav-links a:hover { color:var(--sky); }
-.nav-btn { background:linear-gradient(135deg,var(--sky2),var(--dark)) !important; color:#fff !important; padding:9px 24px !important; border-radius:8px; font-weight:700 !important; box-shadow:0 0 22px rgba(14,165,233,.35); transition:all .2s !important; }
-.nav-btn:hover { transform:translateY(-2px); box-shadow:0 0 40px rgba(14,165,233,.6) !important; color:#fff !important; }
-.hbg { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-.hbg span { width:24px; height:2px; background:var(--text); border-radius:2px; }
-.mob { display:none; position:fixed; inset:0; top:70px; background:rgba(255,255,255,.99); z-index:899; flex-direction:column; align-items:center; justify-content:center; gap:2rem; }
-.mob.show { display:flex; }
-.mob a { color:var(--text); font-size:1.4rem; font-weight:700; text-decoration:none; }
-.mob a:hover { color:var(--sky); }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
 
-/* ── HERO ── */
-#home {
-  min-height:100vh; position:relative; overflow:hidden;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  padding:130px 5vw 80px; text-align:center;
-  background:linear-gradient(180deg, #f0f7ff 0%, #e8f4fd 50%, #f0f7ff 100%);
-}
-.hero-glow { position:absolute; top:-60px; left:50%; transform:translateX(-50%); width:800px; height:500px; background:radial-gradient(ellipse,rgba(14,165,233,.12) 0%,transparent 65%); pointer-events:none; }
-.hero-dots { position:absolute; inset:0; background-image:radial-gradient(rgba(14,165,233,.12) 1px,transparent 1px); background-size:36px 36px; pointer-events:none; mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%); }
-.hero-inner { position:relative; z-index:1; width:100%; max-width:960px; }
-.tag-pill { display:inline-flex; align-items:center; gap:8px; background:rgba(14,165,233,.1); border:1px solid rgba(14,165,233,.25); border-radius:50px; padding:7px 20px; margin-bottom:28px; font-size:.77rem; font-weight:700; color:var(--dark); letter-spacing:.1em; text-transform:uppercase; }
-.tag-dot { width:7px; height:7px; border-radius:50%; background:var(--sky); box-shadow:0 0 8px var(--sky); animation:td 1.8s ease-in-out infinite; }
-@keyframes td { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
-h1 { font-size:clamp(2.4rem,5.5vw,4.6rem); font-weight:900; letter-spacing:-.04em; line-height:1.05; margin-bottom:24px; color:var(--text); }
-.sky-grad { background:linear-gradient(120deg,var(--sky) 0%,var(--dark) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.hero-p { font-size:clamp(.95rem,1.5vw,1.12rem); color:var(--muted); max-width:640px; margin:0 auto 44px; line-height:1.82; }
-.btn-row { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-.btn-solid { display:inline-flex; align-items:center; gap:9px; background:linear-gradient(135deg,var(--sky2),var(--dark)); color:#fff; font-family:'Outfit',sans-serif; font-weight:700; font-size:.95rem; padding:14px 32px; border-radius:11px; text-decoration:none; box-shadow:0 0 35px rgba(14,165,233,.4),0 6px 25px rgba(14,165,233,.25); transition:transform .2s,box-shadow .2s; }
-.btn-solid svg { width:17px; height:17px; stroke:currentColor; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
-.btn-solid:hover { transform:translateY(-3px); box-shadow:0 0 55px rgba(14,165,233,.6),0 12px 35px rgba(14,165,233,.35); }
-.btn-outline { display:inline-flex; align-items:center; gap:9px; border:2px solid rgba(14,165,233,.35); color:var(--dark); font-family:'Outfit',sans-serif; font-weight:600; font-size:.95rem; padding:14px 30px; border-radius:11px; text-decoration:none; transition:all .2s; background:rgba(14,165,233,.05); }
-.btn-outline:hover { border-color:var(--sky); background:rgba(14,165,233,.1); color:var(--sky); }
+    /* ”” NAV ”” */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 900;
+      height: 70px;
+      padding: 0 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 20px rgba(14, 165, 233, 0.08);
+      transition: all .3s;
+    }
 
-/* HERO IMAGE */
-.hero-img-wrap {
-  position:relative; margin-top:64px; width:100%; max-width:960px; margin-left:auto; margin-right:auto;
-  border-radius:22px; overflow:hidden;
-  border:1px solid rgba(14,165,233,.22);
-  box-shadow:0 40px 100px rgba(14,165,233,.2), 0 8px 30px rgba(14,165,233,.12);
-}
-.hero-img-wrap img { width:100%; height:480px; object-fit:cover; object-position:center 25%; display:block; }
-.hero-img-fade { position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%,rgba(240,247,255,.9) 100%); }
-.stats-bar {
-  position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
-  width:calc(100% - 60px); max-width:700px;
-  display:flex; background:rgba(255,255,255,.95); backdrop-filter:blur(22px);
-  border:1px solid rgba(14,165,233,.2); border-radius:14px; overflow:hidden;
-  box-shadow:0 8px 30px rgba(14,165,233,.15);
-}
-.sc { flex:1; padding:18px 16px; text-align:center; border-right:1px solid rgba(14,165,233,.15); }
-.sc:last-child { border-right:none; }
-.sc-n { font-size:1.6rem; font-weight:900; color:var(--sky); line-height:1; margin-bottom:5px; }
-.sc-l { font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.09em; font-weight:600; }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
 
-/* ── TRUST BAR ── */
-.trust-bar { position:relative; z-index:1; background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:20px 5vw; }
-.trust-row { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:3rem; flex-wrap:wrap; }
-.trust-i { display:flex; align-items:center; gap:9px; font-size:.83rem; font-weight:600; color:var(--text2); }
-.trust-i svg { width:16px; height:16px; stroke:var(--sky); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+    .logo-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--sky2), var(--dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 18px rgba(14, 165, 233, 0.45);
+      animation: lp 3s ease-in-out infinite;
+    }
 
-/* ── SECTIONS ── */
-.sec { position:relative; z-index:1; padding:100px 5vw; }
-.sec-alt { background:var(--bg); }
-.sec-white { background:var(--white); }
-.sec-tag { display:inline-block; background:rgba(14,165,233,.1); border:1px solid rgba(14,165,233,.25); color:var(--dark); font-size:.71rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:5px 16px; border-radius:50px; margin-bottom:18px; }
-h2 { font-size:clamp(1.85rem,3.2vw,2.75rem); font-weight:800; letter-spacing:-.025em; line-height:1.13; margin-bottom:16px; color:var(--text); }
-.lead { color:var(--muted); max-width:580px; font-size:1rem; line-height:1.78; }
-.center { text-align:center; }
-.center .lead { margin:0 auto; }
-.divider { position:relative; z-index:1; width:100%; max-width:1180px; margin:0 auto; height:1px; background:linear-gradient(90deg,transparent,rgba(14,165,233,.2),transparent); }
+    .logo-box svg {
+      width: 18px;
+      height: 18px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
-/* ── ABOUT ── */
-.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; max-width:1160px; margin:0 auto; }
-.about-img-box {
-  border-radius:20px; overflow:hidden; position:relative;
-  border:1px solid rgba(14,165,233,.2);
-  box-shadow:0 20px 70px rgba(14,165,233,.18);
-}
-.about-img-box img { width:100%; height:460px; object-fit:cover; display:block; transition:transform .5s,filter .3s; }
-.about-img-box:hover img { transform:scale(1.03); }
-.about-img-box::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(14,165,233,.06) 0%,transparent 55%); pointer-events:none; }
-.about-text h2 { text-align:left; }
-.about-text .sec-tag { display:inline-block; }
-.about-p { color:var(--muted); font-size:.96rem; line-height:1.82; margin-bottom:20px; }
-.founder-box {
-  display:flex; align-items:center; gap:16px;
-  background:var(--sky5); border:1px solid rgba(14,165,233,.25);
-  border-radius:14px; padding:18px 22px; margin:26px 0 24px;
-  box-shadow:0 4px 20px rgba(14,165,233,.1);
-}
-.f-av { width:52px; height:52px; border-radius:50%; flex-shrink:0; background:linear-gradient(135deg,var(--sky2),var(--dark)); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.05rem; color:#fff; box-shadow:0 0 18px rgba(14,165,233,.35); }
-.f-name { font-weight:700; font-size:1rem; color:var(--text); margin-bottom:4px; }
-.f-role { color:var(--muted); font-size:.78rem; line-height:1.5; }
-.skills-wrap { display:flex; flex-wrap:wrap; gap:9px; }
-.sk { font-size:.76rem; font-weight:600; background:rgba(14,165,233,.08); border:1px solid rgba(14,165,233,.2); color:var(--dark); padding:5px 14px; border-radius:50px; transition:all .2s; }
-.sk:hover { background:rgba(14,165,233,.15); border-color:var(--sky); }
+    @keyframes lp {
 
-/* ── SERVICES ── */
-.svc-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:1160px; margin:0 auto; }
-.svc-card {
-  background:var(--white); border:1px solid var(--border);
-  border-radius:18px; overflow:hidden;
-  box-shadow:var(--shadow);
-  transition:transform .3s, box-shadow .3s, border-color .3s;
-}
-.svc-card:hover { transform:translateY(-6px); box-shadow:0 24px 65px rgba(14,165,233,.2); border-color:rgba(14,165,233,.35); }
-.svc-img { position:relative; height:230px; overflow:hidden; }
-.svc-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; }
-.svc-card:hover .svc-img img { transform:scale(1.05); }
-.svc-fade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(14,165,233,.04) 0%,rgba(255,255,255,.5) 100%); }
-.svc-badge { position:absolute; top:14px; left:14px; background:rgba(255,255,255,.92); backdrop-filter:blur(10px); border:1px solid rgba(14,165,233,.25); color:var(--dark); font-size:.67rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:5px 13px; border-radius:50px; }
-.svc-ico { position:absolute; bottom:14px; right:14px; width:40px; height:40px; border-radius:10px; background:rgba(14,165,233,.15); border:1px solid rgba(14,165,233,.3); backdrop-filter:blur(10px); display:flex; align-items:center; justify-content:center; }
-.svc-ico svg { width:18px; height:18px; stroke:var(--sky); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.svc-body { padding:26px 24px 24px; }
-.svc-body h3 { font-size:1.08rem; font-weight:700; line-height:1.3; margin-bottom:10px; color:var(--text); }
-.svc-body p { color:var(--muted); font-size:.86rem; line-height:1.75; margin-bottom:16px; }
-.pills { display:flex; flex-wrap:wrap; gap:7px; }
-.pill { font-size:.71rem; font-weight:600; background:rgba(14,165,233,.08); border:1px solid rgba(14,165,233,.2); color:var(--dark); padding:4px 12px; border-radius:50px; }
-.svc-actions { margin-top:16px; display:flex; gap:10px; align-items:center; }
-.svc-link {
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:.78rem; font-weight:700; color:var(--dark);
-  text-decoration:none; background:rgba(14,165,233,.08);
-  border:1px solid rgba(14,165,233,.22); padding:7px 14px;
-  border-radius:9px; transition:all .2s;
-}
-.svc-link:hover { background:rgba(14,165,233,.15); border-color:var(--sky); color:var(--sky); }
+      0%,
+      100% {
+        box-shadow: 0 0 18px rgba(14, 165, 233, .45)
+      }
 
-/* ── SECURITY ── */
-.sec-banner {
-  max-width:1160px; margin:0 auto 46px; border-radius:20px; overflow:hidden;
-  position:relative; height:240px; border:1px solid rgba(14,165,233,.2);
-  box-shadow:0 20px 60px rgba(14,165,233,.15);
-}
-.sec-banner img { width:100%; height:100%; object-fit:cover; display:block; }
-.sec-banner-ov {
-  position:absolute; inset:0;
-  background:linear-gradient(90deg,rgba(2,11,24,.92) 0%,rgba(2,11,24,.6) 60%,rgba(2,11,24,.8) 100%);
-  display:flex; align-items:center; padding:0 52px; gap:22px;
-}
-.sec-banner-ico { width:52px; height:52px; border-radius:14px; flex-shrink:0; background:rgba(56,189,248,.18); border:1px solid rgba(56,189,248,.35); display:flex; align-items:center; justify-content:center; }
-.sec-banner-ico svg { width:24px; height:24px; stroke:#38bdf8; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.sec-banner-ov h3 { font-size:1.65rem; font-weight:800; color:#fff; margin-bottom:7px; }
-.sec-banner-ov p { color:rgba(255,255,255,.7); font-size:.89rem; max-width:480px; line-height:1.7; }
-.sec-cards { display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:1160px; margin:0 auto; }
-.sec-card {
-  background:var(--white); border:1px solid var(--border);
-  border-radius:16px; padding:28px; display:flex; gap:18px; align-items:flex-start;
-  box-shadow:var(--shadow); transition:transform .3s, box-shadow .3s, border-color .3s;
-}
-.sec-card:hover { transform:translateY(-3px); box-shadow:0 16px 45px rgba(14,165,233,.18); border-color:rgba(14,165,233,.35); }
-.sec-ico { width:46px; height:46px; flex-shrink:0; border-radius:12px; background:rgba(14,165,233,.1); border:1px solid rgba(14,165,233,.2); display:flex; align-items:center; justify-content:center; }
-.sec-ico svg { width:20px; height:20px; stroke:var(--sky); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.sec-card h4 { font-weight:700; font-size:.96rem; margin-bottom:8px; color:var(--text); }
-.sec-card p { color:var(--muted); font-size:.83rem; line-height:1.72; }
+      50% {
+        box-shadow: 0 0 36px rgba(14, 165, 233, .85), 0 0 60px rgba(56, 189, 248, .3)
+      }
+    }
 
-/* ── TECH ── */
-.tech-chips { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; max-width:860px; margin:0 auto; }
-.tc { background:var(--white); border:1px solid var(--border); border-radius:10px; padding:10px 22px; font-size:.87rem; font-weight:500; color:var(--text2); cursor:default; transition:all .22s; box-shadow:0 2px 12px rgba(14,165,233,.07); }
-.tc:hover { background:rgba(14,165,233,.08); border-color:rgba(14,165,233,.4); color:var(--sky); transform:translateY(-2px); box-shadow:0 6px 20px rgba(14,165,233,.15); }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.4rem;
+      align-items: center;
+    }
 
-/* ── TEAM ── */
-.team-center { display:flex; justify-content:center; }
-.team-card {
-  background:var(--white); border:1px solid var(--border);
-  border-radius:22px; padding:48px 42px; text-align:center;
-  max-width:420px; width:100%; position:relative; overflow:hidden;
-  box-shadow:var(--shadow2); transition:transform .3s, box-shadow .3s;
-}
-.team-card::before { content:''; position:absolute; top:-60px; left:50%; transform:translateX(-50%); width:280px; height:280px; border-radius:50%; background:radial-gradient(circle,rgba(14,165,233,.07) 0%,transparent 70%); pointer-events:none; }
-.team-card:hover { transform:translateY(-6px); box-shadow:0 30px 80px rgba(14,165,233,.2); }
-.av-wrap { position:relative; width:96px; height:96px; margin:0 auto 20px; }
-.av-ring { position:absolute; inset:-10px; border-radius:50%; border:2px solid rgba(14,165,233,.2); animation:rp 3s ease-in-out infinite; }
-@keyframes rp { 0%,100%{opacity:.3;transform:scale(1)} 50%{opacity:.8;transform:scale(1.06)} }
-.av { width:96px; height:96px; border-radius:50%; background:linear-gradient(135deg,var(--sky2),var(--dark)); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.7rem; color:#fff; border:3px solid rgba(14,165,233,.3); box-shadow:0 0 0 8px rgba(14,165,233,.08),0 0 30px rgba(14,165,233,.25); }
-.t-name { font-size:1.25rem; font-weight:800; margin-bottom:6px; color:var(--text); }
-.t-role { color:var(--sky); font-size:.84rem; font-weight:600; margin-bottom:14px; }
-.t-bio { color:var(--muted); font-size:.86rem; line-height:1.75; margin-bottom:22px; }
-.t-tags { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
-.tt { font-size:.72rem; font-weight:600; background:rgba(14,165,233,.08); border:1px solid rgba(14,165,233,.2); color:var(--dark); padding:5px 14px; border-radius:50px; }
+    .nav-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+      transition: color .2s;
+    }
 
-/* ── CONTACT ── */
-.contact-grid { display:grid; grid-template-columns:1fr 1.3fr; gap:64px; max-width:1100px; margin:0 auto; }
-.c-img { border-radius:16px; overflow:hidden; margin-bottom:28px; border:1px solid rgba(14,165,233,.2); box-shadow:0 16px 50px rgba(14,165,233,.15); }
-.c-img img { width:100%; height:200px; object-fit:cover; display:block; transition:transform .4s; }
-.c-img:hover img { transform:scale(1.03); }
-.c-left h3 { font-size:1.5rem; font-weight:800; margin-bottom:14px; color:var(--text); }
-.c-left p { color:var(--muted); font-size:.91rem; line-height:1.8; margin-bottom:28px; }
-.c-info { display:flex; gap:13px; align-items:flex-start; margin-bottom:16px; }
-.c-ico { width:40px; height:40px; flex-shrink:0; border-radius:10px; background:rgba(14,165,233,.1); border:1px solid rgba(14,165,233,.2); display:flex; align-items:center; justify-content:center; }
-.c-ico svg { width:17px; height:17px; stroke:var(--sky); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.c-lbl { font-size:.7rem; color:var(--muted2); text-transform:uppercase; letter-spacing:.09em; margin-bottom:3px; font-weight:600; }
-.c-val { font-size:.89rem; color:var(--text2); line-height:1.5; }
-.c-val a { color:var(--sky); text-decoration:none; }
-.form { display:flex; flex-direction:column; gap:14px; }
-.fr { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-.fg label { display:block; font-size:.76rem; font-weight:700; color:var(--text2); margin-bottom:6px; letter-spacing:.04em; }
-input,textarea,select { width:100%; background:var(--sky5); border:1.5px solid rgba(14,165,233,.2); border-radius:9px; padding:12px 15px; color:var(--text); font-family:'Outfit',sans-serif; font-size:.9rem; outline:none; transition:border-color .2s,box-shadow .2s; }
-input::placeholder,textarea::placeholder { color:var(--muted2); }
-input:focus,textarea:focus,select:focus { border-color:var(--sky); box-shadow:0 0 0 3px rgba(14,165,233,.12); background:var(--white); }
-textarea { min-height:115px; resize:vertical; }
-select option { background:var(--white); }
-.form-btn { background:linear-gradient(135deg,var(--sky2),var(--dark)); color:#fff; border:none; padding:15px; width:100%; border-radius:9px; font-family:'Outfit',sans-serif; font-weight:700; font-size:.95rem; cursor:pointer; box-shadow:0 0 26px rgba(14,165,233,.35); transition:transform .2s,box-shadow .2s,opacity .2s; }
-.form-btn:hover { transform:translateY(-2px); box-shadow:0 0 50px rgba(14,165,233,.55); }
+    .nav-links a:hover {
+      color: var(--sky);
+    }
 
-/* ── FOOTER ── */
-footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); padding:64px 5vw 36px; }
-.ft-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:54px; max-width:1160px; margin:0 auto; }
-.ft-logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff; font-size:1.25rem; font-weight:800; margin-bottom:14px; }
-.ft-logo .logo-box { box-shadow:0 0 14px rgba(56,189,248,.4); }
-.ft-brand p { color:rgba(255,255,255,.55); font-size:.85rem; line-height:1.78; margin-bottom:20px; max-width:300px; }
-.ft-badge { display:inline-flex; align-items:center; gap:7px; background:rgba(56,189,248,.1); border:1px solid rgba(56,189,248,.2); border-radius:8px; padding:7px 14px; font-size:.73rem; font-weight:600; color:var(--sky3); }
-.ft-badge svg { width:14px; height:14px; stroke:var(--sky2); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.ft-social { display:flex; gap:10px; margin-top:14px; }
-.ft-social a { width:36px; height:36px; border-radius:10px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.25); display:flex; align-items:center; justify-content:center; transition:transform .2s, background .2s, border-color .2s; }
-.ft-social a svg { width:16px; height:16px; stroke:var(--sky2); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.ft-social a:hover { transform:translateY(-2px); background:rgba(56,189,248,.22); border-color:rgba(56,189,248,.45); }
-.ft-col h4 { font-size:.88rem; font-weight:700; color:#fff; margin-bottom:18px; letter-spacing:.04em; }
-.ft-col ul { list-style:none; }
-.ft-col ul li { margin-bottom:10px; }
-.ft-col ul a { color:rgba(255,255,255,.5); text-decoration:none; font-size:.84rem; transition:color .2s; }
-.ft-col ul a:hover { color:var(--sky2); }
-.ft-bottom { max-width:1160px; margin:48px auto 0; padding-top:24px; border-top:1px solid rgba(56,189,248,.1); display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:14px; }
-.ft-bottom p { color:rgba(255,255,255,.35); font-size:.77rem; }
-.disc { max-width:520px; line-height:1.65; font-size:.73rem !important; color:rgba(255,255,255,.28) !important; }
+    .nav-btn {
+      background: linear-gradient(135deg, var(--sky2), var(--dark)) !important;
+      color: #fff !important;
+      padding: 9px 24px !important;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      box-shadow: 0 0 22px rgba(14, 165, 233, .35);
+      transition: all .2s !important;
+    }
 
-/* ── REVEAL ── */
-.rv { opacity:0; transform:translateY(26px); transition:opacity .65s ease,transform .65s ease; }
-.rv.in { opacity:1; transform:translateY(0); }
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(14, 165, 233, .6) !important;
+      color: #fff !important;
+    }
 
-/* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  .about-grid{grid-template-columns:1fr;gap:40px}
-  .about-img-box img{height:320px}
-  .svc-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .ft-grid{grid-template-columns:1fr 1fr}
-  .sec-cards{grid-template-columns:1fr}
-  .fr{grid-template-columns:1fr}
-  .stats-bar{position:static;transform:none;margin-top:16px;width:100%;border-radius:14px}
-}
-@media(max-width:768px){
-  .nav-links{display:none}
-  .hbg{display:flex}
-  .trust-row{gap:1.4rem;justify-content:flex-start}
-  .ft-grid{grid-template-columns:1fr;gap:32px}
-  .ft-bottom{flex-direction:column}
-  .sc{padding:14px 10px}
-  .sec-banner{height:auto}
-  .sec-banner-ov{flex-direction:column;padding:28px 24px;align-items:flex-start}
-}
-</style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://www.welltechai.co.uk/#org", "name": "WellTechAI", "url": "https://www.welltechai.co.uk/", "email": "info@welltechai.co.uk", "telephone": "+44 7377 692769", "sameAs": ["https://www.linkedin.com/", "https://www.facebook.com/", "https://www.instagram.com/"], "address": {"@type": "PostalAddress", "streetAddress": "167-169 Great Portland Street, 5th Floor", "addressLocality": "London", "postalCode": "W1W 5PF", "addressCountry": "UK"}}, {"@type": "WebSite", "name": "WellTechAI", "url": "https://www.welltechai.co.uk/", "publisher": {"@id": "https://www.welltechai.co.uk/#org"}}]}</script>
+    .hbg {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hbg span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+    }
+
+    .mob {
+      display: none;
+      position: fixed;
+      inset: 0;
+      top: 70px;
+      background: rgba(255, 255, 255, .99);
+      z-index: 899;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .mob.show {
+      display: flex;
+    }
+
+    .mob a {
+      color: var(--text);
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .mob a:hover {
+      color: var(--sky);
+    }
+
+    /* ”” HERO ”” */
+    #home {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 130px 5vw 80px;
+      text-align: center;
+      background: linear-gradient(180deg, #f0f7ff 0%, #e8f4fd 50%, #f0f7ff 100%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(14, 165, 233, .12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-dots {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(14, 165, 233, .12) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14, 165, 233, .1);
+      border: 1px solid rgba(14, 165, 233, .25);
+      border-radius: 50px;
+      padding: 7px 20px;
+      margin-bottom: 28px;
+      font-size: .77rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--sky);
+      box-shadow: 0 0 8px var(--sky);
+      animation: td 1.8s ease-in-out infinite;
+    }
+
+    @keyframes td {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .4;
+        transform: scale(1.4)
+      }
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    .sky-grad {
+      background: linear-gradient(120deg, var(--sky) 0%, var(--dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-p {
+      font-size: clamp(.95rem, 1.5vw, 1.12rem);
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto 44px;
+      line-height: 1.82;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: linear-gradient(135deg, var(--sky2), var(--dark));
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      padding: 14px 32px;
+      border-radius: 11px;
+      text-decoration: none;
+      box-shadow: 0 0 35px rgba(14, 165, 233, .4), 0 6px 25px rgba(14, 165, 233, .25);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn-solid svg {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .btn-solid:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 55px rgba(14, 165, 233, .6), 0 12px 35px rgba(14, 165, 233, .35);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 2px solid rgba(14, 165, 233, .35);
+      color: var(--dark);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: .95rem;
+      padding: 14px 30px;
+      border-radius: 11px;
+      text-decoration: none;
+      transition: all .2s;
+      background: rgba(14, 165, 233, .05);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--sky);
+      background: rgba(14, 165, 233, .1);
+      color: var(--sky);
+    }
+
+    /* HERO IMAGE */
+    .hero-img-wrap {
+      position: relative;
+      margin-top: 64px;
+      width: 100%;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(14, 165, 233, .22);
+      box-shadow: 0 40px 100px rgba(14, 165, 233, .2), 0 8px 30px rgba(14, 165, 233, .12);
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+    }
+
+    .hero-img-fade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(240, 247, 255, .9) 100%);
+    }
+
+    .stats-bar {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 60px);
+      max-width: 700px;
+      display: flex;
+      background: rgba(255, 255, 255, .95);
+      backdrop-filter: blur(22px);
+      border: 1px solid rgba(14, 165, 233, .2);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(14, 165, 233, .15);
+    }
+
+    .sc {
+      flex: 1;
+      padding: 18px 16px;
+      text-align: center;
+      border-right: 1px solid rgba(14, 165, 233, .15);
+    }
+
+    .sc:last-child {
+      border-right: none;
+    }
+
+    .sc-n {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--sky);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .sc-l {
+      font-size: .7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      font-weight: 600;
+    }
+
+    /* ”” TRUST BAR ”” */
+    .trust-bar {
+      position: relative;
+      z-index: 1;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 5vw;
+    }
+
+    .trust-row {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-i {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: .83rem;
+      font-weight: 600;
+      color: var(--text2);
+    }
+
+    .trust-i svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--sky);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* ”” SECTIONS ”” */
+    .sec {
+      position: relative;
+      z-index: 1;
+      padding: 100px 5vw;
+    }
+
+    .sec-alt {
+      background: var(--bg);
+    }
+
+    .sec-white {
+      background: var(--white);
+    }
+
+    .sec-tag {
+      display: inline-block;
+      background: rgba(14, 165, 233, .1);
+      border: 1px solid rgba(14, 165, 233, .25);
+      color: var(--dark);
+      font-size: .71rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -.025em;
+      line-height: 1.13;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 580px;
+      font-size: 1rem;
+      line-height: 1.78;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .center .lead {
+      margin: 0 auto;
+    }
+
+    .divider {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(14, 165, 233, .2), transparent);
+    }
+
+    /* ”” ABOUT ”” */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .about-img-box {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(14, 165, 233, .2);
+      box-shadow: 0 20px 70px rgba(14, 165, 233, .18);
+    }
+
+    .about-img-box img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s, filter .3s;
+    }
+
+    .about-img-box:hover img {
+      transform: scale(1.03);
+    }
+
+    .about-img-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(14, 165, 233, .06) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .about-text h2 {
+      text-align: left;
+    }
+
+    .about-text .sec-tag {
+      display: inline-block;
+    }
+
+    .about-p {
+      color: var(--muted);
+      font-size: .96rem;
+      line-height: 1.82;
+      margin-bottom: 20px;
+    }
+
+    .founder-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--sky5);
+      border: 1px solid rgba(14, 165, 233, .25);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin: 26px 0 24px;
+      box-shadow: 0 4px 20px rgba(14, 165, 233, .1);
+    }
+
+    .f-av {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--sky2), var(--dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #fff;
+      box-shadow: 0 0 18px rgba(14, 165, 233, .35);
+    }
+
+    .f-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .f-role {
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.5;
+    }
+
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .sk {
+      font-size: .76rem;
+      font-weight: 600;
+      background: rgba(14, 165, 233, .08);
+      border: 1px solid rgba(14, 165, 233, .2);
+      color: var(--dark);
+      padding: 5px 14px;
+      border-radius: 50px;
+      transition: all .2s;
+    }
+
+    .sk:hover {
+      background: rgba(14, 165, 233, .15);
+      border-color: var(--sky);
+    }
+
+    /* ”” SERVICES ”” */
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 1160px;
+      margin: 0 auto;
+      justify-items: center;
+    }
+
+    .svc-card {
+      display: block;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      width: 100%;
+      max-width: 360px;
+      position: relative;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .svc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 65px rgba(14, 165, 233, .2);
+      border-color: rgba(14, 165, 233, .35);
+    }
+
+    .svc-card::after {
+      content: attr(data-number);
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: rgba(12, 74, 110, .18);
+      text-shadow: 0 4px 18px rgba(12, 74, 110, .18);
+      pointer-events: none;
+    }
+
+    .svc-img {
+      position: relative;
+      height: 190px;
+      overflow: hidden;
+    }
+
+    .svc-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s;
+    }
+
+    .svc-card:hover .svc-img img {
+      transform: scale(1.05);
+    }
+
+    .svc-fade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(14, 165, 233, .04) 0%, rgba(255, 255, 255, .65) 100%);
+    }
+
+    .svc-badge {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(14, 165, 233, .22);
+      color: var(--dark);
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 50px;
+    }
+
+    .svc-ico {
+      display: none;
+    }
+
+    .svc-body {
+      padding: 20px 20px 22px;
+    }
+
+    .svc-body h3 {
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .svc-body p {
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .svc-divider {
+      height: 1px;
+      background: rgba(14, 165, 233, .12);
+      margin: 14px 0 16px;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .pill {
+      font-size: .68rem;
+      font-weight: 600;
+      background: rgba(14, 165, 233, .08);
+      border: 1px solid rgba(14, 165, 233, .18);
+      color: var(--dark);
+      padding: 4px 11px;
+      border-radius: 50px;
+    }
+
+    .svc-actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .svc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+      background: transparent;
+      border: none;
+      padding: 0;
+      transition: color .2s, transform .2s;
+    }
+
+    .svc-link:hover {
+      color: var(--sky);
+      transform: translateX(2px);
+    }
+
+    .svc-more {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .svc-more .btn-outline {
+      padding: 10px 22px;
+      font-size: .85rem;
+    }
+
+    /* ”” SECURITY ”” */
+    .sec-banner {
+      max-width: 1160px;
+      margin: 0 auto 46px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      height: 240px;
+      border: 1px solid rgba(14, 165, 233, .2);
+      box-shadow: 0 20px 60px rgba(14, 165, 233, .15);
+    }
+
+    .sec-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sec-banner-ov {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(2, 11, 24, .92) 0%, rgba(2, 11, 24, .6) 60%, rgba(2, 11, 24, .8) 100%);
+      display: flex;
+      align-items: center;
+      padding: 0 52px;
+      gap: 22px;
+    }
+
+    .sec-banner-ico {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      flex-shrink: 0;
+      background: rgba(56, 189, 248, .18);
+      border: 1px solid rgba(56, 189, 248, .35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sec-banner-ico svg {
+      width: 24px;
+      height: 24px;
+      stroke: #38bdf8;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .sec-banner-ov h3 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 7px;
+    }
+
+    .sec-banner-ov p {
+      color: rgba(255, 255, 255, .7);
+      font-size: .89rem;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .sec-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .sec-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      box-shadow: var(--shadow);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+    }
+
+    .sec-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 45px rgba(14, 165, 233, .18);
+      border-color: rgba(14, 165, 233, .35);
+    }
+
+    .sec-ico {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: rgba(14, 165, 233, .1);
+      border: 1px solid rgba(14, 165, 233, .2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sec-ico svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--sky);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .sec-card h4 {
+      font-weight: 700;
+      font-size: .96rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .sec-card p {
+      color: var(--muted);
+      font-size: .83rem;
+      line-height: 1.72;
+    }
+
+    /* ”” TECH ”” */
+    .tech-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .tc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 22px;
+      font-size: .87rem;
+      font-weight: 500;
+      color: var(--text2);
+      cursor: default;
+      transition: all .22s;
+      box-shadow: 0 2px 12px rgba(14, 165, 233, .07);
+    }
+
+    .tc:hover {
+      background: rgba(14, 165, 233, .08);
+      border-color: rgba(14, 165, 233, .4);
+      color: var(--sky);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(14, 165, 233, .15);
+    }
+
+    /* ”” TEAM ”” */
+    .team-center {
+      display: flex;
+      justify-content: center;
+    }
+
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 48px 42px;
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow2);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14, 165, 233, .07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 80px rgba(14, 165, 233, .2);
+    }
+
+    .av-wrap {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 20px;
+    }
+
+    .av-ring {
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      border: 2px solid rgba(14, 165, 233, .2);
+      animation: rp 3s ease-in-out infinite;
+    }
+
+    @keyframes rp {
+
+      0%,
+      100% {
+        opacity: .3;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .8;
+        transform: scale(1.06)
+      }
+    }
+
+    .av {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sky2), var(--dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.7rem;
+      color: #fff;
+      border: 3px solid rgba(14, 165, 233, .3);
+      box-shadow: 0 0 0 8px rgba(14, 165, 233, .08), 0 0 30px rgba(14, 165, 233, .25);
+    }
+
+    .t-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .t-role {
+      color: var(--sky);
+      font-size: .84rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .t-bio {
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.75;
+      margin-bottom: 22px;
+    }
+
+    .t-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .tt {
+      font-size: .72rem;
+      font-weight: 600;
+      background: rgba(14, 165, 233, .08);
+      border: 1px solid rgba(14, 165, 233, .2);
+      color: var(--dark);
+      padding: 5px 14px;
+      border-radius: 50px;
+    }
+
+    /* ”” CONTACT ”” */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .c-img {
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      border: 1px solid rgba(14, 165, 233, .2);
+      box-shadow: 0 16px 50px rgba(14, 165, 233, .15);
+    }
+
+    .c-img img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s;
+    }
+
+    .c-img:hover img {
+      transform: scale(1.03);
+    }
+
+    .c-left h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .c-left p {
+      color: var(--muted);
+      font-size: .91rem;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .c-info {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .c-ico {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: rgba(14, 165, 233, .1);
+      border: 1px solid rgba(14, 165, 233, .2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .c-ico svg {
+      width: 17px;
+      height: 17px;
+      stroke: var(--sky);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .c-lbl {
+      font-size: .7rem;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      margin-bottom: 3px;
+      font-weight: 600;
+    }
+
+    .c-val {
+      font-size: .89rem;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+
+    .c-val a {
+      color: var(--sky);
+      text-decoration: none;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .fr {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .fg label {
+      display: block;
+      font-size: .76rem;
+      font-weight: 700;
+      color: var(--text2);
+      margin-bottom: 6px;
+      letter-spacing: .04em;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      background: var(--sky5);
+      border: 1.5px solid rgba(14, 165, 233, .2);
+      border-radius: 9px;
+      padding: 12px 15px;
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-size: .9rem;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--muted2);
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--sky);
+      box-shadow: 0 0 0 3px rgba(14, 165, 233, .12);
+      background: var(--white);
+    }
+
+    textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    select option {
+      background: var(--white);
+    }
+
+    .form-btn {
+      background: linear-gradient(135deg, var(--sky2), var(--dark));
+      color: #fff;
+      border: none;
+      padding: 15px;
+      width: 100%;
+      border-radius: 9px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      box-shadow: 0 0 26px rgba(14, 165, 233, .35);
+      transition: transform .2s, box-shadow .2s, opacity .2s;
+    }
+
+    .form-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(14, 165, 233, .55);
+    }
+
+    /* ”” FOOTER ”” */
+    footer {
+      background: var(--darker);
+      border-top: 1px solid rgba(56, 189, 248, .15);
+      padding: 64px 5vw 36px;
+    }
+
+    .ft-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 1.35fr) minmax(150px, .75fr) minmax(320px, 1.1fr);
+      align-items: start;
+      gap: 40px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .ft-brand {
+      max-width: 360px;
+    }
+
+    .ft-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .ft-logo .logo-box {
+      box-shadow: 0 0 14px rgba(56, 189, 248, .4);
+    }
+
+    .ft-brand p {
+      color: rgba(255, 255, 255, .55);
+      font-size: .85rem;
+      line-height: 1.78;
+      margin-bottom: 20px;
+      max-width: 300px;
+    }
+
+    .ft-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(56, 189, 248, .1);
+      border: 1px solid rgba(56, 189, 248, .2);
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: .73rem;
+      font-weight: 600;
+      color: var(--sky3);
+    }
+
+    .ft-badge svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--sky2);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ft-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .ft-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, .12);
+      border: 1px solid rgba(56, 189, 248, .25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s, background .2s, border-color .2s;
+    }
+
+    .ft-social a svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--sky2);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ft-social a:hover {
+      transform: translateY(-2px);
+      background: rgba(56, 189, 248, .22);
+      border-color: rgba(56, 189, 248, .45);
+    }
+
+    .ft-col h4 {
+      font-size: .88rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+      letter-spacing: .04em;
+    }
+
+    .ft-col ul {
+      list-style: none;
+    }
+
+    .ft-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .ft-col ul a {
+      display: inline-block;
+      color: rgba(255, 255, 255, .5);
+      text-decoration: none;
+      font-size: .84rem;
+      line-height: 1.65;
+      transition: color .2s;
+    }
+
+    .ft-col:last-child {
+      max-width: 380px;
+      justify-self: start;
+    }
+
+    .ft-col ul a:hover {
+      color: var(--sky2);
+    }
+
+    .ft-bottom {
+      max-width: 1160px;
+      margin: 48px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(56, 189, 248, .1);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .ft-bottom p {
+      color: rgba(255, 255, 255, .35);
+      font-size: .77rem;
+    }
+
+    .disc {
+      max-width: 520px;
+      line-height: 1.65;
+      font-size: .73rem !important;
+      color: rgba(255, 255, 255, .28) !important;
+    }
+
+    /* ”” REVEAL ”” */
+    .rv {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ”” RESPONSIVE ”” */
+    @media(max-width:1024px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
+
+      .about-img-box img {
+        height: 320px
+      }
+
+      .svc-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr
+      }
+
+      .ft-grid {
+        grid-template-columns: minmax(240px, 1fr) minmax(240px, 1fr);
+        gap: 32px
+      }
+
+      .ft-brand {
+        grid-column: 1 / -1;
+        max-width: 420px;
+      }
+
+      .sec-cards {
+        grid-template-columns: 1fr
+      }
+
+      .fr {
+        grid-template-columns: 1fr
+      }
+
+      .stats-bar {
+        position: static;
+        transform: none;
+        margin-top: 16px;
+        width: 100%;
+        border-radius: 14px
+      }
+    }
+
+    @media(max-width:768px) {
+      .nav-links {
+        display: none
+      }
+
+      .hbg {
+        display: flex
+      }
+
+      .trust-row {
+        gap: 1.4rem;
+        justify-content: flex-start
+      }
+
+      .svc-grid {
+        grid-template-columns: 1fr
+      }
+
+      .ft-grid {
+        grid-template-columns: 1fr;
+        gap: 32px
+      }
+
+      .ft-brand,
+      .ft-col:last-child {
+        max-width: none;
+      }
+
+      .ft-bottom {
+        flex-direction: column
+      }
+
+      .sc {
+        padding: 14px 10px
+      }
+
+      .sec-banner {
+        height: auto
+      }
+
+      .sec-banner-ov {
+        flex-direction: column;
+        padding: 28px 24px;
+        align-items: flex-start
+      }
+    }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.welltechai.co.uk/#org","name":"WellTechAI CIC","url":"https://www.welltechai.co.uk/","description":"AI-powered health and wellness digital bot services for mental health, prevention, behaviour change, and pathway support.","email":"info@welltechai.co.uk","telephone":"+44 7377 692769","sameAs":["https://www.linkedin.com/","https://www.facebook.com/","https://www.instagram.com/"],"address":{"@type":"PostalAddress","streetAddress":"167-169 Great Portland Street, 5th Floor","addressLocality":"London","postalCode":"W1W 5PF","addressCountry":"UK"}},{"@type":"WebSite","@id":"https://www.welltechai.co.uk/#website","name":"WellTechAI CIC","url":"https://www.welltechai.co.uk/","description":"AI-powered health and wellness digital bot services for mental health, prevention, behaviour change, and pathway support across the UK, USA, and UAE.","publisher":{"@id":"https://www.welltechai.co.uk/#org"},"inLanguage":"en-GB"}]}</script>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav id="mainNav">
-  <a href="#home" class="logo">
-    <div class="logo-box">
-      <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a href="#home" class="logo">
+      <div class="logo-box">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+        </svg>
+      </div>
+      WellTechAI CIC
+    </a>
+    <ul class="nav-links">
+      <li><a href="about-us.html">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="#contact" class="nav-btn">Request Pilot</a></li>
+    </ul>
+    <div class="hbg" onclick="document.getElementById('mm').classList.toggle('show')">
+      <span></span><span></span><span></span>
     </div>
-    WellTechAI
-  </a>
-  <ul class="nav-links">
-    <li><a href="about-us.html">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#security">Security</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-    <li><a href="#contact" class="nav-btn">Request Pilot</a></li>
-  </ul>
-  <div class="hbg" onclick="document.getElementById('mm').classList.toggle('show')">
-    <span></span><span></span><span></span>
-  </div>
-  <!-- test -->
-</nav>
-<div class="mob" id="mm">
-  <a href="about-us.html"    onclick="this.closest('.mob').classList.remove('show')">About</a>
-  <a href="#services" onclick="this.closest('.mob').classList.remove('show')">Services</a>
-  <a href="#security" onclick="this.closest('.mob').classList.remove('show')">Security</a>
-  <a href="privacy-policy.html" onclick="this.closest('.mob').classList.remove('show')">Privacy Policy</a>
-  <a href="#contact"  onclick="this.closest('.mob').classList.remove('show')" style="color:var(--sky)">Request Pilot →</a>
-</div>
-
-<!-- HERO -->
-<section id="home">
-  <div class="hero-glow"></div>
-  <div class="hero-dots"></div>
-  <div class="hero-inner">
-    <div class="tag-pill"><div class="tag-dot"></div>UK Digital Health · Behavioral AI</div>
-    <h1>The Future of <span class="sky-grad">Behavioral Health</span> Transformation.</h1>
-    <p class="hero-p">Harnessing clinical data analytics and conversational AI to solve complex health challenges in Smoking Cessation, Weight Management, and Addiction Recovery.</p>
-    <div class="btn-row">
-      <a href="#contact" class="btn-solid">
-        Request a Pilot Program
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    <!-- test -->
+  </nav>
+  <div class="mob" id="mm">
+    <a href="about-us.html" onclick="this.closest('.mob').classList.remove('show')">About</a>
+    <a href="#services" onclick="this.closest('.mob').classList.remove('show')">Services</a>
+    <a href="#security" onclick="this.closest('.mob').classList.remove('show')">Security</a>
+    <a href="privacy-policy.html" onclick="this.closest('.mob').classList.remove('show')">Privacy Policy</a>
+    <a href="#contact" onclick="this.closest('.mob').classList.remove('show')" style="color:var(--sky)">Request Pilot
       </a>
-      <a href="#services" class="btn-outline">Explore Services</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-glow"></div>
+    <div class="hero-dots"></div>
+    <div class="hero-inner">
+      <div class="tag-pill">
+        <div class="tag-dot"></div>UK Digital Health · Behavioral AI
+      </div>
+      <h1>The Future of <span class="sky-grad">Behavioral Health</span> Transformation.</h1>
+      <p class="hero-p">Harnessing clinical data analytics and conversational AI to solve complex health challenges in
+        Smoking Cessation, Weight Management, and Addiction Recovery.</p>
+      <div class="btn-row">
+        <a href="#contact" class="btn-solid">
+          Request a Pilot Program
+          <svg viewBox="0 0 24 24">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+        <a href="#services" class="btn-outline">Explore Services</a>
+      </div>
+
+      <!-- Futuristic AI holographic image - woman with digital health interface -->
+      <div class="hero-img-wrap rv">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=90"
+          alt="Behavioral health AI interface for NHS clinical analytics"
+          onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=90'">
+        <div class="hero-img-fade"></div>
+        <div class="stats-bar">
+          <div class="sc">
+            <div class="sc-n">3+</div>
+            <div class="sc-l">Years UK Health</div>
+          </div>
+          <div class="sc">
+            <div class="sc-n">4</div>
+            <div class="sc-l">AI Specialisms</div>
+          </div>
+          <div class="sc">
+            <div class="sc-n">100%</div>
+            <div class="sc-l">UK GDPR Compliant</div>
+          </div>
+          <div class="sc">
+            <div class="sc-n">E2E</div>
+            <div class="sc-l">Encrypted</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Futuristic AI holographic image - woman with digital health interface -->
-    <div class="hero-img-wrap rv">
-      <img loading="lazy"
-        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=90"
-        alt="Behavioral health AI interface for NHS clinical analytics"
-        onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=90'">
-      <div class="hero-img-fade"></div>
-      <div class="stats-bar">
-        <div class="sc"><div class="sc-n">3+</div><div class="sc-l">Years UK Health</div></div>
-        <div class="sc"><div class="sc-n">4</div><div class="sc-l">AI Specialisms</div></div>
-        <div class="sc"><div class="sc-n">100%</div><div class="sc-l">UK GDPR Compliant</div></div>
-        <div class="sc"><div class="sc-n">E2E</div><div class="sc-l">Encrypted</div></div>
+    
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-row">
+      <div class="trust-i">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+        UK GDPR Compliant
+      </div>
+      <div class="trust-i">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="11" width="18" height="11" rx="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+        End-to-End Encrypted
+      </div>
+      <div class="trust-i">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+        </svg>
+        DCB0129 Clinical Safety
+      </div>
+      <div class="trust-i">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="2" y1="12" x2="22" y2="12" />
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
+        UK Data Residency
+      </div>
+      <div class="trust-i">
+        <svg viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+        NHS-Compatible
       </div>
     </div>
   </div>
-</section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-row">
-    <div class="trust-i">
-      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      UK GDPR Compliant
+  <!-- ABOUT -->
+  <section id="about" class="sec sec-white">
+    <div class="about-grid">
+      <!-- Futuristic person interacting with glowing holographic AI interface -->
+      <div class="about-img-box rv">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=900&q=90"
+          alt="Digital health AI interface for NHS behavioral health"
+          onerror="this.src='https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=900&q=90'">
+      </div>
+      <div class="about-text rv">
+        <div class="sec-tag">About WellTechAI CIC</div>
+        <h2>Where Public Health Science Meets Data Analytics</h2>
+        <p class="about-p">WellTechAI CIC was founded to address a critical gap in the UK health technology landscape the
+          absence of solutions that are both clinically credible and technically advanced.</p>
+        <p class="about-p">With deep roots in the UK health sector and formal expertise in Public Health and Data
+          Analytics, we build AI tools that genuinely understand the behavioral science behind health change not just
+          the technology powering it.</p>
+        <div class="founder-box">
+          <div class="f-av">MA</div>
+          <div>
+            <div class="f-name">Muhammad Abid</div>
+            <div class="f-role">Director & Founder · MSc Public Health & Data Analytics · 3+ Years UK Health Sector
+            </div>
+          </div>
+        </div>
+        <div class="skills-wrap">
+          <span class="sk">Public Health Science</span>
+          <span class="sk">Behavioral Analytics</span>
+          <span class="sk">Clinical Data Strategy</span>
+          <span class="sk">AI & Machine Learning</span>
+          <span class="sk">NHS Digital Ecosystem</span>
+          <span class="sk">Digital Transformation</span>
+          <span class="sk">Health Data Governance</span>
+          <span class="sk">Population Health</span>
+        </div>
+      </div>
     </div>
-    <div class="trust-i">
-      <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      End-to-End Encrypted
-    </div>
-    <div class="trust-i">
-      <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-      DCB0129 Clinical Safety
-    </div>
-    <div class="trust-i">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-      UK Data Residency
-    </div>
-    <div class="trust-i">
-      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      NHS-Compatible
-    </div>
-  </div>
-</div>
+  </section>
 
-<!-- ABOUT -->
-<section id="about" class="sec sec-white">
-  <div class="about-grid">
-    <!-- Futuristic person interacting with glowing holographic AI interface -->
-    <div class="about-img-box rv">
-      <img loading="lazy"
-        src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=900&q=90"
-        alt="Digital health AI interface for NHS behavioral health"
-        onerror="this.src='https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=900&q=90'">
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <section id="services" class="sec sec-alt">
+    <div class="center" style="margin-bottom:58px;">
+      <div class="sec-tag">Our Services</div>
+      <h2>AI-Powered Behavioral Health Solutions</h2>
+      <p class="lead">Purpose-built for the UK health ecosystem clinically informed, technically excellent.</p>
     </div>
-    <div class="about-text rv">
-      <div class="sec-tag">About WellTechAI</div>
-      <h2>Where Public Health Science Meets Data Analytics</h2>
-      <p class="about-p">WellTechAI was founded to address a critical gap in the UK health technology landscape  the absence of solutions that are both clinically credible and technically advanced.</p>
-      <p class="about-p">With deep roots in the UK health sector and formal expertise in Public Health and Data Analytics, we build AI tools that genuinely understand the behavioral science behind health change  not just the technology powering it.</p>
-      <div class="founder-box">
-        <div class="f-av">MA</div>
+    <div class="svc-grid">
+      <a class="svc-card rv" data-number="01" href="/services/service-mental-health-crisis-support.html">
+        <div class="svc-img">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=800&q=85"
+            alt="Mental health crisis support chatbot for institutions and public services"
+            onerror="this.src='https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80'">
+          <div class="svc-fade"></div>
+          <div class="svc-badge">Service 01</div>
+          <div class="svc-ico">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+        </div>
+        <div class="svc-body">
+          <h3>Mental Health Crisis Support Bot</h3>
+          <p>Immediate digital mental health triage, guided self-help, and crisis pathway navigation for educational institutions and all other sectors.</p>
+          <div class="svc-divider"></div>
+          <div class="pills"><span class="pill">24/7 Support</span><span class="pill">Crisis Escalation</span><span
+              class="pill">CBT Tools</span><span class="pill">Multilingual</span></div>
+          <div class="svc-actions">
+            <span class="svc-link">Learn More -></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="svc-card rv" data-number="02" href="/services/service-weight-management.html">
+        <div class="svc-img">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=85"
+            alt="Diabetes and obesity weight management bot"
+            onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'">
+          <div class="svc-fade"></div>
+          <div class="svc-badge">Service 02</div>
+          <div class="svc-ico">
+            <svg viewBox="0 0 24 24">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+            </svg>
+          </div>
+        </div>
+        <div class="svc-body">
+          <h3>Diabetes &amp; Obesity: Weight Management Bot</h3>
+          <p>Personalised weight management coaching with meal planning, progress tracking, and behavioural support tailored to each user.</p>
+          <div class="svc-divider"></div>
+          <div class="pills"><span class="pill">Meal Plans</span><span class="pill">BMI Tools</span><span
+              class="pill">Weekly Tracking</span><span class="pill">Behavioural Coaching</span></div>
+          <div class="svc-actions">
+            <span class="svc-link">Learn More -></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="svc-card rv" data-number="03" href="/services/service-smoking-cessation.html">
+        <div class="svc-img">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=85"
+            alt="Smoking cessation conversational support bot"
+            onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80'">
+          <div class="svc-fade"></div>
+          <div class="svc-badge">Service 03</div>
+          <div class="svc-ico">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+            </svg>
+          </div>
+        </div>
+        <div class="svc-body">
+          <h3>Smoking Cessation Bot</h3>
+          <p>Evidence-based quit smoking support with personalised planning, craving management, and relapse prevention built into the journey.</p>
+          <div class="svc-divider"></div>
+          <div class="pills"><span class="pill">12-Week Plan</span><span class="pill">Craving Support</span><span
+              class="pill">NRT Guidance</span><span class="pill">Relapse Prevention</span></div>
+          <div class="svc-actions">
+            <span class="svc-link">Learn More -></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="svc-card rv" data-number="04" href="/services/service-alcohol-harm-liver-health.html">
+        <div class="svc-img">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=85"
+            alt="Alcohol harm and liver health support bot"
+            onerror="this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80'">
+          <div class="svc-fade"></div>
+          <div class="svc-badge">Service 04</div>
+          <div class="svc-ico">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+        </div>
+        <div class="svc-body">
+          <h3>Alcohol Harm &amp; Liver Health Bot</h3>
+          <p>Alcohol reduction coaching and liver health awareness with screening, intake tracking, and structured support pathways.</p>
+          <div class="svc-divider"></div>
+          <div class="pills"><span class="pill">Alcohol Screening</span><span class="pill">Daily Tracking</span><span
+              class="pill">Reduction Plans</span><span class="pill">Referral Pathways</span></div>
+          <div class="svc-actions">
+            <span class="svc-link">Learn More -></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="svc-card rv" data-number="05" href="/services/service-young-peoples-mental-health.html">
+        <div class="svc-img">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800&q=85"
+            alt="Young people's mental health support bot"
+            onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80'">
+          <div class="svc-fade"></div>
+          <div class="svc-badge">Service 05</div>
+          <div class="svc-ico">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+            </svg>
+          </div>
+        </div>
+        <div class="svc-body">
+          <h3>Young People's Mental Health Bot</h3>
+          <p>Mental health support for ages 16 to 25 with youth-friendly tools for anxiety, stress, self-esteem, and social pressures.</p>
+          <div class="svc-divider"></div>
+          <div class="pills"><span class="pill">Ages 16-25</span><span class="pill">Exam Stress</span><span
+              class="pill">CBT Exercises</span><span class="pill">Crisis Escalation</span></div>
+          <div class="svc-actions">
+            <span class="svc-link">Learn More -></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="svc-card rv" data-number="06" href="/services/service-maternal-mental-health.html">
+        <div class="svc-img">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=85"
+            alt="Maternal mental health support bot"
+            onerror="this.src='https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80'">
+          <div class="svc-fade"></div>
+          <div class="svc-badge">Service 06</div>
+          <div class="svc-ico">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </div>
+        </div>
+        <div class="svc-body">
+          <h3>Maternal Mental Health Bot</h3>
+          <p>Support during pregnancy and postpartum with mood check-ins, anxiety support, and family-focused care pathways.</p>
+          <div class="svc-divider"></div>
+          <div class="pills"><span class="pill">Pregnancy to Postnatal</span><span class="pill">Mood Tracking</span><span
+              class="pill">Family Support</span><span class="pill">Referral Pathways</span></div>
+          <div class="svc-actions">
+            <span class="svc-link">Learn More -></span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    <div class="svc-more">
+      <a href="/services/" class="btn-outline">More Services</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECURITY -->
+  <section id="security" class="sec sec-white">
+    <div class="center" style="margin-bottom:46px;">
+      <div class="sec-tag">Data Sovereignty</div>
+      <h2>Security & Compliance by Design</h2>
+      <p class="lead">Architected around UK regulatory requirements and clinical safety standards from day one.</p>
+    </div>
+
+    <!-- Dark cyber security banner image -->
+    <div class="sec-banner rv">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1400&q=85"
+        alt="UK GDPR compliant healthcare data security"
+        onerror="this.src='https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1400&q=80'">
+      <div class="sec-banner-ov">
+        <div class="sec-banner-ico">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+        </div>
         <div>
-          <div class="f-name">Muhammad Abid</div>
-          <div class="f-role">Director & Founder · MSc Public Health & Data Analytics · 3+ Years UK Health Sector</div>
-        </div>
-      </div>
-      <div class="skills-wrap">
-        <span class="sk">Public Health Science</span>
-        <span class="sk">Behavioral Analytics</span>
-        <span class="sk">Clinical Data Strategy</span>
-        <span class="sk">AI & Machine Learning</span>
-        <span class="sk">NHS Digital Ecosystem</span>
-        <span class="sk">Digital Transformation</span>
-        <span class="sk">Health Data Governance</span>
-        <span class="sk">Population Health</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SERVICES -->
-<section id="services" class="sec sec-alt">
-  <div class="center" style="margin-bottom:58px;">
-    <div class="sec-tag">Our Services</div>
-    <h2>AI-Powered Behavioral Health Solutions</h2>
-    <p class="lead">Purpose-built for the UK health ecosystem  clinically informed, technically excellent.</p>
-  </div>
-  <div class="svc-grid">
-
-    <!-- Futuristic holographic health data on screen -->
-    <div class="svc-card rv">
-      <div class="svc-img">
-        <img loading="lazy"
-          src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=85"
-          alt="Smoking cessation AI conversational interface"
-          onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80'">
-        <div class="svc-fade"></div>
-        <div class="svc-badge">Service 01</div>
-        <div class="svc-ico">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-      </div>
-      <div class="svc-body">
-        <h3>AI Conversational Agents for Smoking Cessation</h3>
-        <p>Clinically-informed conversational AI delivering personalised, evidence-based cessation support at scale. Agents adapt in real-time using CBT and motivational interviewing, providing 24/7 engagement far beyond traditional clinical contact.</p>
-        <div class="pills"><span class="pill">NLP-Driven</span><span class="pill">CBT-Aligned</span><span class="pill">24/7 Support</span><span class="pill">NHS-Compatible</span></div>
-        <div class="svc-actions">
-          <a class="svc-link" href="service-smoking-cessation.html">Learn More -></a>
+          <h3>Enterprise-Grade Data Sovereignty</h3>
+          <p>Every WellTechAI CIC system is built security-first. Patient data never leaves UK shores protected by
+            clinical-grade encryption and UK governance frameworks.</p>
         </div>
       </div>
     </div>
 
-    <!-- Digital health analytics dashboard with glowing charts -->
-    <div class="svc-card rv">
-      <div class="svc-img">
-        <img loading="lazy"
-          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=85"
-          alt="Weight management AI analytics dashboard"
-          onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'">
-        <div class="svc-fade"></div>
-        <div class="svc-badge">Service 02</div>
-        <div class="svc-ico">
-          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    <div class="sec-cards">
+      <div class="sec-card rv">
+        <div class="sec-ico"><svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg></div>
+        <div>
+          <h4>UK GDPR Compliance</h4>
+          <p>Fully aligned with the UK General Data Protection Regulation and Data Protection Act 2018. All health data
+            processing documented under Article 30 with lawful basis for special category data under Article 9.</p>
         </div>
       </div>
-      <div class="svc-body">
-        <h3>Weight Management & Nutritional Guidance Bots</h3>
-        <p>Intelligent agents delivering tailored nutrition plans and behavioral coaching powered by real-time dietary analysis aligned to NICE guidelines. Integrates with wearables for a unified care experience.</p>
-        <div class="pills"><span class="pill">NICE-Informed</span><span class="pill">Wearable Sync</span><span class="pill">Dietary Analysis</span></div>
-        <div class="svc-actions">
-          <a class="svc-link" href="service-weight-management.html">Learn More -></a>
+      <div class="sec-card rv">
+        <div class="sec-ico"><svg viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg></div>
+        <div>
+          <h4>End-to-End Encryption</h4>
+          <p>AES-256 encryption for data at rest and TLS 1.3 for all data in transit. Zero-knowledge architecture for
+            sensitive health records no plaintext patient data at any system layer.</p>
         </div>
       </div>
-    </div>
-
-    <!-- Neural network brain scan / medical AI visualization -->
-    <div class="svc-card rv">
-      <div class="svc-img">
-        <img loading="lazy"
-          src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&q=85"
-          alt="Addiction recovery AI support visualization"
-          onerror="this.src='https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&q=80'">
-        <div class="svc-fade"></div>
-        <div class="svc-badge">Service 03</div>
-        <div class="svc-ico">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      <div class="sec-card rv">
+        <div class="sec-ico"><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg></div>
+        <div>
+          <h4>UK-Based Data Residency</h4>
+          <p>Patient data never leaves UK jurisdiction. Hosted exclusively on UK-region cloud infrastructure with no
+            cross-border transfers guaranteed by contractual and technical controls.</p>
         </div>
       </div>
-      <div class="svc-body">
-        <h3>Alcohol & Drug Addiction Behavioral Support</h3>
-        <p>Trauma-informed AI support tools for addiction recovery pathways. Structured check-ins, relapse prevention triggers, and clinical escalation protocols that bridge digital touchpoints with human care teams.</p>
-        <div class="pills"><span class="pill">Trauma-Informed</span><span class="pill">Relapse Prevention</span><span class="pill">Clinical Handoff</span></div>
-        <div class="svc-actions">
-          <a class="svc-link" href="service-addiction-recovery.html">Learn More -></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Futuristic tech / circuit board / robot arm manufacturing -->
-    <div class="svc-card rv">
-      <div class="svc-img">
-        <img loading="lazy"
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=85"
-          alt="Custom health software and analytics development"
-          onerror="this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80'">
-        <div class="svc-fade"></div>
-        <div class="svc-badge">Service 04</div>
-        <div class="svc-ico">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-      </div>
-      <div class="svc-body">
-        <h3>Custom Health Software, iOS/Android Apps & Data Analytics</h3>
-        <p>End-to-end digital health product development  native mobile apps to cloud analytics dashboards. Translating complex public health data into actionable intelligence, engineered under DCB0129 clinical safety standards.</p>
-        <div class="pills"><span class="pill">iOS & Android</span><span class="pill">Analytics Dashboards</span><span class="pill">DCB0129</span><span class="pill">Power BI</span></div>
-        <div class="svc-actions">
-          <a class="svc-link" href="service-health-software.html">Learn More -></a>
+      <div class="sec-card rv">
+        <div class="sec-ico"><svg viewBox="0 0 24 24">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+          </svg></div>
+        <div>
+          <h4>Clinical Safety Protocols (DCB0129)</h4>
+          <p>Software developed under NHS Digital's DCB0129 clinical risk management standard. A qualified Clinical
+            Safety Officer oversees all product releases entering any UK health pathway.</p>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <div class="divider"></div>
 
-<div class="divider"></div>
+  <!-- TECHNOLOGIES -->
 
-<!-- SECURITY -->
-<section id="security" class="sec sec-white">
-  <div class="center" style="margin-bottom:46px;">
-    <div class="sec-tag">Data Sovereignty</div>
-    <h2>Security & Compliance by Design</h2>
-    <p class="lead">Architected around UK regulatory requirements and clinical safety standards from day one.</p>
-  </div>
 
-  <!-- Dark cyber security banner image -->
-  <div class="sec-banner rv">
-    <img loading="lazy"
-      src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1400&q=85"
-      alt="UK GDPR compliant healthcare data security"
-      onerror="this.src='https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1400&q=80'">
-    <div class="sec-banner-ov">
-      <div class="sec-banner-ico">
-        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      </div>
-      <div>
-        <h3>Enterprise-Grade Data Sovereignty</h3>
-        <p>Every WellTechAI system is built security-first. Patient data never leaves UK shores  protected by clinical-grade encryption and UK governance frameworks.</p>
-      </div>
+
+
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="sec sec-alt">
+    <div class="center" style="margin-bottom:62px;">
+      <div class="sec-tag">Get In Touch</div>
+      <h2>Start a Conversation</h2>
+      <p class="lead">Ready to transform behavioral health outcomes at your organisation? Request a pilot today.</p>
     </div>
-  </div>
-
-  <div class="sec-cards">
-    <div class="sec-card rv">
-      <div class="sec-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <div>
-        <h4>UK GDPR Compliance</h4>
-        <p>Fully aligned with the UK General Data Protection Regulation and Data Protection Act 2018. All health data processing documented under Article 30 with lawful basis for special category data under Article 9.</p>
-      </div>
-    </div>
-    <div class="sec-card rv">
-      <div class="sec-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-      <div>
-        <h4>End-to-End Encryption</h4>
-        <p>AES-256 encryption for data at rest and TLS 1.3 for all data in transit. Zero-knowledge architecture for sensitive health records  no plaintext patient data at any system layer.</p>
-      </div>
-    </div>
-    <div class="sec-card rv">
-      <div class="sec-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-      <div>
-        <h4>UK-Based Data Residency</h4>
-        <p>Patient data never leaves UK jurisdiction. Hosted exclusively on UK-region cloud infrastructure with no cross-border transfers  guaranteed by contractual and technical controls.</p>
-      </div>
-    </div>
-    <div class="sec-card rv">
-      <div class="sec-ico"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <div>
-        <h4>Clinical Safety Protocols (DCB0129)</h4>
-        <p>Software developed under NHS Digital's DCB0129 clinical risk management standard. A qualified Clinical Safety Officer oversees all product releases entering any UK health pathway.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- TECHNOLOGIES -->
-
-
-
-
-
-
-<!-- CONTACT -->
-<section id="contact" class="sec sec-alt">
-  <div class="center" style="margin-bottom:62px;">
-    <div class="sec-tag">Get In Touch</div>
-    <h2>Start a Conversation</h2>
-    <p class="lead">Ready to transform behavioral health outcomes at your organisation? Request a pilot today.</p>
-  </div>
-  <div class="contact-grid">
-    <div class="c-left rv">
-      <!-- London futuristic tech office -->
-      <div class="c-img">
-        <img loading="lazy"
-          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=85"
-          alt="WellTechAI London health technology office"
-          onerror="this.src='https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=800&q=80'">
-      </div>
-      <h3>Let's Build Something That Matters</h3>
-      <p>Whether you're an NHS trust, a private health provider, or a public health commissioner  we'd love to explore how WellTechAI can support your population health goals.</p>
-      <div class="c-info">
-        <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <div><div class="c-lbl">Address</div><div class="c-val">167-169 Great Portland Street, 5th Floor<br>London, W1W 5PF</div></div>
-      </div>
-      <div class="c-info">
-        <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-        <div><div class="c-lbl">Email</div><div class="c-val"><a href="mailto:info@welltechai.co.uk">info@welltechai.co.uk</a></div></div>
-      </div>
-      <div class="c-info">
-        <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92V21a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h4.09a2 2 0 0 1 2 1.72l.57 3.99a2 2 0 0 1-.57 1.73l-2.2 2.2a16 16 0 0 0 6.1 6.1l2.2-2.2a2 2 0 0 1 1.73-.57l3.99.57a2 2 0 0 1 1.72 2z"/></svg></div>
-        <div><div class="c-lbl">Phone</div><div class="c-val"><a href="tel:+447377692769">+44 7377 692769</a></div></div>
-      </div>
-      <div class="c-info">
-        <div class="c-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <div><div class="c-lbl">Hours</div><div class="c-val">Monday – Friday: 09:00 – 17:30 GMT</div></div>
-      </div>
-    </div>
-  <div class="form rv">
-
-    <form id="contactForm">
-      <div class="fr">
-        <div class="fg">
-          <label>First Name</label>
-          <input type="text" name="firstName" placeholder="John" required>
+    <div class="contact-grid">
+      <div class="c-left rv">
+        <!-- London futuristic tech office -->
+        <div class="c-img">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=85"
+            alt="WellTechAI CIC London health technology office"
+            onerror="this.src='https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=800&q=80'">
         </div>
-        <div class="fg">
-          <label>Last Name</label>
-          <input type="text" name="lastName" placeholder="Smith" required>
+        <h3>Let's Build Something That Matters</h3>
+        <p>Whether you're an NHS trust, a private health provider, or a public health commissioner we'd love to explore
+          how WellTechAI CIC can support your population health goals.</p>
+        <div class="c-info">
+          <div class="c-ico"><svg viewBox="0 0 24 24">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg></div>
+          <div>
+            <div class="c-lbl">Address</div>
+            <div class="c-val">167-169 Great Portland Street, 5th Floor<br>London, W1W 5PF</div>
+          </div>
+        </div>
+        <div class="c-info">
+          <div class="c-ico"><svg viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg></div>
+          <div>
+            <div class="c-lbl">Email</div>
+            <div class="c-val"><a href="mailto:info@welltechai.co.uk">info@welltechai.co.uk</a></div>
+          </div>
+        </div>
+        <div class="c-info">
+          <div class="c-ico"><svg viewBox="0 0 24 24">
+              <path
+                d="M22 16.92V21a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h4.09a2 2 0 0 1 2 1.72l.57 3.99a2 2 0 0 1-.57 1.73l-2.2 2.2a16 16 0 0 0 6.1 6.1l2.2-2.2a2 2 0 0 1 1.73-.57l3.99.57a2 2 0 0 1 1.72 2z" />
+            </svg></div>
+          <div>
+            <div class="c-lbl">Phone</div>
+            <div class="c-val"><a href="tel:+447377692769">+44 7377 692769</a></div>
+          </div>
+        </div>
+        <div class="c-info">
+          <div class="c-ico"><svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg></div>
+          <div>
+            <div class="c-lbl">Hours</div>
+            <div class="c-val">Monday – Friday: 09:00 – 17:30 (GMT)</div>
+          </div>
         </div>
       </div>
+      <div class="form rv">
 
-      <div class="fg">
-        <label>Email Address</label>
-        <input type="email" name="email" placeholder="john@nhstrust.co.uk" required>
+        <form id="contactForm">
+          <div class="fr">
+            <div class="fg">
+              <label>First Name</label>
+              <input type="text" name="firstName" placeholder="John" required>
+            </div>
+            <div class="fg">
+              <label>Last Name</label>
+              <input type="text" name="lastName" placeholder="Smith" required>
+            </div>
+          </div>
+
+          <div class="fg">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="john@nhstrust.co.uk" required>
+          </div>
+
+          <div class="fg">
+            <label>Organisation</label>
+            <input type="text" name="organisation" placeholder="NHS Trust / Health Commissioner / ICS">
+          </div>
+
+          <div class="fg">
+            <label>Area of Interest</label>
+            <select name="areaOfInterest" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Smoking Cessation AI Agent</option>
+              <option>Weight Management Bot</option>
+              <option>Addiction Recovery Support</option>
+              <option>Custom Health Software / App</option>
+              <option>Data Analytics &amp; Dashboards</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+
+          <div class="fg">
+            <label>Message</label>
+            <textarea name="message"
+              placeholder="Tell us about your population health challenge or pilot idea"></textarea>
+          </div>
+
+          <input type="hidden" name="_replyto" value="info@welltechai.co.uk">
+          <input type="hidden" name="_subject" value="New WellTech AI Enquiry">
+
+          <button type="submit" class="form-btn" id="submitBtn">Send Message </button>
+        </form>
+
+        <div id="successMsg"
+          style="display:none; padding:24px; background:#ecfdf5; border:1px solid #6ee7b7; border-radius:10px; color:#065f46; font-weight:600; font-size:1rem;">
+          Thank you for your enquiry! We'll be in touch within 1 business day.
+        </div>
+
+        <div id="errorMsg"
+          style="display:none; padding:24px; background:#fef2f2; border:1px solid #fca5a5; border-radius:10px; color:#991b1b; font-weight:600; font-size:1rem;">
+          Something went wrong. Please try again or email us directly at info@welltechai.co.uk
+        </div>
+
       </div>
-
-      <div class="fg">
-        <label>Organisation</label>
-        <input type="text" name="organisation" placeholder="NHS Trust / Health Commissioner / ICS">
-      </div>
-
-      <div class="fg">
-        <label>Area of Interest</label>
-        <select name="areaOfInterest" required>
-          <option value="" disabled selected>Select a service…</option>
-          <option>Smoking Cessation AI Agent</option>
-          <option>Weight Management Bot</option>
-          <option>Addiction Recovery Support</option>
-          <option>Custom Health Software / App</option>
-          <option>Data Analytics &amp; Dashboards</option>
-          <option>General Enquiry</option>
-        </select>
-      </div>
-
-      <div class="fg">
-        <label>Message</label>
-        <textarea name="message" placeholder="Tell us about your population health challenge or pilot idea…"></textarea>
-      </div>
-
-      <input type="hidden" name="_replyto" value="info@welltechai.co.uk">
-      <input type="hidden" name="_subject" value="New WellTech AI Enquiry">
-
-      <button type="submit" class="form-btn" id="submitBtn">Send Message →</button>
-    </form>
-
-    <div id="successMsg" style="display:none; padding:24px; background:#ecfdf5; border:1px solid #6ee7b7; border-radius:10px; color:#065f46; font-weight:600; font-size:1rem;">
-      ✅ Thank you for your enquiry! We'll be in touch within 1 business day.
-    </div>
-
-    <div id="errorMsg" style="display:none; padding:24px; background:#fef2f2; border:1px solid #fca5a5; border-radius:10px; color:#991b1b; font-weight:600; font-size:1rem;">
-      ❌ Something went wrong. Please try again or email us directly at info@welltechai.co.uk
-    </div>
-
-  </div>
-</section>
+  </section>
 
 <script>
-  const form = document.getElementById('contactForm');
-  const btn = document.getElementById('submitBtn');
-  const successMsg = document.getElementById('successMsg');
-  const errorMsg = document.getElementById('errorMsg');
+    const form = document.getElementById('contactForm');
+    const btn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
 
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
 
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-    errorMsg.style.display = 'none';
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      errorMsg.style.display = 'none';
+      successMsg.style.display = 'none';
 
-    const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
 
-    try {
-      const response = await fetch('/api/send-mail', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
+      try {
+        const response = await fetch('/api/send-mail', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
 
-      if (response.ok) {
-        form.style.display = 'none';
-        successMsg.style.display = 'block';
-      } else {
+        if (response.ok) {
+          // Show success message
+          successMsg.style.display = 'block';
+
+          // Clear all fields
+          form.reset();
+
+          // After 4 seconds, hide success message and re-enable button
+          setTimeout(() => {
+            successMsg.style.display = 'none';
+            btn.textContent = 'Send Message →';
+            btn.disabled = false;
+          }, 4000);
+
+        } else {
+          errorMsg.style.display = 'block';
+          btn.textContent = 'Send Message →';
+          btn.disabled = false;
+        }
+      } catch (err) {
         errorMsg.style.display = 'block';
         btn.textContent = 'Send Message →';
         btn.disabled = false;
       }
-    } catch (err) {
-      errorMsg.style.display = 'block';
-      btn.textContent = 'Send Message →';
-      btn.disabled = false;
-    }
-  });
+    });
 </script>
+  </script>
 
-<!-- FOOTER -->
-<footer>
-  <div class="ft-grid">
-    <div class="ft-brand">
-      <a href="#home" class="ft-logo">
-        <div class="logo-box"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        WellTechAI
-      </a>
-      <p>Transforming behavioral health outcomes through clinical AI, conversational agents, and data analytics  purpose-built for the UK health ecosystem.</p>
-      <div class="ft-badge">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        UK-Based · UK GDPR Compliant
+  <!-- FOOTER -->
+  <footer>
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a href="#home" class="ft-logo">
+          <div class="logo-box"><svg viewBox="0 0 24 24"
+              style="width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg></div>
+          WellTechAI CIC
+        </a>
+        <p>Transforming behavioral health outcomes through clinical AI, conversational agents, and data analytics
+          purpose-built for the UK health ecosystem.</p>
+        <div class="ft-badge">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          UK-Based · UK GDPR Compliant
+        </div>
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="3.5" />
+              <circle cx="17.5" cy="6.5" r="1" />
+            </svg>
+          </a>
+        </div>
       </div>
-      <div class="ft-social">
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/></svg>
-        </a>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-        </a>
+      <div class="ft-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#security">Security & Compliance</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="#technologies">Technology</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/service-mental-health-crisis-support.html">Mental Health Crisis Support Bot (For Educational Institutions / All Other Sectors)</a></li>
+          <li><a href="/services/service-weight-management.html">Diabetes &amp; Obesity: Weight Management Bot</a></li>
+          <li><a href="/services/service-smoking-cessation.html">Smoking Cessation Bot</a></li>
+          <li><a href="/services/service-alcohol-harm-liver-health.html">Alcohol Harm &amp; Liver Health Bot</a></li>
+          <li><a href="/services/service-young-peoples-mental-health.html">Young People&#39;s Mental Health Bot</a></li>
+          <li><a href="/services/service-maternal-mental-health.html">Maternal Mental Health Bot</a></li>
+          <li><a href="/services/index.html">View All Services</a></li>
+        </ul>
       </div>
     </div>
-    <div class="ft-col">
-      <h4>Navigation</h4>
-      <ul>
-        <li><a href="about-us.html">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#security">Security & Compliance</a></li>
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="#technologies">Technology</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <div class="ft-bottom">
+      <p>© 2025 WellTechAI CIC All Rights Reserved. · <a href="mailto:info@welltechai.co.uk"
+          style="color:var(--sky2);text-decoration:none;">info@welltechai.co.uk</a> · <a href="tel:+447377692769"
+          style="color:var(--sky2);text-decoration:none;">+44 7377 692769</a> · 167-169 Great Portland Street, London
+        W1W 5PF</p>
+      <p class="disc">WellTechAI CIC is a Digital Health Support provider. We provide behavioral tools, not medical
+        diagnoses. All AI-generated content is for supportive purposes only and does not constitute clinical advice,
+        diagnosis, or treatment.</p>
     </div>
-    <div class="ft-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#services">Smoking Cessation AI</a></li>
-        <li><a href="#services">Weight Management Bot</a></li>
-        <li><a href="#services">Addiction Recovery AI</a></li>
-        <li><a href="#services">Health App Development</a></li>
-        <li><a href="#services">Data Analytics</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="ft-bottom">
-    <p>© 2025 WellTechAI Ltd. All Rights Reserved. · <a href="mailto:info@welltechai.co.uk" style="color:var(--sky2);text-decoration:none;">info@welltechai.co.uk</a> · <a href="tel:+447377692769" style="color:var(--sky2);text-decoration:none;">+44 7377 692769</a> · 167-169 Great Portland Street, London W1W 5PF</p>
-    <p class="disc">WellTechAI is a Digital Health Support provider. We provide behavioral tools, not medical diagnoses. All AI-generated content is for supportive purposes only and does not constitute clinical advice, diagnosis, or treatment.</p>
-  </div>
-</footer>
+  </footer>
 
-<script>
-/* SCROLL REVEAL */
-const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), {threshold:.08});
-document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  <script>
+    /* SCROLL REVEAL */
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }), { threshold: .08 });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-/* NAV SCROLL */
-window.addEventListener('scroll', () => {
-  const n = document.getElementById('mainNav');
-  n.style.boxShadow = scrollY > 50 ? '0 4px 30px rgba(14,165,233,0.12)' : '0 2px 20px rgba(14,165,233,0.08)';
-});
-</script>
+    /* NAV SCROLL */
+    window.addEventListener('scroll', () => {
+      const n = document.getElementById('mainNav');
+      n.style.boxShadow = scrollY > 50 ? '0 4px 30px rgba(14,165,233,0.12)' : '0 2px 20px rgba(14,165,233,0.08)';
+    });
+
+    
+  </script>
 </body>
+
 </html>
+
+
