@@ -98,6 +98,14 @@
       letter-spacing: -.02em;
     }
 
+      .nav-logo-img {
+      width: 70px;
+      height: 70px;
+      display: block;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
     .logo-box {
       width: 36px;
       height: 36px;
@@ -1307,8 +1315,12 @@
       margin-bottom: 14px;
     }
 
-    .ft-logo .logo-box {
-      box-shadow: 0 0 14px rgba(56, 189, 248, .4);
+    .ft-logo-img {
+      width: 70px;
+      height: 70px;
+      display: block;
+      object-fit: contain;
+      border-radius: 8px;
     }
 
     .ft-brand p {
@@ -1540,6 +1552,7 @@
     }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.welltechai.co.uk/#org","name":"WellTechAI CIC","url":"https://www.welltechai.co.uk/","description":"AI-powered health and wellness digital bot services for mental health, prevention, behaviour change, and pathway support.","email":"info@welltechai.co.uk","telephone":"+44 7377 692769","sameAs":["https://www.linkedin.com/","https://www.facebook.com/","https://www.instagram.com/"],"address":{"@type":"PostalAddress","streetAddress":"167-169 Great Portland Street, 5th Floor","addressLocality":"London","postalCode":"W1W 5PF","addressCountry":"UK"}},{"@type":"WebSite","@id":"https://www.welltechai.co.uk/#website","name":"WellTechAI CIC","url":"https://www.welltechai.co.uk/","description":"AI-powered health and wellness digital bot services for mental health, prevention, behaviour change, and pathway support across the UK, USA, and UAE.","publisher":{"@id":"https://www.welltechai.co.uk/#org"},"inLanguage":"en-GB"}]}</script>
+<link rel="stylesheet" href="css/cookie-consent.css">
 </head>
 
 <body>
@@ -1547,11 +1560,7 @@
   <!-- NAV -->
   <nav id="mainNav">
     <a href="#home" class="logo">
-      <div class="logo-box">
-        <svg viewBox="0 0 24 24">
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-        </svg>
-      </div>
+      <img src="assets/logo.png" alt="WellTechAI CIC logo" class="nav-logo-img">
       WellTechAI CIC
     </a>
     <ul class="nav-links">
@@ -2142,10 +2151,7 @@
     <div class="ft-grid">
       <div class="ft-brand">
         <a href="#home" class="ft-logo">
-          <div class="logo-box"><svg viewBox="0 0 24 24"
-              style="width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg></div>
+          <img src="assets/logo.png" alt="WellTechAI CIC logo" class="ft-logo-img">
           WellTechAI CIC
         </a>
         <p>Transforming behavioral health outcomes through clinical AI, conversational agents, and data analytics
@@ -2211,7 +2217,8 @@
         diagnoses. All AI-generated content is for supportive purposes only and does not constitute clinical advice,
         diagnosis, or treatment.</p>
     </div>
-  </footer>
+  <div class="wt-cookie-footer-link"><a href="cookies-policy.html">Cookie Policy</a><span class="wt-cookie-footer-sep">|</span><a href="#" data-cookie-settings>Cookie Settings</a></div>
+</footer>
 
   <script>
     /* SCROLL REVEAL */
@@ -2226,6 +2233,7 @@
 
     
   </script>
+<script src="js/cookie-consent.js"></script>
 </body>
 
 </html>

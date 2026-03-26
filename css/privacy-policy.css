@@ -46,6 +46,7 @@ nav {
   transition: all .3s;
 }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 1.3rem; font-weight: 800; letter-spacing: -.02em; }
+.nav-logo-img { width: 70px; height: 70px; display: block; object-fit: contain; border-radius: 8px; }
 .logo-box {
   width: 36px; height: 36px; border-radius: 9px;
   background: linear-gradient(135deg, var(--sky2), var(--dark));
@@ -232,6 +233,7 @@ nav {
 footer { background: var(--darker); border-top: 1px solid rgba(56,189,248,.15); padding: 64px 5vw 36px; }
 .ft-grid { display: grid; grid-template-columns: minmax(280px, 1.35fr) minmax(150px, .75fr) minmax(320px, 1.1fr); align-items: start; gap: 40px; max-width: 1160px; margin: 0 auto; }
 .ft-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-size: 1.25rem; font-weight: 800; margin-bottom: 14px; }
+.ft-logo-img { width: 70px; height: 70px; display: block; object-fit: contain; border-radius: 8px; }
 .ft-brand { max-width: 360px; }
 .ft-brand p { color: rgba(255,255,255,.55); font-size: .85rem; line-height: 1.78; margin-bottom: 20px; max-width: 300px; }
 .ft-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(56,189,248,.1); border: 1px solid rgba(56,189,248,.2); border-radius: 8px; padding: 7px 14px; font-size: .73rem; font-weight: 600; color: var(--sky3); }
