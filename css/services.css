@@ -37,9 +37,10 @@ nav {
   transition:all .3s;
 }
 .logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-size:1.3rem; font-weight:800; letter-spacing:-.02em; }
+.nav-logo-img { width:70px; height:70px; display:block; object-fit:contain; border-radius:8px; }
 .logo-box { width:36px; height:36px; border-radius:9px; background:linear-gradient(135deg,var(--sky2),var(--dark)); display:flex; align-items:center; justify-content:center; box-shadow:0 0 18px rgba(14,165,233,.45); }
 .logo-box svg { width:18px; height:18px; stroke:#fff; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
-.nav-links { display:flex; list-style:none; gap:2.2rem; align-items:center; }
+.nav-links { display:flex; list-style:none; gap:2.4rem; align-items:center; }
 .nav-links a { color:var(--text2); text-decoration:none; font-size:.88rem; font-weight:600; transition:color .2s; }
 .nav-links a:hover { color:var(--sky); }
 .nav-btn { background:linear-gradient(135deg,var(--sky2),var(--dark)) !important; color:#fff !important; padding:9px 24px !important; border-radius:8px; font-weight:700 !important; box-shadow:0 0 22px rgba(14,165,233,.35); transition:all .2s !important; }
@@ -48,7 +49,7 @@ nav {
 .hbg span { width:24px; height:2px; background:var(--text); border-radius:2px; }
 .mob { display:none; position:fixed; inset:0; top:70px; background:rgba(255,255,255,.99); z-index:899; flex-direction:column; align-items:center; justify-content:center; gap:2rem; }
 .mob.show { display:flex; }
-.mob a { color:var(--text); font-size:1.3rem; font-weight:700; text-decoration:none; }
+.mob a { color:var(--text); font-size:1.4rem; font-weight:700; text-decoration:none; }
 .mob a:hover { color:var(--sky); }
 
 /* HERO */
@@ -258,6 +259,7 @@ h2 { font-size:clamp(1.7rem,3vw,2.5rem); font-weight:800; letter-spacing:-.02em;
 footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); padding:56px 5vw 32px; margin-top:0; }
 .ft-grid { display:grid; grid-template-columns:minmax(280px,1.35fr) minmax(150px,.75fr) minmax(320px,1.1fr); align-items:start; gap:40px; max-width:1100px; margin:0 auto; }
 .ft-logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff; font-size:1.2rem; font-weight:800; margin-bottom:12px; }
+.ft-logo-img { width:70px; height:70px; display:block; object-fit:contain; border-radius:8px; }
 .ft-brand { max-width:360px; }
 .ft-brand p { color:rgba(255,255,255,.5); font-size:.83rem; line-height:1.75; margin-bottom:18px; max-width:280px; }
 .ft-badge { display:inline-flex; align-items:center; gap:7px; background:rgba(56,189,248,.1); border:1px solid rgba(56,189,248,.2); border-radius:8px; padding:6px 13px; font-size:.71rem; font-weight:600; color:var(--sky3); }
