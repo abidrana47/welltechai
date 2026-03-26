@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.welltechai.co.uk/</loc>
@@ -13,31 +13,117 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.welltechai.co.uk/services/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.welltechai.co.uk/privacy-policy.html</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.welltechai.co.uk/service-smoking-cessation.html</loc>
+    <loc>https://www.welltechai.co.uk/services/service-
+mental-health-crisis-support
+.html</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.welltechai.co.uk/service-weight-management.html</loc>
+    <loc>https://www.welltechai.co.uk/services/service-
+weight-management
+.html</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.welltechai.co.uk/service-addiction-recovery.html</loc>
+    <loc>https://www.welltechai.co.uk/services/service-
+smoking-cessation
+.html</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.welltechai.co.uk/service-health-software.html</loc>
+    <loc>https://www.welltechai.co.uk/services/service-
+quit-vape
+.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.welltechai.co.uk/services/service-
+alcohol-harm-liver-health
+.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.welltechai.co.uk/services/service-
+young-peoples-mental-health
+.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.welltechai.co.uk/services/service-
+university-student-mental-health
+.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.welltechai.co.uk/services/service-
+maternal-mental-health
+.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.welltechai.co.uk/services/service-
+workplace-wellness
+.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.welltechai.co.uk/services/service-
+social-prescribing
+.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.welltechai.co.uk/services/service-
+medication-adherence
+.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.welltechai.co.uk/services/service-
+respiratory-support
+.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.welltechai.co.uk/services/service-
+sexual-health-sti
+.html</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
