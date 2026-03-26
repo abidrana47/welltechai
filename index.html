@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-GB">
 
 <head>
@@ -2062,7 +2062,7 @@
           <div class="fg">
             <label>Message</label>
             <textarea name="message"
-              placeholder="Tell us about your population health challenge or pilot idea¦"></textarea>
+              placeholder="Tell us about your population health challenge or pilot idea"></textarea>
           </div>
 
           <input type="hidden" name="_replyto" value="info@welltechai.co.uk">
@@ -2073,18 +2073,18 @@
 
         <div id="successMsg"
           style="display:none; padding:24px; background:#ecfdf5; border:1px solid #6ee7b7; border-radius:10px; color:#065f46; font-weight:600; font-size:1rem;">
-          œ… Thank you for your enquiry! We'll be in touch within 1 business day.
+          Thank you for your enquiry! We'll be in touch within 1 business day.
         </div>
 
         <div id="errorMsg"
           style="display:none; padding:24px; background:#fef2f2; border:1px solid #fca5a5; border-radius:10px; color:#991b1b; font-weight:600; font-size:1rem;">
-          Œ Something went wrong. Please try again or email us directly at info@welltechai.co.uk
+          Something went wrong. Please try again or email us directly at info@welltechai.co.uk
         </div>
 
       </div>
   </section>
 
-  <script>
+<script>
     const form = document.getElementById('contactForm');
     const btn = document.getElementById('submitBtn');
     const successMsg = document.getElementById('successMsg');
@@ -2093,9 +2093,10 @@
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      btn.textContent = 'Sending¦';
+      btn.textContent = 'Sending...';
       btn.disabled = true;
       errorMsg.style.display = 'none';
+      successMsg.style.display = 'none';
 
       const formData = new FormData(form);
       const payload = Object.fromEntries(formData.entries());
@@ -2108,19 +2109,31 @@
         });
 
         if (response.ok) {
-          form.style.display = 'none';
+          // Show success message
           successMsg.style.display = 'block';
+
+          // Clear all fields
+          form.reset();
+
+          // After 4 seconds, hide success message and re-enable button
+          setTimeout(() => {
+            successMsg.style.display = 'none';
+            btn.textContent = 'Send Message →';
+            btn.disabled = false;
+          }, 4000);
+
         } else {
           errorMsg.style.display = 'block';
-          btn.textContent = 'Send Message ';
+          btn.textContent = 'Send Message →';
           btn.disabled = false;
         }
       } catch (err) {
         errorMsg.style.display = 'block';
-        btn.textContent = 'Send Message ';
+        btn.textContent = 'Send Message →';
         btn.disabled = false;
       }
     });
+</script>
   </script>
 
   <!-- FOOTER -->
@@ -2209,6 +2222,8 @@
       const n = document.getElementById('mainNav');
       n.style.boxShadow = scrollY > 50 ? '0 4px 30px rgba(14,165,233,0.12)' : '0 2px 20px rgba(14,165,233,0.08)';
     });
+
+    
   </script>
 </body>
 

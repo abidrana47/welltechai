@@ -13,15 +13,51 @@ const getBody = async (req) => {
   }
 };
 
-const setCors = (res) => {
-  const origin = process.env.ALLOWED_ORIGIN || '*';
-  res.setHeader('Access-Control-Allow-Origin', origin);
+// List of allowed origins — set ALLOWED_ORIGINS in Vercel env as comma-separated
+// e.g. ALLOWED_ORIGINS=https://welltechai.vercel.app,https://www.welltechai.co.uk
+const getAllowedOrigins = () => {
+  const env = process.env.ALLOWED_ORIGINS || process.env.ALLOWED_ORIGIN || '';
+  return env
+    .split(',')
+    .map((o) => o.trim().toLowerCase())
+    .filter(Boolean);
+};
+
+const isOriginAllowed = (req) => {
+  const allowedOrigins = getAllowedOrigins();
+
+  // If no origins configured, deny everything for safety
+  if (!allowedOrigins.length) return false;
+
+  const origin = (req.headers['origin'] || '').trim().toLowerCase();
+  const referer = (req.headers['referer'] || '').trim().toLowerCase();
+
+  // Check Origin header first (set by browsers on cross-origin requests)
+  if (origin) {
+    return allowedOrigins.some((allowed) => origin === allowed);
+  }
+
+  // Fallback: check Referer header
+  if (referer) {
+    return allowedOrigins.some((allowed) => referer.startsWith(allowed));
+  }
+
+  // No Origin or Referer = direct request (Postman, curl, etc.) — block it
+  return false;
+};
+
+const setCors = (res, origin) => {
+  res.setHeader('Access-Control-Allow-Origin', origin || 'null');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Vary', 'Origin');
 };
 
 module.exports = async (req, res) => {
-  setCors(res);
+  const requestOrigin = (req.headers['origin'] || '').trim();
+
+  // Always set CORS headers so browser gets a proper response
+  setCors(res, requestOrigin);
 
   if (req.method === 'OPTIONS') {
     res.status(200).end();
@@ -33,7 +69,14 @@ module.exports = async (req, res) => {
     return;
   }
 
-  // ── quick env check ──────────────────────────────────────────────────────
+  // ── origin check ─────────────────────────────────────────────────────────
+  if (!isOriginAllowed(req)) {
+    console.warn('Blocked request from origin:', req.headers['origin'] || 'none');
+    return res.status(403).json({ ok: false, error: 'Forbidden' });
+  }
+  // ─────────────────────────────────────────────────────────────────────────
+
+  // ── env check ─────────────────────────────────────────────────────────────
   const missingEnv = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS'].filter(
     (k) => !process.env[k]
   );
@@ -71,7 +114,6 @@ module.exports = async (req, res) => {
       }
     });
 
-    // verify SMTP connection before attempting to send
     await transport.verify();
 
     const subject = process.env.MAIL_SUBJECT || 'New WellTechAI Website Enquiry';
@@ -115,7 +157,6 @@ module.exports = async (req, res) => {
       response: err?.response
     });
 
-    // always show real error — remove this or set SHOW_MAIL_ERRORS=false in prod
     const showError = String(process.env.SHOW_MAIL_ERRORS ?? 'true') === 'true';
     res.status(500).json({
       ok: false,
