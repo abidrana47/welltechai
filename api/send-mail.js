@@ -33,6 +33,19 @@ module.exports = async (req, res) => {
     return;
   }
 
+  // ── quick env check ──────────────────────────────────────────────────────
+  const missingEnv = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS'].filter(
+    (k) => !process.env[k]
+  );
+  if (missingEnv.length) {
+    console.error('Missing env vars:', missingEnv);
+    return res.status(500).json({
+      ok: false,
+      error: `Server misconfiguration: missing ${missingEnv.join(', ')}`
+    });
+  }
+  // ─────────────────────────────────────────────────────────────────────────
+
   try {
     const {
       firstName = '',
@@ -57,6 +70,9 @@ module.exports = async (req, res) => {
         pass: process.env.SMTP_PASS
       }
     });
+
+    // verify SMTP connection before attempting to send
+    await transport.verify();
 
     const subject = process.env.MAIL_SUBJECT || 'New WellTechAI Website Enquiry';
     const to = process.env.MAIL_TO || process.env.SMTP_USER;
@@ -93,15 +109,17 @@ module.exports = async (req, res) => {
     res.status(200).json({ ok: true });
   } catch (err) {
     console.error('Email send failed:', {
-      message: err && err.message,
-      code: err && err.code,
-      command: err && err.command,
-      response: err && err.response
+      message: err?.message,
+      code: err?.code,
+      command: err?.command,
+      response: err?.response
     });
-    const showError = String(process.env.SHOW_MAIL_ERRORS || 'false') === 'true';
+
+    // always show real error — remove this or set SHOW_MAIL_ERRORS=false in prod
+    const showError = String(process.env.SHOW_MAIL_ERRORS ?? 'true') === 'true';
     res.status(500).json({
       ok: false,
-      error: showError && err && err.message ? err.message : 'Email send failed.'
+      error: showError && err?.message ? err.message : 'Email send failed.'
     });
   }
 };
