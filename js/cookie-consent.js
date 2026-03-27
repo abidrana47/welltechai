@@ -5,7 +5,7 @@
   var COOKIE_NAME = 'welltech_cookie_consent';
   var CONSENT_DAYS = 90;
   var analyticsLoaded = false;
-  var DEFAULT_GA_MEASUREMENT_ID = '';
+  var DEFAULT_GA_MEASUREMENT_ID = 'G-XH0FWBZKRB';
 
   function safeJsonParse(value) {
     if (!value) return null;
@@ -146,6 +146,14 @@
         window.dataLayer.push(arguments);
       };
 
+    // Start in denied mode until explicit consent is granted.
+    window.gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted'
+    });
+
     window.gtag('js', new Date());
     window.gtag('config', measurementId, {
       anonymize_ip: true
@@ -169,9 +177,15 @@
 
     if (allowed) {
       loadGoogleAnalytics(measurementId);
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
       return;
     }
 
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', { analytics_storage: 'denied' });
+    }
     clearAnalyticsCookies(measurementId);
   }
 
