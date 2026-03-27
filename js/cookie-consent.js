@@ -5,6 +5,7 @@
   var COOKIE_NAME = 'welltech_cookie_consent';
   var CONSENT_DAYS = 90;
   var analyticsLoaded = false;
+  var lastAppliedAnalytics = null;
   var DEFAULT_GA_MEASUREMENT_ID = 'G-XH0FWBZKRB';
 
   function safeJsonParse(value) {
@@ -186,6 +187,15 @@
     analyticsLoaded = true;
   }
 
+  function trackPageView() {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', 'page_view', {
+      page_title: document.title || '',
+      page_location: window.location.href,
+      page_path: window.location.pathname + window.location.search
+    });
+  }
+
   function applyAnalyticsPreference(allowed) {
     var measurementId = getGaMeasurementId();
     if (!measurementId) return;
@@ -198,9 +208,14 @@
       if (typeof window.gtag === 'function') {
         window.gtag('consent', 'update', { analytics_storage: 'granted' });
         window.gtag('config', measurementId, {
-          anonymize_ip: true
+          anonymize_ip: true,
+          send_page_view: false
         });
+        if (lastAppliedAnalytics !== true) {
+          trackPageView();
+        }
       }
+      lastAppliedAnalytics = true;
       return;
     }
 
@@ -208,6 +223,7 @@
       window.gtag('consent', 'update', { analytics_storage: 'denied' });
     }
     clearAnalyticsCookies(measurementId);
+    lastAppliedAnalytics = false;
   }
 
   function emitConsentUpdate(consent) {
