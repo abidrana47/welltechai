@@ -1,0 +1,228 @@
+﻿(function () {
+  'use strict';
+
+  var doc = document;
+  var win = window;
+  var cookieConsentLoaded = false;
+  var cookieConsentQueued = false;
+
+  function runWhenIdle(task, timeout) {
+    var wait = typeof timeout === 'number' ? timeout : 2000;
+    if (typeof win.requestIdleCallback === 'function') {
+      win.requestIdleCallback(
+        function () {
+          task();
+        },
+        { timeout: wait }
+      );
+      return;
+    }
+    win.setTimeout(task, 900);
+  }
+
+  function initMobileMenu() {
+    var menu = doc.getElementById('mm');
+    var toggle = doc.querySelector('[data-menu-toggle]');
+
+    if (!menu || !toggle) return;
+
+    function setOpen(isOpen) {
+      menu.classList.toggle('show', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.setAttribute(
+        'aria-label',
+        isOpen ? 'Close navigation menu' : 'Open navigation menu'
+      );
+    }
+
+    toggle.addEventListener('click', function () {
+      setOpen(!menu.classList.contains('show'));
+    });
+
+    menu.addEventListener('click', function (event) {
+      if (event.target && event.target.closest('a')) {
+        setOpen(false);
+      }
+    });
+
+    doc.addEventListener('click', function (event) {
+      var target = event.target;
+      if (
+        menu.classList.contains('show') &&
+        target &&
+        !menu.contains(target) &&
+        !toggle.contains(target)
+      ) {
+        setOpen(false);
+      }
+    });
+
+    win.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && menu.classList.contains('show')) {
+        setOpen(false);
+      }
+    });
+  }
+
+  function initRevealAnimations() {
+    var revealItems = doc.querySelectorAll('.rv');
+    if (!revealItems.length) return;
+
+    var reducedMotion =
+      typeof win.matchMedia === 'function' &&
+      win.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reducedMotion || !('IntersectionObserver' in win)) {
+      for (var i = 0; i < revealItems.length; i += 1) {
+        revealItems[i].classList.add('in');
+      }
+      return;
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        for (var i = 0; i < entries.length; i += 1) {
+          if (entries[i].isIntersecting) {
+            entries[i].target.classList.add('in');
+            io.unobserve(entries[i].target);
+          }
+        }
+      },
+      { threshold: 0.08 }
+    );
+
+    for (var i = 0; i < revealItems.length; i += 1) {
+      io.observe(revealItems[i]);
+    }
+  }
+
+  function initScrollUi() {
+    var backTop = doc.getElementById('backTop');
+    if (!backTop) return;
+
+    var ticking = false;
+
+    function updateBackTopState() {
+      var y = win.scrollY || win.pageYOffset || 0;
+      backTop.classList.toggle('show', y > 400);
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      win.requestAnimationFrame(updateBackTopState);
+    }
+
+    updateBackTopState();
+    win.addEventListener('scroll', onScroll, { passive: true });
+
+    if (backTop) {
+      backTop.addEventListener('click', function () {
+        win.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  }
+
+  function initPolicyToc() {
+    var tocLinks = doc.querySelectorAll('.toc-link');
+    var sections = doc.querySelectorAll('.pp-section');
+
+    if (!tocLinks.length || !sections.length || !('IntersectionObserver' in win)) {
+      return;
+    }
+
+    var tocObserver = new IntersectionObserver(
+      function (entries) {
+        for (var i = 0; i < entries.length; i += 1) {
+          if (entries[i].isIntersecting) {
+            for (var j = 0; j < tocLinks.length; j += 1) {
+              tocLinks[j].classList.remove('active');
+            }
+            var current = doc.querySelector(
+              '.toc-link[href="#' + entries[i].target.id + '"]'
+            );
+            if (current) current.classList.add('active');
+          }
+        }
+      },
+      { rootMargin: '-20% 0px -70% 0px' }
+    );
+
+    for (var i = 0; i < sections.length; i += 1) {
+      tocObserver.observe(sections[i]);
+    }
+  }
+
+  function getCookieConsentSrc() {
+    var scriptTag = doc.querySelector('script[src*="site-core"]');
+    if (!scriptTag) return 'js/cookie-consent.min.js';
+
+    var src = scriptTag.getAttribute('src') || '';
+    if (src.indexOf('../') === 0) {
+      return '../js/cookie-consent.min.js';
+    }
+    return 'js/cookie-consent.min.js';
+  }
+
+  function lazyLoadCookieConsent() {
+    if (cookieConsentLoaded) return;
+    if (doc.querySelector('script[src*="cookie-consent"]')) {
+      cookieConsentLoaded = true;
+      return;
+    }
+
+    var script = doc.createElement('script');
+    script.src = getCookieConsentSrc();
+    script.defer = true;
+    script.onload = function () {
+      cookieConsentLoaded = true;
+    };
+    doc.body.appendChild(script);
+  }
+
+  function queueCookieConsentLoad() {
+    if (cookieConsentQueued) return;
+    cookieConsentQueued = true;
+    runWhenIdle(lazyLoadCookieConsent, 5000);
+  }
+
+  function scheduleCookieConsentLoad() {
+    var interactionEvents = ['pointerdown', 'keydown', 'touchstart'];
+    for (var i = 0; i < interactionEvents.length; i += 1) {
+      win.addEventListener(interactionEvents[i], queueCookieConsentLoad, {
+        once: true,
+        passive: true
+      });
+    }
+
+    win.setTimeout(queueCookieConsentLoad, 3200);
+  }
+
+  function start() {
+    initMobileMenu();
+    initScrollUi();
+
+    runWhenIdle(initRevealAnimations, 2500);
+    runWhenIdle(initPolicyToc, 3000);
+
+    if (doc.readyState === 'complete') {
+      scheduleCookieConsentLoad();
+      return;
+    }
+
+    win.addEventListener(
+      'load',
+      function () {
+        scheduleCookieConsentLoad();
+      },
+      { once: true }
+    );
+  }
+
+  if (doc.readyState === 'loading') {
+    doc.addEventListener('DOMContentLoaded', start, { once: true });
+  } else {
+    start();
+  }
+})();

@@ -28,7 +28,7 @@
 .service-card:hover .service-link { color: var(--sky); transform: translateX(2px); }
 .services-note { margin-top: 28px; color: var(--muted); font-size: .9rem; text-align: center; }
 .services-cta-banner {
-  background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&auto=format&fit=crop&q=85") center/cover no-repeat;
+  background: url("../assets/cta-banner.webp") center/cover no-repeat;
   box-shadow: 0 34px 90px rgba(3, 12, 26, .34), 0 14px 42px rgba(14,165,233,.18);
 }
 .services-cta-banner::before {
