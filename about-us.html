@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
@@ -17,14 +17,16 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.welltechai.co.uk/about-us.html">
 <meta property="og:site_name" content="WellTechAI CIC">
-<meta property="og:image" content="https://www.welltechai.co.uk/assets/logo.jpg">
+<meta property="og:image" content="https://www.welltechai.co.uk/assets/logo.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About WellTechAI CIC | AI-Powered Digital Health Team">
 <meta name="twitter:description" content="Learn about WellTechAI CIC, our mission, leadership, and evidence-based approach to AI-powered health and wellness digital bot services.">
-<meta name="twitter:image" content="https://www.welltechai.co.uk/assets/logo.jpg">
+<meta name="twitter:image" content="https://www.welltechai.co.uk/assets/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"></noscript>
 <style>
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; }
@@ -41,13 +43,13 @@ html { scroll-behavior:smooth; }
   --darker:  #0c4a6e;
   --text:    #0f2233;
   --text2:   #2a4a62;
-  --muted:   #5a8aa8;
-  --muted2:  #94b8cc;
+  --muted:   #3d5d75;
+  --muted2:  #56748b;
   --border:  rgba(14,165,233,0.18);
   --shadow:  0 4px 30px rgba(14,165,233,0.1);
 }
 
-body { font-family:'Outfit',sans-serif; background:var(--white); color:var(--text); overflow-x:hidden; line-height:1.65; }
+body { font-family:'Outfit',sans-serif; background:var(--white); color:var(--text); overflow-x:hidden; line-height:1.65; text-rendering:optimizeLegibility; }
 
 /* NAV */
 nav {
@@ -70,12 +72,18 @@ nav {
 .nav-links a:hover, .nav-links a.active { color:var(--sky); }
 .nav-btn { background:linear-gradient(135deg,var(--sky2),var(--dark)) !important; color:#fff !important; padding:9px 24px !important; border-radius:8px; font-weight:700 !important; box-shadow:0 0 22px rgba(14,165,233,.35); transition:all .2s !important; }
 .nav-btn:hover { transform:translateY(-2px); box-shadow:0 0 40px rgba(14,165,233,.6) !important; color:#fff !important; }
-.hbg { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-.hbg span { width:24px; height:2px; background:var(--text); border-radius:2px; }
+.hbg { display:none; flex-direction:column; gap:5px; cursor:pointer; background:transparent; border:0; padding:0; align-items:center; justify-content:center; line-height:0; }
+.hbg span { width:24px; height:2px; background:var(--text); border-radius:2px; display:block; }
 .mob { display:none; position:fixed; inset:0; top:70px; background:rgba(255,255,255,.99); z-index:899; flex-direction:column; align-items:center; justify-content:center; gap:2rem; }
 .mob.show { display:flex; }
 .mob a { color:var(--text); font-size:1.4rem; font-weight:700; text-decoration:none; }
 .mob a:hover { color:var(--sky); }
+
+a:focus-visible,
+button:focus-visible {
+  outline:3px solid var(--sky);
+  outline-offset:3px;
+}
 
 /* PAGE HERO */
 .page-hero {
@@ -201,7 +209,7 @@ h2 { font-size:clamp(1.6rem,3vw,2.3rem); font-weight:800; letter-spacing:-.025em
   pointer-events:none;
 }
 .services-cta-banner {
-  background:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&auto=format&fit=crop&q=85") center/cover no-repeat;
+  background:url("assets/cta-banner.webp") center/cover no-repeat;
   box-shadow:0 34px 90px rgba(3,12,26,.34),0 14px 42px rgba(14,165,233,.18);
 }
 .services-cta-banner::before {
@@ -255,7 +263,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
 .ft-logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff; font-size:1.2rem; font-weight:800; margin-bottom:12px; }
 .ft-logo-img { width:70px; height:70px; display:block; object-fit:contain; border-radius:8px; }
 .ft-brand { max-width:360px; }
-.ft-brand p { color:rgba(255,255,255,.5); font-size:.83rem; line-height:1.75; margin-bottom:18px; max-width:280px; }
+.ft-brand p { color:rgba(255,255,255,.84); font-size:.83rem; line-height:1.75; margin-bottom:18px; max-width:280px; }
 .ft-badge { display:inline-flex; align-items:center; gap:7px; background:rgba(56,189,248,.1); border:1px solid rgba(56,189,248,.2); border-radius:8px; padding:6px 13px; font-size:.71rem; font-weight:600; color:var(--sky3); }
 .ft-badge svg { width:13px; height:13px; stroke:var(--sky2); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
 .ft-social { display:flex; gap:10px; margin-top:14px; }
@@ -265,16 +273,24 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
 .ft-col h4 { font-size:.85rem; font-weight:700; color:#fff; margin-bottom:16px; letter-spacing:.04em; }
 .ft-col ul { list-style:none; }
 .ft-col ul li { margin-bottom:9px; }
-.ft-col ul a { display:inline-block; color:rgba(255,255,255,.48); text-decoration:none; font-size:.82rem; line-height:1.65; transition:color .2s; }
+.ft-col ul a { display:inline-block; color:rgba(255,255,255,.82); text-decoration:none; font-size:.82rem; line-height:1.65; transition:color .2s; }
 .ft-col ul a:hover { color:var(--sky2); }
 .ft-col:last-child { max-width:380px; justify-self:start; }
 .ft-bottom { max-width:1100px; margin:40px auto 0; padding-top:22px; border-top:1px solid rgba(56,189,248,.1); display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; }
-.ft-bottom p { color:rgba(255,255,255,.32); font-size:.74rem; }
-.disc { max-width:500px; line-height:1.6; font-size:.7rem !important; color:rgba(255,255,255,.25) !important; }
+.ft-bottom p { color:rgba(255,255,255,.8); font-size:.74rem; }
+.ft-bottom a { color:#bfeaff; text-decoration:underline; text-underline-offset:2px; }
+.ft-bottom a:hover { color:#fff; }
+.disc { max-width:500px; line-height:1.6; font-size:.7rem !important; color:rgba(255,255,255,.74) !important; }
 
 /* REVEAL */
 .rv { opacity:0; transform:translateY(22px); transition:opacity .6s ease,transform .6s ease; }
 .rv.in { opacity:1; transform:translateY(0); }
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+  html { scroll-behavior:auto; }
+  .rv { opacity:1; transform:none; }
+}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
@@ -304,30 +320,16 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
 }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"About WellTechAI CIC","url":"https://www.welltechai.co.uk/about-us.html","description":"Learn about WellTechAI CIC, our mission, leadership, and evidence-based approach to AI-powered health and wellness digital bot services.","inLanguage":"en-GB","about":{"@type":"Organization","name":"WellTechAI CIC","url":"https://www.welltechai.co.uk/"}}</script>
-<link rel="stylesheet" href="css/cookie-consent.css">
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XH0FWBZKRB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    analytics_storage: 'denied',
-    ad_storage: 'denied',
-    functionality_storage: 'granted',
-    security_storage: 'granted',
-    wait_for_update: 500
-  });
-  gtag('js', new Date());
-  gtag('config', 'G-XH0FWBZKRB', { anonymize_ip: true, send_page_view: false });
-</script>
+<link rel="preload" as="style" href="css/cookie-consent.css">
+<link rel="stylesheet" href="css/cookie-consent.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/cookie-consent.css"></noscript>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
   <a href="index.html" class="logo">
-    <img src="assets/logo.png" alt="WellTechAI CIC logo" class="nav-logo-img">
+    <img src="assets/logo.webp" alt="WellTechAI CIC logo" class="nav-logo-img" width="70" height="70" decoding="async">
     WellTechAI CIC
   </a>
   <ul class="nav-links">
@@ -338,16 +340,14 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
     <li><a href="privacy-policy.html">Privacy Policy</a></li>
     <li><a href="index.html#contact" class="nav-btn">Request Pilot</a></li>
   </ul>
-  <div class="hbg" onclick="document.getElementById('mm').classList.toggle('show')">
-    <span></span><span></span><span></span>
-  </div>
+  <button class="hbg" type="button" data-menu-toggle aria-controls="mm" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob" id="mm">
-  <a href="about-us.html" onclick="this.closest('.mob').classList.remove('show')">About</a>
-  <a href="index.html#services" onclick="this.closest('.mob').classList.remove('show')">Services</a>
-  <a href="index.html#security" onclick="this.closest('.mob').classList.remove('show')">Security</a>
-  <a href="privacy-policy.html" onclick="this.closest('.mob').classList.remove('show')">Privacy Policy</a>
-  <a href="index.html#contact" onclick="this.closest('.mob').classList.remove('show')" style="color:var(--sky)">Request Pilot â‚¬Â â‚¬â„¢</a>
+  <a href="about-us.html">About</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#security">Security</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="index.html#contact" style="color:var(--sky)">Request Pilot -></a>
 </div>
 
 <!-- PAGE HERO -->
@@ -383,7 +383,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
 <section class="sec">
   <div class="mission-wrap">
     <div class="mission-img rv">
-      <img loading="lazy" src="https://images.unsplash.com/photo-1580281658626-ee379f3cce93?w=900&q=90" alt="NHS behavioral health clinical team collaboration" onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=90'">
+      <img loading="lazy" src="assets/about-mission.webp" alt="NHS behavioral health clinical team collaboration" width="900" height="1350" decoding="async">
     </div>
     <div class="mission-right rv">
       <div class="sec-tag">Our Mission</div>
@@ -532,7 +532,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
   <div class="leadership-grid rv">
     <div class="leader-card">
       <div class="leader-photo">
-        <img loading="lazy" src="assets/download.jpg" alt="Muhammad Abid">
+        <img loading="lazy" src="assets/download.webp" alt="Muhammad Abid" width="600" height="600" decoding="async">
       </div>
       <div class="leader-body">
         <div class="leader-name">Muhammad Abid</div>
@@ -543,7 +543,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
 
     <div class="leader-card">
       <div class="leader-photo">
-        <img loading="lazy" src="assets/download.jpg" alt="Mairaj Ahmed Khoso">
+        <img loading="lazy" src="assets/download.webp" alt="Mairaj Ahmed Khoso" width="600" height="600" decoding="async">
       </div>
       <div class="leader-body">
         <div class="leader-name">Mairaj Ahmed Khoso</div>
@@ -569,7 +569,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
     <div class="tl-item">
       <div class="tl-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg></div>
       <div class="tl-body">
-        <div class="tl-year">Foundation Â· 2023</div>
+        <div class="tl-year">Foundation · 2023</div>
         <h4>Concept &amp; Research Phase</h4>
         <p>Identifying the critical gap between clinical credibility and AI capability in UK behavioral health. Building evidence base and technology architecture.</p>
       </div>
@@ -577,7 +577,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
     <div class="tl-item">
       <div class="tl-dot"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
       <div class="tl-body">
-        <div class="tl-year">Development Â· 2024-2025</div>
+        <div class="tl-year">Development · 2024-2025</div>
         <h4>Platform Build &amp; NHS Alignment</h4>
         <p>Core AI models aligned to CBT and MI frameworks. Clinical safety alignment with DCB0129 principles and UK GDPR compliance architecture established, with formal clinical safety process planned before deployment.</p>
       </div>
@@ -585,7 +585,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
     <div class="tl-item">
       <div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
       <div class="tl-body">
-        <div class="tl-year">Launch Â· March 2026</div>
+        <div class="tl-year">Launch · March 2026</div>
         <h4>Official Launch &amp; Pilot Programs</h4>
         <p>WellTechAI CIC launches with full clinical safety certification. Pilot programs open for NHS Trusts, ICBs, and private health commissioners.</p>
       </div>
@@ -593,7 +593,7 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
     <div class="tl-item">
       <div class="tl-dot"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
       <div class="tl-body">
-        <div class="tl-year">Ahead Â· 2026-2027</div>
+        <div class="tl-year">Ahead · 2026-2027</div>
         <h4>Scale &amp; National Partnerships</h4>
         <p>Expanding across UK health regions with deeper HL7 FHIR NHS integration and national outcome datasets demonstrating population health impact.</p>
       </div>
@@ -623,22 +623,22 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
   <div class="ft-grid">
     <div class="ft-brand">
       <a href="index.html" class="ft-logo">
-        <img src="assets/logo.png" alt="WellTechAI CIC logo" class="ft-logo-img">
+        <img src="assets/logo.webp" alt="WellTechAI CIC logo" class="ft-logo-img" width="70" height="70" loading="lazy" decoding="async">
         WellTechAI CIC
       </a>
       <p>Transforming behavioral health outcomes through clinical AI  purpose-built for the UK health ecosystem.</p>
       <div class="ft-badge">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        UK-Based Â· UK GDPR Compliant
+        UK-Based · UK GDPR Compliant
       </div>
       <div class="ft-social">
-        <a href="https://www.linkedin.com/company/welltechai/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/company/welltechai/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/></svg>
         </a>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
-        <a href="https://www.instagram.com/welltechai/" target="_blank" rel="noopener" aria-label="Instagram">
+        <a href="https://www.instagram.com/welltechai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1"/></svg>
         </a>
       </div>
@@ -665,20 +665,14 @@ footer { background:var(--darker); border-top:1px solid rgba(56,189,248,.15); pa
     </div>
   </div>
   <div class="ft-bottom">
-    <p>Â© 2026 WellTechAI CIC All Rights Reserved Â· <a href="mailto:info@welltechai.co.uk" style="color:var(--sky2);text-decoration:none;">info@welltechai.co.uk</a> Â· <a href="tel:+447377692769" style="color:var(--sky2);text-decoration:none;">+44 7377 692769</a> Â· 167-169 Great Portland Street, London W1W 5PF</p>
+    <p>© 2026 WellTechAI CIC All Rights Reserved · <a href="mailto:info@welltechai.co.uk">info@welltechai.co.uk</a> · <a href="tel:+447377692769">+44 7377 692769</a> · 167-169 Great Portland Street, London W1W 5PF</p>
     <p class="disc">WellTechAI CIC provides behavioral support tools, not medical diagnoses. AI-generated content is for supportive purposes only and does not constitute clinical advice, diagnosis, or treatment.</p>
   </div>
 <div class="wt-cookie-footer-link"><a href="cookies-policy.html">Cookie Policy</a><span class="wt-cookie-footer-sep">|</span><a href="#" data-cookie-settings>Cookie Settings</a></div>
 </footer>
 
-<script>
-const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), {threshold:.08});
-document.querySelectorAll('.rv').forEach(el => io.observe(el));
-window.addEventListener('scroll', () => {
-  document.querySelector('nav').style.boxShadow = scrollY > 50 ? '0 4px 30px rgba(14,165,233,0.12)' : '0 2px 20px rgba(14,165,233,0.08)';
-});
-</script>
-<script src="js/cookie-consent.js"></script>
+
+<script src="js/site-core.min.js" defer></script>
 </body>
 </html>
 
