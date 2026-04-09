@@ -4,4 +4,5 @@
 .env
 node_modules/
 .tmp
-*.json
+
+!vercel.json
