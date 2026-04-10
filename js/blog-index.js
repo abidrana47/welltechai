@@ -61,6 +61,41 @@
     return getArticleUrl(post.slug);
   }
 
+  function createSkeletonCard() {
+    var article = doc.createElement('article');
+    article.className = 'feed-card skeleton-card rv in';
+    article.setAttribute('aria-hidden', 'true');
+    article.innerHTML =
+      '<div class="blog-card-link">' +
+      '<div class="blog-card-media skeleton-block"></div>' +
+      '<div class="blog-card-body">' +
+      '<div class="skeleton-line skeleton-title"></div>' +
+      '<div class="skeleton-line skeleton-title skeleton-title-short"></div>' +
+      '<div class="skeleton-line skeleton-copy"></div>' +
+      '<div class="skeleton-line skeleton-copy skeleton-copy-short"></div>' +
+      '<div class="blog-card-divider"></div>' +
+      '<div class="blog-card-tags">' +
+      '<span class="blog-card-tag skeleton-pill"></span>' +
+      '<span class="blog-card-tag skeleton-pill"></span>' +
+      '<span class="blog-card-tag skeleton-pill skeleton-pill-wide"></span>' +
+      '</div>' +
+      '<div class="blog-card-footer">' +
+      '<span class="skeleton-line skeleton-cta"></span>' +
+      '</div>' +
+      '</div>' +
+      '</div>';
+    return article;
+  }
+
+  function renderLoadingState() {
+    if (!postsList) return;
+
+    postsList.innerHTML = '';
+    for (var i = 0; i < 3; i += 1) {
+      postsList.appendChild(createSkeletonCard());
+    }
+  }
+
   function createCard(post) {
     var article = doc.createElement('article');
     article.className = 'feed-card rv in';
@@ -137,6 +172,8 @@
   }
 
   async function loadPosts() {
+    renderLoadingState();
+
     try {
       var response = await fetch(getApiUrl('/api/blog-posts'));
       var payload = await response.json();
