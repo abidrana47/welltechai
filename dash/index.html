@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WellTechAI Blog Dashboard</title>
+  <meta name="description" content="Protected blog dashboard for WellTechAI CIC blog publishing.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0a66c2">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="stylesheet" href="../css/dash.css">
+  <link rel="preload" as="style" href="../css/cookie-consent.css">
+  <link rel="stylesheet" href="../css/cookie-consent.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../css/cookie-consent.css"></noscript>
+</head>
+<body>
+  <nav id="mainNav">
+    <a href="../index.html" class="logo">
+      <img src="../assets/logo.webp" alt="WellTechAI CIC logo" class="nav-logo-img" width="70" height="70" decoding="async">
+      WellTechAI CIC
+    </a>
+    <ul class="nav-links">
+      <li><a href="../about-us.html">About</a></li>
+      <li><a href="../index.html#services">Services</a></li>
+      <li><a href="../blog/" class="active">Blog</a></li>
+      <li><a href="../index.html#security">Security</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="../index.html#contact" class="nav-btn">Request Pilot</a></li>
+    </ul>
+    <button class="hbg" type="button" data-menu-toggle aria-controls="mm" aria-expanded="false" aria-label="Open navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mob" id="mm">
+    <a href="../about-us.html">About</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../blog/">Blog</a>
+    <a href="../index.html#security">Security</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="../privacy-policy.html">Privacy Policy</a>
+    <a href="../index.html#contact" style="color:var(--sky)">Request Pilot</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="ph-dots"></div>
+    <div class="ph-glow"></div>
+    <div class="ph-mark" aria-hidden="true"></div>
+    <div class="ph-inner rv in">
+      <div class="sec-tag">Protected Publishing</div>
+      <h1>Blog <span class="sky-grad">Dashboard</span></h1>
+      <p>Use `/dash` to sign in, create posts, upload cover images, save drafts, and publish articles that appear on the public blog feed.</p>
+      <div class="ph-badges">
+        <div class="ph-badge"><span class="ph-badge-dot"></span>Secure Login</div>
+        <div class="ph-badge"><span class="ph-badge-dot"></span>Post Management</div>
+        
+      </div>
+    </div>
+  </section>
+
+  <main class="dash-shell">
+    <div id="flash" class="flash hidden"></div>
+
+    <section id="authSection" class="auth-grid">
+      <div class="auth-card">
+        <div class="section-head">
+          <h2>Dashboard sign in</h2>
+        </div>
+       
+        <form id="loginForm" style="margin-top:18px">
+          <div class="field">
+            <label for="loginUsername">Username</label>
+            <input id="loginUsername" name="username" type="text" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+          </div>
+          <div class="form-actions">
+            <button class="btn-primary" type="submit">Sign in</button>
+          </div>
+        </form>
+      </div>
+
+      
+    </section>
+
+    <section id="appSection" class="content-grid hidden">
+      <div class="editor-card">
+        <div class="section-head">
+          <div>
+            <h2 id="editorHeading">Create a new blog post</h2>
+            <p class="editor-note">This form sends multipart data to the serverless blog API.</p>
+          </div>
+          <div class="toolbar">
+            <button class="btn-ghost" type="button" id="resetEditorBtn">Reset editor</button>
+            <button class="btn-secondary" type="button" id="logoutBtn">Log out</button>
+          </div>
+        </div>
+
+        <form id="postForm">
+          <input id="postId" name="id" type="hidden">
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="title">Post title</label>
+              <input id="title" name="title" type="text" required>
+            </div>
+            <div class="field">
+              <label for="authorName">Author name</label>
+              <input id="authorName" name="author_name" type="text" value="WellTechAI CIC">
+            </div>
+            <div class="field">
+              <label for="status">Publish status</label>
+              <select id="status" name="status">
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="imageAlt">Image alt text</label>
+              <input id="imageAlt" name="image_alt" type="text">
+            </div>
+            <div class="field full">
+              <label for="image">Cover image</label>
+              <input id="image" name="image" type="file" accept="image/*">
+              <small>In production, use `BLOG_IMAGE_STORAGE=supabase` so uploads persist. Filesystem mode is for local testing only.</small>
+            </div>
+            <div class="field full">
+              <label for="excerpt">Excerpt</label>
+              <input id="excerpt" name="excerpt" type="text" placeholder="Optional. Leave empty to auto-generate from the body.">
+            </div>
+            <div class="field full">
+              <label for="bodyHtml">Body HTML</label>
+              <textarea id="bodyHtml" name="body_html" required placeholder="<h2>Heading</h2>&#10;<p>Intro paragraph...</p>&#10;<ul><li>Point one</li><li>Point two</li></ul>"></textarea>
+              <small>Use clean semantic HTML. The server sanitises the final content before it reaches Supabase.</small>
+            </div>
+          </div>
+
+          <div class="checkbox-row">
+            <input id="removeImage" name="remove_image" type="checkbox">
+            <label for="removeImage">Remove the existing cover image when updating this post</label>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-primary" type="submit" id="savePostBtn">Create post</button>
+            <button class="btn-secondary" type="button" id="previewRefreshBtn">Refresh preview</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="preview-card">
+        <div class="section-head">
+          <h3>Live preview</h3>
+        </div>
+        <div class="preview-content">
+          <div class="preview-cover hidden" id="previewCover"></div>
+          <div class="preview-body" id="previewBody">
+            <h2>Preview will appear here</h2>
+            <p>Start typing a title and HTML body to see the article preview.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="postsSection" class="posts-card hidden" style="margin-top:22px">
+      <div class="section-head">
+        <div>
+          <h2>Manage posts</h2>
+          <p class="empty-note">All posts below are loaded from Supabase, including drafts.</p>
+        </div>
+        <button class="btn-secondary" type="button" id="refreshPostsBtn">Refresh list</button>
+      </div>
+      <div class="posts-list" id="postsList">
+        <div class="post-card">
+          <h3>Loading posts...</h3>
+          <p>Please wait while the dashboard fetches posts from the database.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a href="../index.html" class="ft-logo">
+          <img src="../assets/logo.webp" alt="WellTechAI CIC logo" class="ft-logo-img" width="70" height="70" loading="lazy" decoding="async">
+          WellTechAI CIC
+        </a>
+        <p>Transforming behavioral health outcomes through clinical AI, conversational agents, and data analytics purpose-built for the UK health ecosystem.</p>
+        <div class="ft-badge">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          UK-Based | UK GDPR Compliant
+        </div>
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/company/welltechai/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/welltechai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="3.5" />
+              <circle cx="17.5" cy="6.5" r="1" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="../about-us.html">About Us</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="../index.html#security">Security &amp; Compliance</a></li>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../index.html#technologies">Technology</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/service-weight-management.html">Diabetes &amp; Obesity: Weight Management Bot</a></li>
+          <li><a href="/services/service-smoking-cessation.html">Smoking Cessation Bot</a></li>
+          <li><a href="/services/service-alcohol-harm-liver-health.html">Alcohol Harm &amp; Liver Health Bot</a></li>
+          <li><a href="/services/index.html">View All Services</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p>&copy; 2026 WellTechAI CIC All Rights Reserved. <a href="mailto:info@welltechai.co.uk">info@welltechai.co.uk</a> <a href="tel:+447377692769">+44 7377 692769</a> 167-169 Great Portland Street, London W1W 5PF</p>
+      <p class="disc">WellTechAI CIC is a Digital Health Support provider. We provide behavioral tools, not medical diagnoses. All AI-generated content is for supportive purposes only and does not constitute clinical advice, diagnosis, or treatment.</p>
+    </div>
+    <div class="wt-cookie-footer-link">
+      <a href="../cookies-policy.html">Cookie Policy</a><span class="wt-cookie-footer-sep">|</span><a href="#" data-cookie-settings>Cookie Settings</a>
+    </div>
+  </footer>
+
+  <script src="../js/site-core.min.js" defer></script>
+  <script src="../js/dash.js" defer></script>
+</body>
+</html>
