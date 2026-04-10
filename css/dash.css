@@ -404,7 +404,8 @@ nav {
 }
 
 .auth-grid {
-  grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
+  grid-template-columns: minmax(320px, 520px);
+  justify-content: center;
 }
 
 .content-grid {
