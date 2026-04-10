@@ -23,22 +23,35 @@ const getAllowedOrigins = () => {
     .filter(Boolean);
 };
 
+const isLocalOrigin = (origin) =>
+  origin === 'http://localhost:3000' ||
+  origin === 'http://127.0.0.1:3000' ||
+  origin === 'http://localhost:5500' ||
+  origin === 'http://127.0.0.1:5500' ||
+  origin === 'http://localhost:5173' ||
+  origin === 'http://127.0.0.1:5173' ||
+  origin === 'http://localhost:4173' ||
+  origin === 'http://127.0.0.1:4173';
+
 const isOriginAllowed = (req) => {
   const allowedOrigins = getAllowedOrigins();
-
-  // If no origins configured, deny everything for safety
-  if (!allowedOrigins.length) return false;
 
   const origin = (req.headers['origin'] || '').trim().toLowerCase();
   const referer = (req.headers['referer'] || '').trim().toLowerCase();
 
   // Check Origin header first (set by browsers on cross-origin requests)
   if (origin) {
+    if (isLocalOrigin(origin)) return true;
     return allowedOrigins.some((allowed) => origin === allowed);
   }
 
   // Fallback: check Referer header
   if (referer) {
+    try {
+      const refererOrigin = new URL(referer).origin.toLowerCase();
+      if (isLocalOrigin(refererOrigin)) return true;
+    } catch {}
+
     return allowedOrigins.some((allowed) => referer.startsWith(allowed));
   }
 
